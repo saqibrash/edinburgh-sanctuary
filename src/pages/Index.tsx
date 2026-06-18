@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
-import logo from "@/assets/logo.jpeg.asset.json";
-import camilla from "@/assets/camilla.jpeg.asset.json";
-import room1 from "@/assets/room-1.jpeg.asset.json";
-import room2 from "@/assets/room-2.jpeg.asset.json";
-import room3 from "@/assets/room-3.jpeg.asset.json";
-import treatment from "@/assets/treatment.jpeg.asset.json";
-import shelves from "@/assets/shelves.jpeg.asset.json";
-import entrance from "@/assets/entrance.jpeg.asset.json";
+const logo = { url: "/assets/logo.jpeg" };
+const camilla = { url: "/assets/camilla.jpeg" };
+const room1 = { url: "/assets/room-1.jpeg" };
+const room2 = { url: "/assets/room-2.jpeg" };
+const room3 = { url: "/assets/room-3.jpeg" };
+const treatment = { url: "/assets/treatment.jpeg" };
+const shelves = { url: "/assets/shelves.jpeg" };
+const entrance = { url: "/assets/entrance.jpeg" };
 
 const PHONE = "07XXX XXXXXX";
 const PHONE_HREF = "tel:+447000000000";
