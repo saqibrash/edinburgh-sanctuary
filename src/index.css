@@ -4,40 +4,51 @@
 
 @layer base {
   :root {
-    /* Warm sanctuary palette — cream, blush, soft sage, brushed gold */
-    --background: 35 38% 96%;        /* warm cream */
-    --foreground: 25 18% 18%;        /* deep warm brown */
+    /* Luxury sanctuary palette — cream base, rich sage & olive greens, muted gold */
+    --background: 36 35% 95%;            /* warm cream */
+    --foreground: 95 18% 14%;            /* deep olive ink */
 
-    --card: 36 42% 98%;
-    --card-foreground: 25 18% 18%;
+    --card: 36 40% 98%;
+    --card-foreground: 95 18% 14%;
 
-    --popover: 36 42% 98%;
-    --popover-foreground: 25 18% 18%;
+    --popover: 36 40% 98%;
+    --popover-foreground: 95 18% 14%;
 
-    --primary: 32 35% 42%;           /* warm bronze/gold */
-    --primary-foreground: 36 42% 98%;
+    --primary: 95 22% 24%;               /* deep olive green */
+    --primary-foreground: 36 40% 97%;
 
-    --secondary: 18 30% 88%;         /* blush */
-    --secondary-foreground: 25 18% 18%;
+    --secondary: 80 16% 82%;             /* soft sage */
+    --secondary-foreground: 95 22% 18%;
 
-    --muted: 30 22% 92%;
-    --muted-foreground: 25 12% 38%;
+    --muted: 40 22% 90%;                 /* warm beige */
+    --muted-foreground: 95 10% 32%;
 
-    --accent: 38 45% 60%;            /* gold accent */
-    --accent-foreground: 25 25% 14%;
+    --accent: 40 38% 52%;                /* muted gold */
+    --accent-foreground: 95 22% 14%;
 
     --destructive: 0 62% 45%;
     --destructive-foreground: 36 42% 98%;
 
-    --border: 30 20% 86%;
-    --input: 30 20% 86%;
-    --ring: 32 35% 42%;
+    --border: 40 18% 82%;
+    --input: 40 18% 82%;
+    --ring: 95 22% 24%;
 
-    --radius: 0.25rem;
+    --radius: 0.75rem;
 
-    --gold: 38 45% 55%;
-    --blush: 18 45% 90%;
-    --sage: 90 14% 55%;
+    /* Brand tokens */
+    --gold: 40 42% 50%;                  /* muted antique gold */
+    --gold-soft: 42 50% 72%;
+    --sage: 90 18% 62%;                  /* rich sage */
+    --sage-soft: 82 22% 88%;             /* soft sage wash */
+    --olive: 95 22% 24%;                 /* deep olive */
+    --olive-deep: 95 28% 17%;            /* darker olive for hover */
+    --cream: 36 35% 95%;
+    --beige: 38 28% 90%;
+
+    /* Layered shadows for premium depth */
+    --shadow-soft: 0 4px 18px -8px hsl(95 22% 24% / 0.18);
+    --shadow-card: 0 12px 40px -16px hsl(95 22% 24% / 0.22), 0 2px 6px -2px hsl(95 22% 24% / 0.08);
+    --shadow-feature: 0 28px 60px -22px hsl(95 28% 17% / 0.35), 0 4px 14px -6px hsl(40 42% 50% / 0.25);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -49,7 +60,7 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark { --background: 25 18% 10%; --foreground: 36 42% 95%; }
+  .dark { --background: 95 22% 10%; --foreground: 36 40% 95%; }
 }
 
 @layer base {
@@ -63,8 +74,8 @@
   }
   h1, h2, h3, h4, .font-display {
     font-family: 'Cormorant Garamond', 'Cormorant Upright', Georgia, serif;
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    font-weight: 500;
+    letter-spacing: -0.015em;
   }
   .font-script { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; }
 }
@@ -73,7 +84,19 @@
   .text-gold { color: hsl(var(--gold)); }
   .bg-gold { background-color: hsl(var(--gold)); }
   .border-gold { border-color: hsl(var(--gold)); }
-  .bg-blush { background-color: hsl(var(--blush)); }
+  .text-olive { color: hsl(var(--olive)); }
+  .bg-olive { background-color: hsl(var(--olive)); }
+  .bg-olive-deep { background-color: hsl(var(--olive-deep)); }
+  .border-olive { border-color: hsl(var(--olive)); }
+  .text-sage { color: hsl(var(--sage)); }
+  .bg-sage { background-color: hsl(var(--sage)); }
+  .bg-sage-soft { background-color: hsl(var(--sage-soft)); }
+  .bg-beige { background-color: hsl(var(--beige)); }
+  .bg-cream { background-color: hsl(var(--cream)); }
+
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-feature { box-shadow: var(--shadow-feature); }
 
   .fade-up { animation: fadeUp 1s ease-out both; }
   @keyframes fadeUp {
@@ -81,4 +104,34 @@
     to { opacity: 1; transform: translateY(0); }
   }
   .hairline { height: 1px; background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.6), transparent); }
+
+  /* Premium CTA — deep olive with gold hover */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-xs uppercase tracking-[0.3em] rounded-md transition-all duration-300;
+    background-color: hsl(var(--olive));
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 8px 24px -10px hsl(var(--olive) / 0.55);
+  }
+  .btn-primary:hover {
+    background-color: hsl(var(--gold));
+    color: hsl(var(--olive-deep));
+    box-shadow: 0 12px 30px -10px hsl(var(--gold) / 0.55);
+    transform: translateY(-1px);
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 text-xs uppercase tracking-[0.3em] rounded-md transition-all duration-300;
+    border: 1px solid hsl(var(--olive) / 0.4);
+    color: hsl(var(--olive));
+    background-color: transparent;
+  }
+  .btn-outline:hover {
+    border-color: hsl(var(--gold));
+    color: hsl(var(--gold));
+    background-color: hsl(var(--olive) / 0.04);
+  }
+
+  .gold-divider {
+    display: inline-block; width: 56px; height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--gold)), transparent);
+  }
 }
