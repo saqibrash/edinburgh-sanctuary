@@ -86,24 +86,28 @@ const Index = () => {
   return (
     <div className="min-h-dvh bg-ivory text-ink overflow-x-hidden">
       {/* =============== NAV =============== */}
-      <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "bg-ivory/90 backdrop-blur-xl border-b border-ink/5 py-3" : "py-5 bg-transparent"}`}>
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-full overflow-hidden ring-1 ring-ink/10">
-              <img src={logo} alt="The Restorative Sanctuary logo" className="w-full h-full object-cover" />
-            </div>
-            <div className="leading-tight">
-              <div className="font-display text-lg md:text-xl text-ink tracking-tight">The Restorative Sanctuary</div>
-              <div className="text-[11px] text-ink-soft tracking-wide hidden sm:block">Edinburgh</div>
+      <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled || menuOpen ? "bg-ivory/95 backdrop-blur-xl border-b border-ink/10 shadow-[0_2px_20px_-10px_rgba(0,0,0,0.15)] py-3" : "py-5 bg-ivory/40 backdrop-blur-md border-b border-transparent"}`}>
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10 flex items-center justify-between gap-4">
+          <a href="#top" className="flex items-center gap-3 group shrink-0">
+            <img src={logoMark} alt="" aria-hidden className="w-10 h-10 md:w-11 md:h-11 object-contain transition-transform duration-500 group-hover:rotate-[8deg]" />
+            <div className="leading-tight hidden sm:block">
+              <div className="font-display text-[17px] md:text-[19px] text-ink tracking-tight">The Restorative Sanctuary</div>
+              <div className="text-[10px] uppercase tracking-[0.32em] text-gold">Edinburgh · Est. 2008</div>
             </div>
           </a>
-          <nav className="hidden lg:flex items-center gap-10">
+          <nav className="hidden lg:flex items-center gap-9" aria-label="Primary">
             {nav.map((n) => (
-              <a key={n.href} href={n.href} className="text-sm text-ink hover:text-sage-deep transition-colors">{n.label}</a>
+              <a key={n.href} href={n.href} className="relative text-[13px] uppercase tracking-[0.18em] text-ink/80 hover:text-sage-deep transition-colors group">
+                {n.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-gold transition-all duration-500 group-hover:w-full" />
+              </a>
             ))}
           </nav>
-          <div className="hidden lg:flex items-center gap-3">
-            <a href="#book" className="btn-primary !py-3 !px-6 text-[13px]">Book Now</a>
+          <div className="hidden lg:flex items-center gap-4">
+            <a href={PHONE_HREF} className="text-sm text-ink hover:text-sage-deep flex items-center gap-2">
+              <span aria-hidden>☏</span>{PHONE}
+            </a>
+            <a href="#book" className="btn-primary !py-3 !px-6 text-[12px] tracking-[0.15em] uppercase">Reserve</a>
           </div>
           <button onClick={() => setMenuOpen(!menuOpen)} className="lg:hidden p-3 -mr-3 min-h-11 min-w-11 text-ink" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen}>
             <div className={`w-6 h-px bg-current transition-all duration-500 ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`} />
@@ -112,47 +116,72 @@ const Index = () => {
           </button>
         </div>
         {menuOpen && (
-          <div className="lg:hidden bg-ivory border-t border-ink/5 mt-3 fade-up">
+          <div className="lg:hidden bg-ivory border-t border-ink/10 mt-3 fade-up">
             <div className="px-6 py-8 flex flex-col gap-1">
               {nav.map((n) => (
-                <a key={n.href} href={n.href} onClick={() => setMenuOpen(false)} className="py-4 border-b border-ink/10 font-display text-2xl text-ink">{n.label}</a>
+                <a key={n.href} href={n.href} onClick={() => setMenuOpen(false)} className="py-4 border-b border-ink/10 font-display text-2xl text-ink flex items-center justify-between">
+                  {n.label}<span className="text-gold text-sm" aria-hidden>→</span>
+                </a>
               ))}
-              <a href="#book" onClick={() => setMenuOpen(false)} className="btn-primary mt-6 w-full">Book Now</a>
-              <a href={PHONE_HREF} className="mt-4 text-center text-sage-deep">{PHONE}</a>
+              <a href="#book" onClick={() => setMenuOpen(false)} className="btn-primary mt-6 w-full">Reserve Your Treatment</a>
+              <a href={PHONE_HREF} className="mt-4 text-center text-sage-deep tracking-wide">☏ {PHONE}</a>
             </div>
           </div>
         )}
       </header>
 
       <main id="top">
-        {/* =============== HERO — minimal =============== */}
-        <section className="relative min-h-dvh w-full overflow-hidden">
-          <div className="absolute inset-0">
-            <img src={treatment} alt="Candlelit treatment room at The Restorative Sanctuary in Edinburgh" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/25 to-ink/70" />
-          </div>
-
-          <div className="relative z-10 min-h-dvh flex flex-col justify-center px-6 md:px-16 pt-24 pb-20">
-            <div className="max-w-4xl fade-up">
-              <div className="text-ivory/80 text-xs tracking-[0.32em] uppercase mb-8 font-medium">
-                Edinburgh · Est. 2008
+        {/* =============== HERO — split, readable =============== */}
+        <section className="relative min-h-dvh w-full overflow-hidden bg-ivory pt-24 lg:pt-0">
+          <div className="lg:grid lg:grid-cols-12 lg:min-h-dvh">
+            {/* Content */}
+            <div className="relative lg:col-span-6 xl:col-span-5 flex flex-col justify-center px-6 md:px-12 lg:px-16 xl:pl-24 py-14 lg:py-28 z-10">
+              <div className="fade-up max-w-xl">
+                <div className="flex items-center gap-3 mb-8">
+                  <span className="w-10 h-px bg-gold" />
+                  <span className="text-[11px] tracking-[0.4em] uppercase text-gold font-medium">Edinburgh Wellness · Est. 2008</span>
+                </div>
+                <h1 className="font-display text-ink text-[42px] sm:text-[54px] md:text-6xl lg:text-[68px] xl:text-[76px] leading-[1.02] mb-8 tracking-tight">
+                  A private<br/>
+                  <span className="text-sage-deep italic font-normal">sanctuary</span><br/>
+                  for stillness.
+                </h1>
+                <p className="text-ink-soft text-lg md:text-xl leading-relaxed max-w-md mb-10 font-light">
+                  Bespoke massage therapy in the heart of Edinburgh — quietly considered, deeply restorative.
+                </p>
+                <div className="flex flex-wrap gap-3 mb-12">
+                  <a href="#book" className="btn-primary">Reserve Your Treatment</a>
+                  <a href="#treatments" className="btn-secondary">Explore Treatments</a>
+                </div>
+                <div className="grid grid-cols-3 gap-4 max-w-md pt-8 border-t border-ink/10">
+                  {trust.slice(0, 3).map((t) => (
+                    <div key={t.k}>
+                      <div className="font-display text-xl md:text-2xl text-sage-deep">{t.k}</div>
+                      <div className="text-[11px] tracking-wider uppercase text-ink-soft mt-1">{t.v}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <h1 className="font-display text-ivory text-5xl sm:text-6xl md:text-7xl lg:text-[88px] leading-[1.02] mb-8">
-                Massage therapy<br/>designed <em className="not-italic font-normal" style={{ fontStyle: "italic" }}>around you.</em>
-              </h1>
-              <p className="text-ivory/85 text-lg md:text-xl leading-relaxed max-w-xl mb-10 font-light">
-                A private wellness sanctuary in the heart of Edinburgh.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <a href="#book" className="btn-light">Book Your Treatment</a>
-                <a href="#treatments" className="btn-outline-light">Explore Treatments</a>
+            </div>
+            {/* Image */}
+            <div className="relative lg:col-span-6 xl:col-span-7 min-h-[60vh] lg:min-h-dvh">
+              <div className="absolute inset-4 md:inset-8 lg:inset-10 overflow-hidden">
+                <img src={treatment} alt="Candlelit treatment room at The Restorative Sanctuary in Edinburgh" className="w-full h-full object-cover" loading="eager" fetchPriority="high" />
+                {/* Gold frame */}
+                <div className="absolute inset-3 md:inset-4 border border-gold/40 pointer-events-none" />
+                {/* Floating quote card */}
+                <div className="hidden md:block absolute bottom-8 left-8 right-8 lg:left-auto lg:right-8 lg:max-w-xs bg-ivory/95 backdrop-blur-md p-6 shadow-2xl">
+                  <div className="text-gold text-2xl font-display leading-none mb-2">"</div>
+                  <p className="text-ink text-sm leading-relaxed italic font-display">The most restorative hour I've spent in years.</p>
+                  <div className="text-[10px] tracking-[0.28em] uppercase text-ink-soft mt-3">— Sarah M.</div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-ivory/60 text-[10px] tracking-[0.4em] uppercase flex flex-col items-center gap-2">
+          <div className="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 text-ink-soft text-[10px] tracking-[0.4em] uppercase flex-col items-center gap-2 z-20">
             <span>Scroll</span>
-            <span className="w-px h-8 bg-ivory/40" />
+            <span className="w-px h-8 bg-ink/30 animate-pulse" />
           </div>
         </section>
 
