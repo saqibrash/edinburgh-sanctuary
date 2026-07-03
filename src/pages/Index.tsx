@@ -88,11 +88,18 @@ const Index = () => {
       {/* =============== NAV =============== */}
       <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled || menuOpen ? "bg-sage-darker/95 backdrop-blur-xl border-b border-gold/20 shadow-[0_4px_30px_-10px_rgba(0,0,0,0.4)] py-3" : "py-4 bg-sage-darker/85 backdrop-blur-md border-b border-ivory/10"}`}>
         <div className="max-w-[1400px] mx-auto px-5 md:px-10 flex items-center justify-between gap-4">
-          <a href="#top" className="flex items-center gap-3 group shrink-0">
-            <img src={logoMark} alt="" aria-hidden className="w-10 h-10 md:w-11 md:h-11 object-contain transition-transform duration-500 group-hover:rotate-[8deg]" />
-            <div className="leading-tight hidden sm:block">
-              <div className="font-display text-[17px] md:text-[19px] text-ivory tracking-tight">The Restorative Sanctuary</div>
-              <div className="text-[10px] uppercase tracking-[0.32em] text-gold">Edinburgh · Est. 2008</div>
+          <a href="#top" className="flex items-center gap-3 md:gap-4 group shrink-0" aria-label="The Restorative Sanctuary — Home">
+            <img
+              src={logoMark}
+              alt=""
+              aria-hidden
+              width="112"
+              height="112"
+              className="w-14 h-14 md:w-16 md:h-16 object-contain drop-shadow-[0_2px_10px_rgba(200,169,119,0.25)] transition-transform duration-500 group-hover:rotate-[8deg]"
+            />
+            <div className="leading-tight">
+              <div className="font-display text-[18px] sm:text-[20px] md:text-[24px] text-ivory tracking-tight whitespace-nowrap">The Restorative Sanctuary</div>
+              <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.32em] text-gold mt-0.5">Edinburgh · Est. 2008</div>
             </div>
           </a>
           <nav className="hidden lg:flex items-center gap-9" aria-label="Primary">
