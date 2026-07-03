@@ -49,6 +49,8 @@
     --sage-darker: 130 12% 22%;
     --ink: 0 0% 12%;
     --ink-soft: 0 0% 34%;
+    --gold: 36 45% 58%;
+    --gold-soft: 36 40% 78%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -94,6 +96,9 @@
   .text-ink-soft { color: hsl(var(--ink-soft)); }
   .border-sage-deep { border-color: hsl(var(--sage-deep)); }
   .border-sage { border-color: hsl(var(--sage)); }
+  .text-gold { color: hsl(var(--gold)); }
+  .bg-gold { background-color: hsl(var(--gold)); }
+  .border-gold { border-color: hsl(var(--gold)); }
 
   /* Type primitives */
   .eyebrow {
