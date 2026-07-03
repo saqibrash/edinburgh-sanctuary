@@ -10,8 +10,8 @@ const treatment = "/assets/treatment.jpeg";
 const shelves = "/assets/shelves.jpeg";
 const entrance = "/assets/entrance.jpeg";
 
-const PHONE = "07XXX XXXXXX";
-const PHONE_HREF = "tel:+447000000000";
+const PHONE = "07736 933280";
+const PHONE_HREF = "tel:+447736933280";
 const EMAIL = "hello@restorativesanctuary.co.uk";
 
 const trust = [
@@ -86,45 +86,45 @@ const Index = () => {
   return (
     <div className="min-h-dvh bg-ivory text-ink overflow-x-hidden">
       {/* =============== NAV =============== */}
-      <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled || menuOpen ? "bg-ivory/95 backdrop-blur-xl border-b border-ink/10 shadow-[0_2px_20px_-10px_rgba(0,0,0,0.15)] py-3" : "py-5 bg-ivory/40 backdrop-blur-md border-b border-transparent"}`}>
+      <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled || menuOpen ? "bg-sage-darker/95 backdrop-blur-xl border-b border-gold/20 shadow-[0_4px_30px_-10px_rgba(0,0,0,0.4)] py-3" : "py-4 bg-sage-darker/85 backdrop-blur-md border-b border-ivory/10"}`}>
         <div className="max-w-[1400px] mx-auto px-5 md:px-10 flex items-center justify-between gap-4">
           <a href="#top" className="flex items-center gap-3 group shrink-0">
             <img src={logoMark} alt="" aria-hidden className="w-10 h-10 md:w-11 md:h-11 object-contain transition-transform duration-500 group-hover:rotate-[8deg]" />
             <div className="leading-tight hidden sm:block">
-              <div className="font-display text-[17px] md:text-[19px] text-ink tracking-tight">The Restorative Sanctuary</div>
+              <div className="font-display text-[17px] md:text-[19px] text-ivory tracking-tight">The Restorative Sanctuary</div>
               <div className="text-[10px] uppercase tracking-[0.32em] text-gold">Edinburgh · Est. 2008</div>
             </div>
           </a>
           <nav className="hidden lg:flex items-center gap-9" aria-label="Primary">
             {nav.map((n) => (
-              <a key={n.href} href={n.href} className="relative text-[13px] uppercase tracking-[0.18em] text-ink/80 hover:text-sage-deep transition-colors group">
+              <a key={n.href} href={n.href} className="relative text-[13px] uppercase tracking-[0.18em] text-ivory/85 hover:text-gold transition-colors group">
                 {n.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-gold transition-all duration-500 group-hover:w-full" />
               </a>
             ))}
           </nav>
           <div className="hidden lg:flex items-center gap-4">
-            <a href={PHONE_HREF} className="text-sm text-ink hover:text-sage-deep flex items-center gap-2">
+            <a href={PHONE_HREF} className="text-sm text-ivory/85 hover:text-gold flex items-center gap-2 transition-colors">
               <span aria-hidden>☏</span>{PHONE}
             </a>
-            <a href="#book" className="btn-primary !py-3 !px-6 text-[12px] tracking-[0.15em] uppercase">Reserve</a>
+            <a href="#book" className="inline-flex items-center justify-center px-6 py-3 text-[12px] tracking-[0.18em] uppercase font-semibold bg-gold text-ink border border-gold hover:bg-[hsl(var(--gold-soft))] hover:border-[hsl(var(--gold-soft))] rounded-full transition-all min-h-11">Reserve</a>
           </div>
-          <button onClick={() => setMenuOpen(!menuOpen)} className="lg:hidden p-3 -mr-3 min-h-11 min-w-11 text-ink" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen}>
+          <button onClick={() => setMenuOpen(!menuOpen)} className="lg:hidden p-3 -mr-3 min-h-11 min-w-11 text-ivory" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen}>
             <div className={`w-6 h-px bg-current transition-all duration-500 ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`} />
             <div className={`w-6 h-px bg-current my-1.5 transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
             <div className={`w-6 h-px bg-current transition-all duration-500 ${menuOpen ? "-translate-y-[7px] -rotate-45" : ""}`} />
           </button>
         </div>
         {menuOpen && (
-          <div className="lg:hidden bg-ivory border-t border-ink/10 mt-3 fade-up">
+          <div className="lg:hidden bg-sage-darker border-t border-gold/20 mt-3 fade-up">
             <div className="px-6 py-8 flex flex-col gap-1">
               {nav.map((n) => (
-                <a key={n.href} href={n.href} onClick={() => setMenuOpen(false)} className="py-4 border-b border-ink/10 font-display text-2xl text-ink flex items-center justify-between">
+                <a key={n.href} href={n.href} onClick={() => setMenuOpen(false)} className="py-4 border-b border-ivory/10 font-display text-2xl text-ivory flex items-center justify-between">
                   {n.label}<span className="text-gold text-sm" aria-hidden>→</span>
                 </a>
               ))}
-              <a href="#book" onClick={() => setMenuOpen(false)} className="btn-primary mt-6 w-full">Reserve Your Treatment</a>
-              <a href={PHONE_HREF} className="mt-4 text-center text-sage-deep tracking-wide">☏ {PHONE}</a>
+              <a href="#book" onClick={() => setMenuOpen(false)} className="inline-flex items-center justify-center mt-6 w-full py-4 bg-gold text-ink font-semibold uppercase tracking-[0.18em] text-sm rounded-full">Reserve Your Treatment</a>
+              <a href={PHONE_HREF} className="mt-4 text-center text-gold tracking-wide">☏ {PHONE}</a>
             </div>
           </div>
         )}
