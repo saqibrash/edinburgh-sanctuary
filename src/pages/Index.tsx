@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
-const logo = "/assets/logo.jpeg";
+const logo = "/assets/logo.png";
+const logoMark = "/assets/logo-mark.png";
 const camilla = "/assets/camilla.jpeg";
 const room1 = "/assets/room-1.jpeg";
 const room2 = "/assets/room-2.jpeg";
