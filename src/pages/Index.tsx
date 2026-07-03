@@ -428,7 +428,7 @@ const Index = () => {
       </main>
 
       {/* =============== FOOTER =============== */}
-      <footer className="relative bg-sage-darker text-ivory/80 overflow-hidden">
+      <footer className="relative bg-ink text-ivory/80 overflow-hidden">
         {/* Newsletter band */}
         <div className="relative border-b border-ivory/10">
           <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-14 md:py-16 grid lg:grid-cols-2 gap-10 items-center">
