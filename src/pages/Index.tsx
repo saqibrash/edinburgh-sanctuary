@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 
 import logoFull from "@/assets/brand-logo.png";
 import logoMono from "@/assets/brand-monogram.png";
-const brandMockup = { url: "/assets/brand-mockup.jpg" };
 const camilla = "/assets/camilla.jpeg";
 const room1 = "/assets/room-1.jpeg";
 const room2 = "/assets/room-2.jpeg";
@@ -235,8 +234,8 @@ const Index = () => {
                   style={{ borderTopLeftRadius: "999px", borderTopRightRadius: "999px" }}
                 >
                   <img
-                    src={brandMockup.url}
-                    alt="The Restoration Room by Camilla — brand mockup with candle, stones and pampas grass"
+                    src={camilla}
+                    alt="Camilla, therapist and founder of The Restoration Room"
                     className="w-full h-full object-cover"
                     loading="eager"
                     fetchPriority="high"
