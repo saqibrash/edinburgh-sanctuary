@@ -222,8 +222,8 @@ const Index = () => {
                   style={{ borderTopLeftRadius: "999px", borderTopRightRadius: "999px" }}
                 >
                   <img
-                    src={treatment}
-                    alt="Warm candlelit treatment room at The Restoration Room in Edinburgh"
+                    src={brandMockup.url}
+                    alt="The Restoration Room by Camilla — brand mockup with candle, stones and pampas grass"
                     className="w-full h-full object-cover"
                     loading="eager"
                     fetchPriority="high"
