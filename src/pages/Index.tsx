@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
-const logoFull = "/assets/logo-mark.png";       // Full logo w/ text
-const logoMono = "/assets/logo-monogram.png";   // RR monogram only
+import logoFull from "@/assets/brand-logo.png";
+import logoMono from "@/assets/brand-monogram.png";
 const camilla = "/assets/camilla.jpeg";
 const room1 = "/assets/room-1.jpeg";
 const room2 = "/assets/room-2.jpeg";
