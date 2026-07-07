@@ -25,24 +25,37 @@ const nav = [
   { href: "#book", label: "Contact" },
 ];
 
-// Client-provided treatment names & descriptions (from client brief)
+// Client-provided treatments and pricing
 const treatments = [
   {
     name: "Swedish Massage",
     image: room2,
-    desc: "Relaxing, therapeutic treatment to ease tension, improve circulation and promote overall wellbeing.",
+    desc: "Swedish massage is a relaxing, therapeutic treatment that uses smooth, flowing strokes, kneading, and gentle techniques to ease muscle tension, improve circulation, and promote overall wellbeing. Each massage is tailored to your individual needs, with pressure adjusted to ensure a comfortable and effective treatment.\n\nWhether you’re looking to relieve stress, reduce muscular aches, or simply take time to unwind, Swedish massage offers the perfect opportunity to relax, restore, and recharge.",
+    prices: [
+      { duration: "30 minutes", price: "£30" },
+      { duration: "45 minutes", price: "£45" },
+      { duration: "60 minutes", price: "£60" },
+      { duration: "75 minutes", price: "£75" },
+    ],
   },
   {
-    name: "Deep Tissue Massage",
+    name: "Bespoke Restorative",
     image: treatment,
-    desc: "Focused, therapeutic techniques to release deep muscle tension and restore movement and comfort.",
-  },
-  {
-    name: "Acupressure & Trigger Point Release",
-    image: room3,
-    desc: "Targeted pressure techniques to relieve knots, tension and chronic discomfort.",
+    desc: "Our signature treatment, tailored entirely to your individual needs. Combining Swedish massage with deep tissue techniques, trigger point therapy, and assisted stretching, each session is designed to target areas of tension while promoting deep relaxation and restoring balance throughout the body.\n\nWhether you’re looking to relieve muscular aches, improve mobility, reduce stress, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
+    prices: [
+      { duration: "30 minutes", price: "£35" },
+      { duration: "45 minutes", price: "£50" },
+      { duration: "60 minutes", price: "£65" },
+      { duration: "75 minutes", price: "£80" },
+    ],
   },
 ];
+
+const cancellationPolicy = {
+  deposit: "A 50% deposit is required at the time of booking to secure your appointment.",
+  refund: "Your deposit is fully refundable if you cancel or reschedule with at least 48 hours’ notice.",
+  fee: "Cancellations made with less than 48 hours’ notice, or failure to attend your appointment, will result in the deposit being retained as a cancellation fee.",
+};
 
 const pillars = [
   { title: "Holistic Approach", desc: "Treating the mind, body and spirit as a whole." },
@@ -290,7 +303,7 @@ const Index = () => {
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-10">
               {treatments.map((t, i) => (
                 <div
                   key={t.name}
@@ -300,16 +313,60 @@ const Index = () => {
                   <div className="lux-image aspect-[4/3] rounded-none">
                     <img src={t.image} alt={`${t.name} treatment`} className="w-full h-full object-cover" loading="lazy" />
                   </div>
-                  <div className="p-8 text-center">
+                  <div className="p-8 md:p-10 text-center">
                     <h3 className="font-display text-[22px] md:text-2xl text-ink leading-tight uppercase tracking-wide mb-4">{t.name}</h3>
-                    <div className="w-10 h-px bg-gold mx-auto mb-4" aria-hidden />
-                    <p className="text-taupe text-[15px] leading-[1.7] mb-6">{t.desc}</p>
-                    <a href="#book" className="inline-flex items-center gap-2 text-[11px] tracking-[0.28em] uppercase text-rose hover:text-rose-deep transition-colors">
-                      Enquire <span aria-hidden>→</span>
-                    </a>
+                    <div className="w-10 h-px bg-gold mx-auto mb-5" aria-hidden />
+                    <div className="text-taupe text-[15px] leading-[1.75] mb-6 space-y-4 max-w-md mx-auto text-left">
+                      {t.desc.split("\n\n").map((para, idx) => (
+                        <p key={idx}>{para}</p>
+                      ))}
+                    </div>
+                    <div className="inline-block bg-blush/40 rounded-md border border-blush px-6 py-4 mb-6">
+                      <div className="text-[10px] tracking-[0.28em] uppercase text-gold mb-3">Pricing</div>
+                      <ul className="space-y-2 text-sm text-ink">
+                        {t.prices.map((p) => (
+                          <li key={p.duration} className="flex items-center justify-between gap-8">
+                            <span className="text-taupe">{p.duration}</span>
+                            <span className="font-display text-rose">{p.price}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <a href="#book" className="inline-flex items-center gap-2 text-[11px] tracking-[0.28em] uppercase text-rose hover:text-rose-deep transition-colors">
+                        Book this treatment <span aria-hidden>→</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* =============== CANCELLATION POLICY =============== */}
+        <section id="cancellation" className="relative py-20 md:py-28 px-6 md:px-10 bg-cream border-y border-blush">
+          <div className="max-w-[900px] mx-auto text-center">
+            <div className="reveal ornament mb-5"><span className="eyebrow">Booking Policy</span></div>
+            <h2 className="reveal font-display text-3xl md:text-4xl text-ink leading-[1.1] mb-10">
+              Cancellation & <span className="font-script text-rose">Deposit Policy</span>
+            </h2>
+            <div className="reveal grid md:grid-cols-3 gap-6 text-left">
+              <div className="bg-blush/30 border border-blush rounded-lg p-6 md:p-8">
+                <div className="w-10 h-10 rounded-full bg-cream border border-gold/50 flex items-center justify-center text-gold mb-4">1</div>
+                <h3 className="font-display text-lg text-ink uppercase tracking-wide mb-2">Deposit</h3>
+                <p className="text-taupe text-sm leading-relaxed">{cancellationPolicy.deposit}</p>
+              </div>
+              <div className="bg-blush/30 border border-blush rounded-lg p-6 md:p-8">
+                <div className="w-10 h-10 rounded-full bg-cream border border-gold/50 flex items-center justify-center text-gold mb-4">2</div>
+                <h3 className="font-display text-lg text-ink uppercase tracking-wide mb-2">48-Hour Refund</h3>
+                <p className="text-taupe text-sm leading-relaxed">{cancellationPolicy.refund}</p>
+              </div>
+              <div className="bg-blush/30 border border-blush rounded-lg p-6 md:p-8">
+                <div className="w-10 h-10 rounded-full bg-cream border border-gold/50 flex items-center justify-center text-gold mb-4">3</div>
+                <h3 className="font-display text-lg text-ink uppercase tracking-wide mb-2">Late Cancellation</h3>
+                <p className="text-taupe text-sm leading-relaxed">{cancellationPolicy.fee}</p>
+              </div>
             </div>
           </div>
         </section>
