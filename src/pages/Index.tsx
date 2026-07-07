@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 
 import logoFull from "@/assets/brand-logo.png";
 import logoMono from "@/assets/brand-monogram.png";
+import brandMockup from "@/assets/brand-mockup.jpeg.asset.json";
 const camilla = "/assets/camilla.jpeg";
 const room1 = "/assets/room-1.jpeg";
 const room2 = "/assets/room-2.jpeg";
