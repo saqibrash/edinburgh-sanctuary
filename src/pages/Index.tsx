@@ -12,8 +12,8 @@ const shelves = "/assets/shelves.jpeg";
 const entrance = "/assets/entrance.jpeg";
 
 const BUSINESS = "The Restoration Room";
-const PHONE = "07736 933280";
-const PHONE_HREF = "tel:+447736933280";
+const PHONE = "07570 161699";
+const PHONE_HREF = "tel:+447570161699";
 const EMAIL = "hello@therestorationroom.co.uk";
 const INSTAGRAM = "@therestorationroom";
 
@@ -269,6 +269,18 @@ const Index = () => {
                 </p>
                 <p>
                   I qualified in Level 3 Swedish Massage in 2008. More recently, I completed an advanced massage course, training in techniques that enable me to incorporate deep tissue massage, acupressure, and trigger point release into my treatments. This allows me to offer both deeply relaxing therapies and more targeted work to address muscular tension, discomfort, and areas of chronic stress within the body.
+                </p>
+                <p>
+                  My approach is holistic, recognising the connection between physical wellbeing, emotional balance, and overall health. Whether you are seeking relief from aches and pains, support with stress management, or simply time to rest and recharge, each treatment is tailored to your individual needs and goals.
+                </p>
+                <p>
+                  I work from a peaceful, cosy treatment room within my home, carefully designed to provide a calm and restorative experience. Soft lighting, candlelight, a heated massage couch, carefully selected essential oils, and a tranquil atmosphere create a warm and welcoming space where you can relax, unwind, and focus entirely on your wellbeing.
+                </p>
+                <p>
+                  I am passionate about helping my clients feel their best and take pride in providing professional, personalised treatments that deliver meaningful results. My aim is for every client to leave feeling more comfortable, balanced, and refreshed than when they arrived.
+                </p>
+                <p>
+                  I look forward to welcoming you to The Restoration Room and supporting you on your journey towards greater relaxation, wellbeing and self-care in a peaceful and nurturing environment.
                 </p>
               </div>
               <div className="mt-10 flex flex-wrap gap-3">
