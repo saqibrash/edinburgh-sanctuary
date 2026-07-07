@@ -25,24 +25,37 @@ const nav = [
   { href: "#book", label: "Contact" },
 ];
 
-// Client-provided treatment names & descriptions (from client brief)
+// Client-provided treatments and pricing
 const treatments = [
   {
     name: "Swedish Massage",
     image: room2,
-    desc: "Relaxing, therapeutic treatment to ease tension, improve circulation and promote overall wellbeing.",
+    desc: "Swedish massage is a relaxing, therapeutic treatment that uses smooth, flowing strokes, kneading, and gentle techniques to ease muscle tension, improve circulation, and promote overall wellbeing. Each massage is tailored to your individual needs, with pressure adjusted to ensure a comfortable and effective treatment.\n\nWhether you’re looking to relieve stress, reduce muscular aches, or simply take time to unwind, Swedish massage offers the perfect opportunity to relax, restore, and recharge.",
+    prices: [
+      { duration: "30 minutes", price: "£30" },
+      { duration: "45 minutes", price: "£45" },
+      { duration: "60 minutes", price: "£60" },
+      { duration: "75 minutes", price: "£75" },
+    ],
   },
   {
-    name: "Deep Tissue Massage",
+    name: "Bespoke Restorative",
     image: treatment,
-    desc: "Focused, therapeutic techniques to release deep muscle tension and restore movement and comfort.",
-  },
-  {
-    name: "Acupressure & Trigger Point Release",
-    image: room3,
-    desc: "Targeted pressure techniques to relieve knots, tension and chronic discomfort.",
+    desc: "Our signature treatment, tailored entirely to your individual needs. Combining Swedish massage with deep tissue techniques, trigger point therapy, and assisted stretching, each session is designed to target areas of tension while promoting deep relaxation and restoring balance throughout the body.\n\nWhether you’re looking to relieve muscular aches, improve mobility, reduce stress, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
+    prices: [
+      { duration: "30 minutes", price: "£35" },
+      { duration: "45 minutes", price: "£50" },
+      { duration: "60 minutes", price: "£65" },
+      { duration: "75 minutes", price: "£80" },
+    ],
   },
 ];
+
+const cancellationPolicy = {
+  deposit: "A 50% deposit is required at the time of booking to secure your appointment.",
+  refund: "Your deposit is fully refundable if you cancel or reschedule with at least 48 hours’ notice.",
+  fee: "Cancellations made with less than 48 hours’ notice, or failure to attend your appointment, will result in the deposit being retained as a cancellation fee.",
+};
 
 const pillars = [
   { title: "Holistic Approach", desc: "Treating the mind, body and spirit as a whole." },
