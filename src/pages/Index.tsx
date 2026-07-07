@@ -224,15 +224,7 @@ const Index = () => {
             {/* Image */}
             <div className="lg:col-span-6 relative min-h-[60vh] lg:min-h-dvh flex items-center justify-center p-6 md:p-10 lg:p-14">
               <div className="relative w-full max-w-[560px] aspect-[4/5]">
-                {/* gold arch frame */}
-                <div
-                  className="absolute inset-0 border border-gold/50 pointer-events-none"
-                  style={{ borderTopLeftRadius: "999px", borderTopRightRadius: "999px" }}
-                />
-                <div
-                  className="absolute inset-3 overflow-hidden"
-                  style={{ borderTopLeftRadius: "999px", borderTopRightRadius: "999px" }}
-                >
+                <div className="lux-image absolute inset-0 rounded-md overflow-hidden shadow-[0_30px_80px_-40px_rgba(120,80,60,0.5)]">
                   <img
                     src={camilla}
                     alt="Camilla, therapist and founder of The Restoration Room"
@@ -303,7 +295,21 @@ const Index = () => {
           </div>
         </section>
 
-        {/* =============== TREATMENTS =============== */}
+        {/* =============== BRAND BANNER =============== */}
+        <section aria-label="The Restoration Room by Camilla" className="relative bg-blush/30">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-16 md:py-24">
+            <div className="reveal relative overflow-hidden rounded-lg border border-blush shadow-[0_30px_80px_-40px_rgba(120,80,60,0.35)]">
+              <img
+                src="/assets/brand-banner.jpeg"
+                alt="The Restoration Room by Camilla — brand mark with candle, pampas grass and stacked stones"
+                className="block w-full h-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+
         <section id="treatments" className="relative py-24 md:py-36 px-6 md:px-10 bg-blush/40">
           <div className="max-w-[1300px] mx-auto">
             <div className="reveal text-center max-w-2xl mx-auto mb-16 md:mb-20">
