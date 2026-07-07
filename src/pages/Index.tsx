@@ -234,8 +234,8 @@ const Index = () => {
                   style={{ borderTopLeftRadius: "999px", borderTopRightRadius: "999px" }}
                 >
                   <img
-                    src={brandMockup.url}
-                    alt="The Restoration Room by Camilla — brand mockup with candle, stones and pampas grass"
+                    src={camilla}
+                    alt="Camilla, therapist and founder of The Restoration Room"
                     className="w-full h-full object-cover"
                     loading="eager"
                     fetchPriority="high"
