@@ -13,7 +13,7 @@ const entrance = "/assets/entrance.jpeg";
 const BUSINESS = "The Restoration Room";
 const PHONE = "07570 161699";
 const PHONE_HREF = "tel:+447570161699";
-const EMAIL = "hello@therestorationroom.co.uk";
+const EMAIL = "therestorationroom85@gmail.com";
 const INSTAGRAM = "@therestorationroom";
 
 const nav = [
@@ -484,7 +484,7 @@ const Index = () => {
               <div className="space-y-5 border-t border-ink/10 pt-8 text-sm">
                 <ContactRow icon="✆" label="Telephone" value={PHONE} href={PHONE_HREF} />
                 <ContactRow icon="✉" label="Email" value={EMAIL} href={`mailto:${EMAIL}`} />
-                <ContactRow icon="◉" label="Location" value="Edinburgh" />
+                <ContactRow icon="◉" label="Location" value="Silverknowes, EH4, Edinburgh" />
                 <ContactRow icon="◈" label="Instagram" value={INSTAGRAM} href="#" />
                 <div>
                   <div className="text-[10px] tracking-[0.3em] uppercase text-taupe mb-1">Hours</div>
@@ -567,7 +567,7 @@ const Index = () => {
           <div className="md:col-span-5">
             <img src={logoFull} alt={`${BUSINESS} by Camilla`} className="h-32 md:h-40 w-auto mb-4 -ml-3" loading="lazy" />
             <p className="text-sm leading-relaxed text-taupe max-w-sm">
-              Personalised massage therapy in a calm, cosy space designed for your wellbeing. Based in Edinburgh.
+              Personalised massage therapy in a calm, cosy space designed for your wellbeing. Based in Silverknowes, Edinburgh.
             </p>
             <div className="flex items-center gap-3 mt-6">
               {[
@@ -602,7 +602,7 @@ const Index = () => {
           <div className="md:col-span-4">
             <div className="text-[11px] tracking-[0.32em] uppercase text-gold mb-5">Get in Touch</div>
             <address className="not-italic text-sm space-y-3 leading-relaxed">
-              <p className="text-ink/80">Edinburgh, Scotland</p>
+              <p className="text-ink/80">Silverknowes, EH4, Edinburgh</p>
               <p><a href={PHONE_HREF} className="text-ink hover:text-rose transition-colors flex items-center gap-2"><span aria-hidden>✆</span>{PHONE}</a></p>
               <p><a href={`mailto:${EMAIL}`} className="text-ink hover:text-rose transition-colors break-all flex items-center gap-2"><span aria-hidden>✉</span>{EMAIL}</a></p>
               <p><a href="#" className="text-ink hover:text-rose transition-colors flex items-center gap-2"><span aria-hidden>◈</span>{INSTAGRAM}</a></p>
