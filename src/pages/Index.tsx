@@ -603,13 +603,17 @@ const Index = () => {
           <div className="md:col-span-4">
             <div className="text-[11px] tracking-[0.32em] uppercase text-gold mb-5">Get in Touch</div>
             <address className="not-italic text-sm space-y-3 leading-relaxed">
-              <p className="text-ink/80">Silverknowes, EH4, Edinburgh</p>
+              <p className="text-ink/80">{ADDRESS}</p>
+              <p className="text-taupe text-xs">Free parking available · Fully insured</p>
               <p><a href={PHONE_HREF} className="text-ink hover:text-rose transition-colors flex items-center gap-2"><span aria-hidden>✆</span>{PHONE}</a></p>
               <p><a href={`mailto:${EMAIL}`} className="text-ink hover:text-rose transition-colors break-all flex items-center gap-2"><span aria-hidden>✉</span>{EMAIL}</a></p>
-              <p><a href="#" className="text-ink hover:text-rose transition-colors flex items-center gap-2"><span aria-hidden>◈</span>{INSTAGRAM}</a></p>
               <div className="pt-3 border-t border-blush mt-4">
                 <div className="text-[10px] uppercase tracking-[0.3em] text-taupe mb-2">Opening Hours</div>
-                <p className="text-ink/80">Mon – Fri · 9:00 – 20:00<br/>Saturday · 10:00 – 18:00<br/>Sunday · By appointment</p>
+                <div className="text-ink/80 space-y-0.5">
+                  {HOURS.map(h => (
+                    <div key={h.day} className="flex justify-between gap-6"><span>{h.day}</span><span className="text-taupe">{h.hours}</span></div>
+                  ))}
+                </div>
               </div>
             </address>
           </div>
