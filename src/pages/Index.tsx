@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 
 import logoFull from "@/assets/brand-logo.png";
-import logoMono from "@/assets/brand-monogram.png";
 const camilla = "/assets/camilla.jpeg";
 const room1 = "/assets/room-1.jpeg";
 const room2 = "/assets/room-2.jpeg";
@@ -14,7 +13,12 @@ const BUSINESS = "The Restoration Room";
 const PHONE = "07570 161699";
 const PHONE_HREF = "tel:+447570161699";
 const EMAIL = "therestorationroom85@gmail.com";
-const INSTAGRAM = "@therestorationroom";
+const ADDRESS = "Silverknowes, EH4, Edinburgh";
+const HOURS = [
+  { day: "Mon – Fri", hours: "9:00 – 20:00" },
+  { day: "Saturday", hours: "10:00 – 18:00" },
+  { day: "Sunday", hours: "By appointment" },
+];
 
 const nav = [
   { href: "#about", label: "About" },
@@ -61,6 +65,8 @@ const pillars = [
   { title: "Peaceful Space", desc: "A calm treatment room in the comfort of my home." },
   { title: "Quality Products", desc: "Carefully selected essential oils and premium products." },
   { title: "Personalised Care", desc: "Every treatment tailored to your unique needs." },
+  { title: "Free Parking", desc: "Free on-street parking right outside the treatment room." },
+  { title: "Fully Insured", desc: "Fully qualified since 2008 and fully insured for your peace of mind." },
 ];
 
 // NOTE: Testimonials below are placeholder copy — awaiting the client's real client reviews.
@@ -124,7 +130,7 @@ const Index = () => {
         <div className="max-w-[1400px] mx-auto px-5 md:px-10 flex items-center justify-between gap-4">
           <a href="#top" className="flex items-center gap-3 md:gap-4 group shrink-0" aria-label={`${BUSINESS} — Home`}>
             <img
-              src={logoMono}
+              src={logoFull}
               alt=""
               aria-hidden
               width="128"
@@ -217,6 +223,11 @@ const Index = () => {
                 <div className="flex flex-wrap gap-3">
                   <a href="#treatments" className="btn-primary">Discover Treatments</a>
                   <a href="#book" className="btn-secondary">Book a Session</a>
+                </div>
+                <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.24em] text-taupe">
+                  <span className="inline-flex items-center gap-2"><span className="text-gold">P</span> Free Parking</span>
+                  <span className="inline-flex items-center gap-2"><span className="text-gold">✓</span> Fully Insured</span>
+                  <span className="inline-flex items-center gap-2"><span className="text-gold">★</span> Qualified Since 2008</span>
                 </div>
               </div>
             </div>
@@ -382,7 +393,7 @@ const Index = () => {
               </h2>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {pillars.map((p, i) => (
                 <div
                   key={p.title}
@@ -484,11 +495,16 @@ const Index = () => {
               <div className="space-y-5 border-t border-ink/10 pt-8 text-sm">
                 <ContactRow icon="✆" label="Telephone" value={PHONE} href={PHONE_HREF} />
                 <ContactRow icon="✉" label="Email" value={EMAIL} href={`mailto:${EMAIL}`} />
-                <ContactRow icon="◉" label="Location" value="Silverknowes, EH4, Edinburgh" />
-                <ContactRow icon="◈" label="Instagram" value={INSTAGRAM} href="#" />
+                <ContactRow icon="◉" label="Location" value={ADDRESS} />
+                <ContactRow icon="P" label="Parking" value="Free parking available" />
+                <ContactRow icon="✓" label="Trust" value="Qualified since 2008 · Fully insured" />
                 <div>
-                  <div className="text-[10px] tracking-[0.3em] uppercase text-taupe mb-1">Hours</div>
-                  <p className="text-ink leading-relaxed">Mon – Fri · 9:00 – 20:00<br/>Saturday · 10:00 – 18:00<br/>Sunday · By appointment</p>
+                  <div className="text-[10px] tracking-[0.3em] uppercase text-taupe mb-1">Opening Hours</div>
+                  <div className="text-ink leading-relaxed space-y-0.5">
+                    {HOURS.map(h => (
+                      <div key={h.day} className="flex justify-between gap-6 max-w-xs"><span>{h.day}</span><span className="text-taupe">{h.hours}</span></div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -569,20 +585,10 @@ const Index = () => {
             <p className="text-sm leading-relaxed text-taupe max-w-sm">
               Personalised massage therapy in a calm, cosy space designed for your wellbeing. Based in Silverknowes, Edinburgh.
             </p>
-            <div className="flex items-center gap-3 mt-6">
-              {[
-                { label: "Instagram", d: "M12 2.2c3.2 0 3.6 0 4.85.07 1.17.06 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.36 1.06.42 2.23.07 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.06 1.17-.25 1.8-.42 2.23a3.7 3.7 0 0 1-.9 1.38 3.7 3.7 0 0 1-1.38.9c-.42.17-1.06.36-2.23.42-1.25.07-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.06-1.8-.25-2.23-.42a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.17-.42-.36-1.06-.42-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.06-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.36 2.23-.42C8.4 2.2 8.8 2.2 12 2.2Zm0 3.4a6.4 6.4 0 1 0 0 12.8 6.4 6.4 0 0 0 0-12.8Zm0 10.55a4.15 4.15 0 1 1 0-8.3 4.15 4.15 0 0 1 0 8.3ZM18.9 6.35a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" },
-                { label: "Facebook", d: "M13.5 21v-8h2.7l.4-3.15h-3.1V7.85c0-.9.25-1.5 1.55-1.5h1.65V3.55c-.3-.05-1.3-.15-2.45-.15-2.45 0-4.1 1.5-4.1 4.25v2.2H7.5V13h2.65v8h3.35Z" },
-              ].map((s) => (
-                <a
-                  key={s.label}
-                  href="#"
-                  aria-label={s.label}
-                  className="w-11 h-11 flex items-center justify-center rounded-full border border-gold/40 text-taupe hover:text-cream hover:bg-rose hover:border-rose transition-all"
-                >
-                  <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden><path d={s.d} /></svg>
-                </a>
-              ))}
+            <div className="flex flex-wrap items-center gap-2 mt-6 text-[10px] uppercase tracking-[0.28em] text-taupe">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold/40 bg-cream">✓ Fully Insured</span>
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold/40 bg-cream">P Free Parking</span>
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold/40 bg-cream">★ Qualified 2008</span>
             </div>
           </div>
 
@@ -602,13 +608,17 @@ const Index = () => {
           <div className="md:col-span-4">
             <div className="text-[11px] tracking-[0.32em] uppercase text-gold mb-5">Get in Touch</div>
             <address className="not-italic text-sm space-y-3 leading-relaxed">
-              <p className="text-ink/80">Silverknowes, EH4, Edinburgh</p>
+              <p className="text-ink/80">{ADDRESS}</p>
+              <p className="text-taupe text-xs">Free parking available · Fully insured</p>
               <p><a href={PHONE_HREF} className="text-ink hover:text-rose transition-colors flex items-center gap-2"><span aria-hidden>✆</span>{PHONE}</a></p>
               <p><a href={`mailto:${EMAIL}`} className="text-ink hover:text-rose transition-colors break-all flex items-center gap-2"><span aria-hidden>✉</span>{EMAIL}</a></p>
-              <p><a href="#" className="text-ink hover:text-rose transition-colors flex items-center gap-2"><span aria-hidden>◈</span>{INSTAGRAM}</a></p>
               <div className="pt-3 border-t border-blush mt-4">
                 <div className="text-[10px] uppercase tracking-[0.3em] text-taupe mb-2">Opening Hours</div>
-                <p className="text-ink/80">Mon – Fri · 9:00 – 20:00<br/>Saturday · 10:00 – 18:00<br/>Sunday · By appointment</p>
+                <div className="text-ink/80 space-y-0.5">
+                  {HOURS.map(h => (
+                    <div key={h.day} className="flex justify-between gap-6"><span>{h.day}</span><span className="text-taupe">{h.hours}</span></div>
+                  ))}
+                </div>
               </div>
             </address>
           </div>
@@ -661,8 +671,12 @@ const PillarIcon = ({ i }: { i: number }) => {
     "M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1v-9z",
     // Products: bottle
     "M10 3h4v3l2 3v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V9l2-3V3z",
-    // Personalised: heart w/ user
+    // Personalised: heart
     "M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.5-7 10-7 10z",
+    // Free Parking: car
+    "M5 17v2a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-2m8 0v2a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-2M4 12l2-5a2 2 0 0 1 2-1h8a2 2 0 0 1 2 1l2 5m-16 0h16m-16 0v5h16v-5M7 15h.01M17 15h.01",
+    // Fully Insured: shield check
+    "M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3zM9 12l2 2 4-4",
   ];
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
