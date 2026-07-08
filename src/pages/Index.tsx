@@ -521,9 +521,13 @@ const Index = () => {
             </div>
 
             {/* Desktop grid */}
-            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
               {testimonials.map((t, i) => (
-                <div key={i} className="reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+                <div
+                  key={i}
+                  className={`reveal lg:col-span-2 ${i === 3 ? "lg:col-start-2" : ""}`}
+                  style={{ transitionDelay: `${i * 80}ms` }}
+                >
                   <TestimonialCard t={t} />
                 </div>
               ))}
