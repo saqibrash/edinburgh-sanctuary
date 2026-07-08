@@ -65,6 +65,8 @@ const pillars = [
   { title: "Peaceful Space", desc: "A calm treatment room in the comfort of my home." },
   { title: "Quality Products", desc: "Carefully selected essential oils and premium products." },
   { title: "Personalised Care", desc: "Every treatment tailored to your unique needs." },
+  { title: "Free Parking", desc: "Free on-street parking right outside the treatment room." },
+  { title: "Fully Insured", desc: "Fully qualified since 2008 and fully insured for your peace of mind." },
 ];
 
 // NOTE: Testimonials below are placeholder copy — awaiting the client's real client reviews.
