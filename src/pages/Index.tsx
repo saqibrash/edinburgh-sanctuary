@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 
 import logoFull from "@/assets/brand-logo.png";
-import logoMono from "@/assets/brand-monogram.png";
 const camilla = "/assets/camilla.jpeg";
 const room1 = "/assets/room-1.jpeg";
 const room2 = "/assets/room-2.jpeg";
@@ -14,7 +13,12 @@ const BUSINESS = "The Restoration Room";
 const PHONE = "07570 161699";
 const PHONE_HREF = "tel:+447570161699";
 const EMAIL = "therestorationroom85@gmail.com";
-const INSTAGRAM = "@therestorationroom";
+const ADDRESS = "Silverknowes, EH4, Edinburgh";
+const HOURS = [
+  { day: "Mon – Fri", hours: "9:00 – 20:00" },
+  { day: "Saturday", hours: "10:00 – 18:00" },
+  { day: "Sunday", hours: "By appointment" },
+];
 
 const nav = [
   { href: "#about", label: "About" },
