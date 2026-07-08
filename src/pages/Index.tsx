@@ -490,11 +490,16 @@ const Index = () => {
               <div className="space-y-5 border-t border-ink/10 pt-8 text-sm">
                 <ContactRow icon="✆" label="Telephone" value={PHONE} href={PHONE_HREF} />
                 <ContactRow icon="✉" label="Email" value={EMAIL} href={`mailto:${EMAIL}`} />
-                <ContactRow icon="◉" label="Location" value="Silverknowes, EH4, Edinburgh" />
-                <ContactRow icon="◈" label="Instagram" value={INSTAGRAM} href="#" />
+                <ContactRow icon="◉" label="Location" value={ADDRESS} />
+                <ContactRow icon="P" label="Parking" value="Free parking available" />
+                <ContactRow icon="✓" label="Trust" value="Qualified since 2008 · Fully insured" />
                 <div>
-                  <div className="text-[10px] tracking-[0.3em] uppercase text-taupe mb-1">Hours</div>
-                  <p className="text-ink leading-relaxed">Mon – Fri · 9:00 – 20:00<br/>Saturday · 10:00 – 18:00<br/>Sunday · By appointment</p>
+                  <div className="text-[10px] tracking-[0.3em] uppercase text-taupe mb-1">Opening Hours</div>
+                  <div className="text-ink leading-relaxed space-y-0.5">
+                    {HOURS.map(h => (
+                      <div key={h.day} className="flex justify-between gap-6 max-w-xs"><span>{h.day}</span><span className="text-taupe">{h.hours}</span></div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
