@@ -580,20 +580,10 @@ const Index = () => {
             <p className="text-sm leading-relaxed text-taupe max-w-sm">
               Personalised massage therapy in a calm, cosy space designed for your wellbeing. Based in Silverknowes, Edinburgh.
             </p>
-            <div className="flex items-center gap-3 mt-6">
-              {[
-                { label: "Instagram", d: "M12 2.2c3.2 0 3.6 0 4.85.07 1.17.06 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.36 1.06.42 2.23.07 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.06 1.17-.25 1.8-.42 2.23a3.7 3.7 0 0 1-.9 1.38 3.7 3.7 0 0 1-1.38.9c-.42.17-1.06.36-2.23.42-1.25.07-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.06-1.8-.25-2.23-.42a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.17-.42-.36-1.06-.42-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.06-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.36 2.23-.42C8.4 2.2 8.8 2.2 12 2.2Zm0 3.4a6.4 6.4 0 1 0 0 12.8 6.4 6.4 0 0 0 0-12.8Zm0 10.55a4.15 4.15 0 1 1 0-8.3 4.15 4.15 0 0 1 0 8.3ZM18.9 6.35a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" },
-                { label: "Facebook", d: "M13.5 21v-8h2.7l.4-3.15h-3.1V7.85c0-.9.25-1.5 1.55-1.5h1.65V3.55c-.3-.05-1.3-.15-2.45-.15-2.45 0-4.1 1.5-4.1 4.25v2.2H7.5V13h2.65v8h3.35Z" },
-              ].map((s) => (
-                <a
-                  key={s.label}
-                  href="#"
-                  aria-label={s.label}
-                  className="w-11 h-11 flex items-center justify-center rounded-full border border-gold/40 text-taupe hover:text-cream hover:bg-rose hover:border-rose transition-all"
-                >
-                  <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden><path d={s.d} /></svg>
-                </a>
-              ))}
+            <div className="flex flex-wrap items-center gap-2 mt-6 text-[10px] uppercase tracking-[0.28em] text-taupe">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold/40 bg-cream">✓ Fully Insured</span>
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold/40 bg-cream">P Free Parking</span>
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold/40 bg-cream">★ Qualified 2008</span>
             </div>
           </div>
 
