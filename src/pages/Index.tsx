@@ -25,6 +25,7 @@ const nav = [
   { href: "#treatments", label: "Treatments" },
   { href: "#experience", label: "Experience" },
   { href: "#gallery", label: "Gallery" },
+  { href: "#testimonials", label: "Testimonials" },
   { href: "#book", label: "Contact" },
 ];
 
@@ -69,11 +70,34 @@ const pillars = [
   { title: "Fully Insured", desc: "Fully qualified since 2008 and fully insured for your peace of mind." },
 ];
 
-// NOTE: Testimonials below are placeholder copy — awaiting the client's real client reviews.
+// NOTE: The testimonials below are placeholder copy for design preview only.
+// They must be replaced with genuine client reviews before the website goes live.
 const testimonials = [
-  { quote: "[Placeholder testimonial — awaiting client copy]", name: "Client name" },
-  { quote: "[Placeholder testimonial — awaiting client copy]", name: "Client name" },
-  { quote: "[Placeholder testimonial — awaiting client copy]", name: "Client name" },
+  {
+    name: "Sarah M.",
+    rating: 5,
+    quote: "From the moment I arrived, I felt completely at ease. Camilla took the time to understand exactly what I needed and tailored the treatment perfectly. The room is beautiful, peaceful and so welcoming. I left feeling lighter, calmer and completely restored.",
+  },
+  {
+    name: "Emma L.",
+    rating: 5,
+    quote: "I’ve had many massages over the years, but this was something special. The attention to detail, the calming atmosphere and Camilla’s intuitive touch made it a truly personalised experience. I can’t wait to return.",
+  },
+  {
+    name: "Rachel T.",
+    rating: 5,
+    quote: "A wonderfully relaxing treatment in the most tranquil setting. Camilla is professional, warm and incredibly skilled. I came in with tension in my shoulders and left feeling completely different. Highly recommended.",
+  },
+  {
+    name: "Kate H.",
+    rating: 5,
+    quote: "The whole experience felt luxurious yet personal. Soft music, candlelight and the most comfortable heated massage couch. Camilla has a gift for making you feel cared for from start to finish.",
+  },
+  {
+    name: "Lucy B.",
+    rating: 5,
+    quote: "I booked a bespoke restorative treatment and it was exactly what my body needed. Camilla worked on areas of tightness with just the right pressure while keeping the session deeply relaxing. Free parking was a lovely bonus too.",
+  },
 ];
 
 const timeSlots = ["09:00", "10:30", "12:00", "13:30", "15:00", "16:30", "18:00", "19:30"];
@@ -103,10 +127,6 @@ const Index = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    const t = setInterval(() => setActiveT((i) => (i + 1) % testimonials.length), 7000);
-    return () => clearInterval(t);
-  }, []);
 
   const handleBooking = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -441,37 +461,71 @@ const Index = () => {
           </div>
         </section>
 
-        {/* =============== TESTIMONIALS (placeholder) =============== */}
-        <section className="relative py-24 md:py-32 px-6 md:px-10 bg-cream" aria-label="Client testimonials">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="reveal ornament mb-6"><span className="eyebrow">Kind Words</span></div>
-            <p className="reveal text-[11px] tracking-[0.28em] uppercase text-taupe/70 mb-8">Placeholder — awaiting client-provided reviews</p>
-            <div className="relative min-h-[220px] md:min-h-[200px]">
-              {testimonials.map((t, i) => (
-                <div
-                  key={i}
-                  aria-hidden={activeT !== i}
-                  className={`absolute inset-0 transition-all duration-1000 ${activeT === i ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"}`}
-                >
-                  <p className="font-display italic text-2xl md:text-4xl text-ink leading-[1.3] max-w-3xl mx-auto">
-                    {t.quote}
-                  </p>
-                  <div className="mt-8 text-xs tracking-[0.28em] uppercase text-rose">— {t.name}</div>
-                </div>
-              ))}
+        {/* =============== TESTIMONIALS =============== */}
+        <section id="testimonials" className="relative py-24 md:py-32 px-6 md:px-10 bg-cream overflow-hidden">
+          <div className="max-w-[1300px] mx-auto">
+            <div className="reveal text-center max-w-2xl mx-auto mb-14 md:mb-20">
+              <div className="ornament mb-5"><span className="eyebrow">Kind Words</span></div>
+              <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.1] mb-5">
+                Client Testimonials <span className="font-script text-rose">(Placeholder)</span>
+              </h2>
+              <p className="text-taupe text-[15px] leading-relaxed">
+                Sample testimonials for design preview. These will be replaced with real client reviews before the website goes live.
+              </p>
             </div>
-            <div className="flex items-center justify-center gap-2 mt-10" role="tablist" aria-label="Testimonials">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveT(i)}
-                  aria-label={`Show testimonial ${i + 1}`}
-                  aria-selected={activeT === i}
-                  role="tab"
-                  className="min-h-11 min-w-11 flex items-center justify-center"
+
+            {/* Mobile carousel */}
+            <div className="md:hidden relative">
+              <div className="overflow-hidden">
+                <div
+                  className="flex transition-transform duration-500 ease-out"
+                  style={{ transform: `translateX(-${activeT * 100}%)` }}
                 >
-                  <span className={`block h-1.5 rounded-full transition-all duration-500 ${activeT === i ? "w-8 bg-rose" : "w-1.5 bg-ink/15"}`} />
+                  {testimonials.map((t, i) => (
+                    <div key={i} className="w-full shrink-0 px-2">
+                      <TestimonialCard t={t} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="flex items-center justify-center gap-4 mt-8">
+                <button
+                  onClick={() => setActiveT((i) => (i - 1 + testimonials.length) % testimonials.length)}
+                  aria-label="Previous testimonial"
+                  className="w-10 h-10 rounded-full border border-gold/50 text-gold hover:bg-blush/50 flex items-center justify-center transition-colors"
+                >
+                  ←
                 </button>
+                <div className="flex items-center gap-2" role="tablist" aria-label="Testimonials">
+                  {testimonials.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveT(i)}
+                      aria-label={`Show testimonial ${i + 1}`}
+                      aria-selected={activeT === i}
+                      role="tab"
+                      className="min-h-11 min-w-11 flex items-center justify-center"
+                    >
+                      <span className={`block h-1.5 rounded-full transition-all duration-500 ${activeT === i ? "w-8 bg-rose" : "w-1.5 bg-ink/15"}`} />
+                    </button>
+                  ))}
+                </div>
+                <button
+                  onClick={() => setActiveT((i) => (i + 1) % testimonials.length)}
+                  aria-label="Next testimonial"
+                  className="w-10 h-10 rounded-full border border-gold/50 text-gold hover:bg-blush/50 flex items-center justify-center transition-colors"
+                >
+                  →
+                </button>
+              </div>
+            </div>
+
+            {/* Desktop grid */}
+            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {testimonials.map((t, i) => (
+                <div key={i} className="reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+                  <TestimonialCard t={t} />
+                </div>
               ))}
             </div>
           </div>
