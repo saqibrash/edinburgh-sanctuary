@@ -388,7 +388,7 @@ const Index = () => {
               </h2>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {pillars.map((p, i) => (
                 <div
                   key={p.title}
