@@ -224,6 +224,11 @@ const Index = () => {
                   <a href="#treatments" className="btn-primary">Discover Treatments</a>
                   <a href="#book" className="btn-secondary">Book a Session</a>
                 </div>
+                <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.24em] text-taupe">
+                  <span className="inline-flex items-center gap-2"><span className="text-gold">P</span> Free Parking</span>
+                  <span className="inline-flex items-center gap-2"><span className="text-gold">✓</span> Fully Insured</span>
+                  <span className="inline-flex items-center gap-2"><span className="text-gold">★</span> Qualified Since 2008</span>
+                </div>
               </div>
             </div>
 
