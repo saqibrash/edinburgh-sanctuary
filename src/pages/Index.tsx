@@ -130,7 +130,7 @@ const Index = () => {
         <div className="max-w-[1400px] mx-auto px-5 md:px-10 flex items-center justify-between gap-4">
           <a href="#top" className="flex items-center gap-3 md:gap-4 group shrink-0" aria-label={`${BUSINESS} — Home`}>
             <img
-              src={logoMono}
+              src={logoFull}
               alt=""
               aria-hidden
               width="128"
