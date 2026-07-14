@@ -53,6 +53,22 @@ const treatments = [
       { duration: "75 minutes", price: "£80" },
     ],
   },
+  {
+    name: "Restorative Foot Ritual",
+    image: shelves,
+    desc: "Soothe tired, aching feet with a deeply relaxing treatment beginning with a warm, aromatic foot soak to cleanse and soften the skin. This is followed by a therapeutic foot and lower leg massage using a blend of soothing techniques to ease tension, improve circulation, and encourage complete relaxation.\n\nPerfect as a standalone treatment or as a calming addition to your massage, leaving your feet feeling refreshed, revitalised, and wonderfully restored.",
+    prices: [
+      { duration: "30 minutes", price: "£25" },
+    ],
+  },
+  {
+    name: "Rebalancing Scalp Massage",
+    image: entrance,
+    desc: "A deeply relaxing treatment designed to ease tension, calm the mind, and promote a sense of wellbeing. Gentle massage techniques are used across the scalp, temples, neck, and upper shoulders to help relieve stress, reduce headaches caused by muscle tension, and encourage deep relaxation.\n\nPerfect as a standalone treatment or as an addition to any massage for a truly restorative experience.",
+    prices: [
+      { duration: "25 minutes", price: "£20" },
+    ],
+  },
 ];
 
 const cancellationPolicy = {
