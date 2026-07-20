@@ -14,16 +14,84 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      bookings: {
+        Row: {
+          amount_paid_pence: number | null
+          cancelled_at: string | null
+          confirmed_at: string | null
+          created_at: string
+          currency: string
+          customer_email: string
+          customer_name: string
+          customer_phone: string
+          duration_minutes: number
+          id: string
+          notes: string | null
+          pending_expires_at: string
+          price_pence: number
+          slot_end_at: string
+          slot_start_at: string
+          status: Database["public"]["Enums"]["booking_status"]
+          stripe_payment_intent_id: string | null
+          stripe_session_id: string | null
+          treatment_name: string
+          updated_at: string
+        }
+        Insert: {
+          amount_paid_pence?: number | null
+          cancelled_at?: string | null
+          confirmed_at?: string | null
+          created_at?: string
+          currency?: string
+          customer_email: string
+          customer_name: string
+          customer_phone: string
+          duration_minutes: number
+          id?: string
+          notes?: string | null
+          pending_expires_at?: string
+          price_pence: number
+          slot_end_at: string
+          slot_start_at: string
+          status?: Database["public"]["Enums"]["booking_status"]
+          stripe_payment_intent_id?: string | null
+          stripe_session_id?: string | null
+          treatment_name: string
+          updated_at?: string
+        }
+        Update: {
+          amount_paid_pence?: number | null
+          cancelled_at?: string | null
+          confirmed_at?: string | null
+          created_at?: string
+          currency?: string
+          customer_email?: string
+          customer_name?: string
+          customer_phone?: string
+          duration_minutes?: number
+          id?: string
+          notes?: string | null
+          pending_expires_at?: string
+          price_pence?: number
+          slot_end_at?: string
+          slot_start_at?: string
+          status?: Database["public"]["Enums"]["booking_status"]
+          stripe_payment_intent_id?: string | null
+          stripe_session_id?: string | null
+          treatment_name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      expire_stale_pending_bookings: { Args: never; Returns: undefined }
     }
     Enums: {
-      [_ in never]: never
+      booking_status: "pending" | "confirmed" | "cancelled" | "expired"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +218,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      booking_status: ["pending", "confirmed", "cancelled", "expired"],
+    },
   },
 } as const
