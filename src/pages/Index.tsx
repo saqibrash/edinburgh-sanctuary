@@ -1,6 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 
 import logoFull from "@/assets/brand-logo.png";
+import { supabase } from "@/integrations/supabase/client";
+import { getStripeEnvironment, paymentsConfigured } from "@/lib/stripe";
+import { StripeCheckoutDialog } from "@/components/StripeCheckoutDialog";
+import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
+import { toast } from "@/components/ui/sonner";
 const camilla = "/assets/camilla.jpeg";
 const room1 = "/assets/room-1.jpeg";
 const room2 = "/assets/room-2.jpeg";
@@ -36,10 +41,10 @@ const treatments = [
     image: room2,
     desc: "Swedish massage is a relaxing, therapeutic treatment that uses smooth, flowing strokes, kneading, and gentle techniques to ease muscle tension, improve circulation, and promote overall wellbeing. Each massage is tailored to your individual needs, with pressure adjusted to ensure a comfortable and effective treatment.\n\nWhether you’re looking to relieve stress, reduce muscular aches, or simply take time to unwind, Swedish massage offers the perfect opportunity to relax, restore, and recharge.",
     prices: [
-      { duration: "30 minutes", price: "£30" },
-      { duration: "45 minutes", price: "£45" },
-      { duration: "60 minutes", price: "£60" },
-      { duration: "75 minutes", price: "£75" },
+      { duration: "30 minutes", price: "£30", key: "swedish-30" },
+      { duration: "45 minutes", price: "£45", key: "swedish-45" },
+      { duration: "60 minutes", price: "£60", key: "swedish-60" },
+      { duration: "75 minutes", price: "£75", key: "swedish-75" },
     ],
   },
   {
@@ -47,10 +52,10 @@ const treatments = [
     image: treatment,
     desc: "Our signature treatment, tailored entirely to your individual needs. Combining Swedish massage with deep tissue techniques, trigger point therapy, and assisted stretching, each session is designed to target areas of tension while promoting deep relaxation and restoring balance throughout the body.\n\nWhether you’re looking to relieve muscular aches, improve mobility, reduce stress, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
     prices: [
-      { duration: "30 minutes", price: "£35" },
-      { duration: "45 minutes", price: "£50" },
-      { duration: "60 minutes", price: "£65" },
-      { duration: "75 minutes", price: "£80" },
+      { duration: "30 minutes", price: "£35", key: "bespoke-30" },
+      { duration: "45 minutes", price: "£50", key: "bespoke-45" },
+      { duration: "60 minutes", price: "£65", key: "bespoke-60" },
+      { duration: "75 minutes", price: "£80", key: "bespoke-75" },
     ],
   },
   {
@@ -58,7 +63,7 @@ const treatments = [
     image: shelves,
     desc: "Soothe tired, aching feet with a deeply relaxing treatment beginning with a warm, aromatic foot soak to cleanse and soften the skin. This is followed by a therapeutic foot and lower leg massage using a blend of soothing techniques to ease tension, improve circulation, and encourage complete relaxation.\n\nPerfect as a standalone treatment or as a calming addition to your massage, leaving your feet feeling refreshed, revitalised, and wonderfully restored.",
     prices: [
-      { duration: "30 minutes", price: "£25" },
+      { duration: "30 minutes", price: "£25", key: "foot-30" },
     ],
   },
   {
@@ -66,10 +71,19 @@ const treatments = [
     image: entrance,
     desc: "A deeply relaxing treatment designed to ease tension, calm the mind, and promote a sense of wellbeing. Gentle massage techniques are used across the scalp, temples, neck, and upper shoulders to help relieve stress, reduce headaches caused by muscle tension, and encourage deep relaxation.\n\nPerfect as a standalone treatment or as an addition to any massage for a truly restorative experience.",
     prices: [
-      { duration: "25 minutes", price: "£20" },
+      { duration: "25 minutes", price: "£20", key: "scalp-25" },
     ],
   },
 ];
+
+// Flattened treatment+duration options for the booking form
+const bookingOptions = treatments.flatMap(t =>
+  t.prices.map(p => ({
+    key: p.key,
+    label: `${t.name} — ${p.duration} (${p.price})`,
+    priceLabel: p.price,
+  })),
+);
 
 const cancellationPolicy = {
   deposit: "A 50% deposit is required at the time of booking to secure your appointment.",
@@ -135,6 +149,8 @@ const Index = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeT, setActiveT] = useState(0);
   const [bookingSent, setBookingSent] = useState(false);
+  const [checkoutSecret, setCheckoutSecret] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
   const today = useMemo(() => new Date().toISOString().split("T")[0], []);
 
   useEffect(() => {
@@ -144,17 +160,72 @@ const Index = () => {
   }, []);
 
 
-  const handleBooking = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleBooking = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    console.log("Booking request:", Object.fromEntries(data.entries()));
-    setBookingSent(true);
-    e.currentTarget.reset();
-    setTimeout(() => setBookingSent(false), 10000);
+    if (!paymentsConfigured()) {
+      toast.error("Online booking is temporarily unavailable. Please call or email us to book.");
+      return;
+    }
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const treatmentKey = String(data.get("treatmentKey") || "");
+    const date = String(data.get("date") || "");
+    const time = String(data.get("time") || "");
+    const customerName = String(data.get("name") || "").trim();
+    const customerEmail = String(data.get("email") || "").trim();
+    const customerPhone = String(data.get("phone") || "").trim();
+    const notes = String(data.get("notes") || "").trim();
+
+    if (!treatmentKey || !date || !time || !customerName || !customerEmail || !customerPhone) {
+      toast.error("Please complete all required fields.");
+      return;
+    }
+
+    // Build an ISO datetime in Europe/London (form values are local wall time).
+    const slotStartAt = new Date(`${date}T${time}:00`).toISOString();
+
+    setSubmitting(true);
+    try {
+      const { data: result, error } = await supabase.functions.invoke("create-checkout", {
+        body: {
+          treatmentKey,
+          slotStartAt,
+          customerName,
+          customerEmail,
+          customerPhone,
+          notes: notes || undefined,
+          environment: getStripeEnvironment(),
+          returnUrl: `${window.location.origin}/booking-return?session_id={CHECKOUT_SESSION_ID}`,
+        },
+      });
+
+      if (error) {
+        const message = (error as { context?: { error?: string } })?.context?.error || error.message || "Could not start checkout";
+        toast.error(message);
+        return;
+      }
+      if (!result?.clientSecret) {
+        toast.error("Could not start checkout. Please try again.");
+        return;
+      }
+
+      setCheckoutSecret(result.clientSecret);
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong. Please try again or contact us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
     <div className="min-h-dvh bg-cream text-ink overflow-x-hidden">
+      <PaymentTestModeBanner />
+      {checkoutSecret && (
+        <StripeCheckoutDialog clientSecret={checkoutSecret} onClose={() => setCheckoutSecret(null)} />
+      )}
       {/* =============== NAV =============== */}
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
@@ -598,14 +669,15 @@ const Index = () => {
                   <form onSubmit={handleBooking} className="space-y-6">
                     <div className="pb-4 mb-2 border-b border-blush">
                       <h3 className="font-display text-3xl text-ink">Booking request</h3>
-                      <p className="text-xs text-taupe mt-1">Camilla will confirm your appointment personally within 24 hours.</p>
+                      <p className="text-xs text-taupe mt-1">Secure your appointment with a 50% deposit. Balance paid on the day.</p>
                     </div>
 
-                    <Field label="Treatment" name="treatment">
-                      <select id="treatment" name="treatment" required defaultValue="" className="field">
+                    <Field label="Treatment" name="treatmentKey">
+                      <select id="treatmentKey" name="treatmentKey" required defaultValue="" className="field">
                         <option value="" disabled>Select a treatment…</option>
-                        {treatments.map(t => <option key={t.name} value={t.name}>{t.name}</option>)}
-                        <option value="Not sure yet">Not sure yet</option>
+                        {bookingOptions.map(o => (
+                          <option key={o.key} value={o.key}>{o.label}</option>
+                        ))}
                       </select>
                     </Field>
 
@@ -638,9 +710,11 @@ const Index = () => {
                       <textarea id="notes" name="notes" rows={3} maxLength={1000} placeholder="Anything Camilla should know?" className="field resize-none" />
                     </Field>
 
-                    <button type="submit" className="btn-primary w-full !py-4">Request Booking</button>
+                    <button type="submit" disabled={submitting} className="btn-primary w-full !py-4 disabled:opacity-60 disabled:cursor-not-allowed">
+                      {submitting ? "Preparing checkout…" : "Continue to secure payment"}
+                    </button>
                     <p className="text-xs text-taupe text-center">
-                      Your details are kept private and used only to arrange your treatment.
+                      A 50% deposit secures your slot. Payment processed securely by Stripe.
                     </p>
                   </form>
                 )}
