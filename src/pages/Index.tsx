@@ -1,6 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 
 import logoFull from "@/assets/brand-logo.png";
+import { supabase } from "@/integrations/supabase/client";
+import { getStripeEnvironment, paymentsConfigured } from "@/lib/stripe";
+import { StripeCheckoutDialog } from "@/components/StripeCheckoutDialog";
+import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
+import { toast } from "@/components/ui/sonner";
 const camilla = "/assets/camilla.jpeg";
 const room1 = "/assets/room-1.jpeg";
 const room2 = "/assets/room-2.jpeg";
