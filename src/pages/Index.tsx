@@ -151,6 +151,11 @@ const Index = () => {
   const [bookingSent, setBookingSent] = useState(false);
   const [checkoutSecret, setCheckoutSecret] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [selectedTreatment, setSelectedTreatment] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedTime, setSelectedTime] = useState("");
+  const [busySlots, setBusySlots] = useState<string[]>([]);
+  const [loadingAvailability, setLoadingAvailability] = useState(false);
   const today = useMemo(() => new Date().toISOString().split("T")[0], []);
 
   useEffect(() => {
@@ -158,6 +163,62 @@ const Index = () => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Auto-refresh availability whenever the date or treatment changes.
+  useEffect(() => {
+    if (!selectedDate) {
+      setBusySlots([]);
+      return;
+    }
+    let cancelled = false;
+    setLoadingAvailability(true);
+    setSelectedTime("");
+    supabase.functions
+      .invoke("get-availability", { body: { date: selectedDate } })
+      .then(({ data, error }) => {
+        if (cancelled) return;
+        if (error) {
+          console.error("availability error:", error);
+          setBusySlots([]);
+        } else {
+          setBusySlots(Array.isArray(data?.busy) ? data.busy : []);
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setLoadingAvailability(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedDate, selectedTreatment]);
+
+  const dateLabel = useMemo(() => {
+    if (!selectedDate) return "";
+    try {
+      return new Date(`${selectedDate}T12:00:00`).toLocaleDateString("en-GB", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+      });
+    } catch {
+      return selectedDate;
+    }
+  }, [selectedDate]);
+
+  const slotStatus = useMemo(() => {
+    const map = new Map<string, { iso: string; busy: boolean; past: boolean }>();
+    if (!selectedDate) return map;
+    const now = Date.now();
+    for (const t of timeSlots) {
+      const iso = new Date(`${selectedDate}T${t}:00`).toISOString();
+      map.set(t, {
+        iso,
+        busy: busySlots.includes(iso),
+        past: new Date(iso).getTime() < now,
+      });
+    }
+    return map;
+  }, [selectedDate, busySlots]);
 
 
   const handleBooking = async (e: React.FormEvent<HTMLFormElement>) => {
