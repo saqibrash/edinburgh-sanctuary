@@ -665,14 +665,15 @@ const Index = () => {
                   <form onSubmit={handleBooking} className="space-y-6">
                     <div className="pb-4 mb-2 border-b border-blush">
                       <h3 className="font-display text-3xl text-ink">Booking request</h3>
-                      <p className="text-xs text-taupe mt-1">Camilla will confirm your appointment personally within 24 hours.</p>
+                      <p className="text-xs text-taupe mt-1">Secure your appointment with a 50% deposit. Balance paid on the day.</p>
                     </div>
 
-                    <Field label="Treatment" name="treatment">
-                      <select id="treatment" name="treatment" required defaultValue="" className="field">
+                    <Field label="Treatment" name="treatmentKey">
+                      <select id="treatmentKey" name="treatmentKey" required defaultValue="" className="field">
                         <option value="" disabled>Select a treatment…</option>
-                        {treatments.map(t => <option key={t.name} value={t.name}>{t.name}</option>)}
-                        <option value="Not sure yet">Not sure yet</option>
+                        {bookingOptions.map(o => (
+                          <option key={o.key} value={o.key}>{o.label}</option>
+                        ))}
                       </select>
                     </Field>
 
@@ -705,9 +706,11 @@ const Index = () => {
                       <textarea id="notes" name="notes" rows={3} maxLength={1000} placeholder="Anything Camilla should know?" className="field resize-none" />
                     </Field>
 
-                    <button type="submit" className="btn-primary w-full !py-4">Request Booking</button>
+                    <button type="submit" disabled={submitting} className="btn-primary w-full !py-4 disabled:opacity-60 disabled:cursor-not-allowed">
+                      {submitting ? "Preparing checkout…" : "Continue to secure payment"}
+                    </button>
                     <p className="text-xs text-taupe text-center">
-                      Your details are kept private and used only to arrange your treatment.
+                      A 50% deposit secures your slot. Payment processed securely by Stripe.
                     </p>
                   </form>
                 )}
