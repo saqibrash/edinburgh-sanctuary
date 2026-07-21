@@ -40,11 +40,16 @@ const treatments = [
     name: "Swedish Massage",
     image: room2,
     desc: "Swedish massage is a relaxing, therapeutic treatment that uses smooth, flowing strokes, kneading, and gentle techniques to ease muscle tension, improve circulation, and promote overall wellbeing. Each massage is tailored to your individual needs, with pressure adjusted to ensure a comfortable and effective treatment.\n\nWhether you’re looking to relieve stress, reduce muscular aches, or simply take time to unwind, Swedish massage offers the perfect opportunity to relax, restore, and recharge.",
+const treatments = [
+  {
+    name: "Swedish Massage",
+    image: room2,
+    desc: "Swedish massage is a relaxing, therapeutic treatment that uses smooth, flowing strokes, kneading, and gentle techniques to ease muscle tension, improve circulation, and promote overall wellbeing. Each massage is tailored to your individual needs, with pressure adjusted to ensure a comfortable and effective treatment.\n\nWhether you’re looking to relieve stress, reduce muscular aches, or simply take time to unwind, Swedish massage offers the perfect opportunity to relax, restore, and recharge.",
     prices: [
-      { duration: "30 minutes", price: "£30" },
-      { duration: "45 minutes", price: "£45" },
-      { duration: "60 minutes", price: "£60" },
-      { duration: "75 minutes", price: "£75" },
+      { duration: "30 minutes", price: "£30", key: "swedish-30" },
+      { duration: "45 minutes", price: "£45", key: "swedish-45" },
+      { duration: "60 minutes", price: "£60", key: "swedish-60" },
+      { duration: "75 minutes", price: "£75", key: "swedish-75" },
     ],
   },
   {
@@ -52,10 +57,10 @@ const treatments = [
     image: treatment,
     desc: "Our signature treatment, tailored entirely to your individual needs. Combining Swedish massage with deep tissue techniques, trigger point therapy, and assisted stretching, each session is designed to target areas of tension while promoting deep relaxation and restoring balance throughout the body.\n\nWhether you’re looking to relieve muscular aches, improve mobility, reduce stress, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
     prices: [
-      { duration: "30 minutes", price: "£35" },
-      { duration: "45 minutes", price: "£50" },
-      { duration: "60 minutes", price: "£65" },
-      { duration: "75 minutes", price: "£80" },
+      { duration: "30 minutes", price: "£35", key: "bespoke-30" },
+      { duration: "45 minutes", price: "£50", key: "bespoke-45" },
+      { duration: "60 minutes", price: "£65", key: "bespoke-60" },
+      { duration: "75 minutes", price: "£80", key: "bespoke-75" },
     ],
   },
   {
@@ -63,7 +68,7 @@ const treatments = [
     image: shelves,
     desc: "Soothe tired, aching feet with a deeply relaxing treatment beginning with a warm, aromatic foot soak to cleanse and soften the skin. This is followed by a therapeutic foot and lower leg massage using a blend of soothing techniques to ease tension, improve circulation, and encourage complete relaxation.\n\nPerfect as a standalone treatment or as a calming addition to your massage, leaving your feet feeling refreshed, revitalised, and wonderfully restored.",
     prices: [
-      { duration: "30 minutes", price: "£25" },
+      { duration: "30 minutes", price: "£25", key: "foot-30" },
     ],
   },
   {
@@ -71,10 +76,19 @@ const treatments = [
     image: entrance,
     desc: "A deeply relaxing treatment designed to ease tension, calm the mind, and promote a sense of wellbeing. Gentle massage techniques are used across the scalp, temples, neck, and upper shoulders to help relieve stress, reduce headaches caused by muscle tension, and encourage deep relaxation.\n\nPerfect as a standalone treatment or as an addition to any massage for a truly restorative experience.",
     prices: [
-      { duration: "25 minutes", price: "£20" },
+      { duration: "25 minutes", price: "£20", key: "scalp-25" },
     ],
   },
 ];
+
+// Flattened treatment+duration options for the booking form
+const bookingOptions = treatments.flatMap(t =>
+  t.prices.map(p => ({
+    key: p.key,
+    label: `${t.name} — ${p.duration} (${p.price})`,
+    priceLabel: p.price,
+  })),
+);
 
 const cancellationPolicy = {
   deposit: "A 50% deposit is required at the time of booking to secure your appointment.",
