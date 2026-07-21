@@ -149,6 +149,8 @@ const Index = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeT, setActiveT] = useState(0);
   const [bookingSent, setBookingSent] = useState(false);
+  const [checkoutSecret, setCheckoutSecret] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
   const today = useMemo(() => new Date().toISOString().split("T")[0], []);
 
   useEffect(() => {
@@ -158,13 +160,64 @@ const Index = () => {
   }, []);
 
 
-  const handleBooking = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleBooking = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    console.log("Booking request:", Object.fromEntries(data.entries()));
-    setBookingSent(true);
-    e.currentTarget.reset();
-    setTimeout(() => setBookingSent(false), 10000);
+    if (!paymentsConfigured()) {
+      toast.error("Online booking is temporarily unavailable. Please call or email us to book.");
+      return;
+    }
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const treatmentKey = String(data.get("treatmentKey") || "");
+    const date = String(data.get("date") || "");
+    const time = String(data.get("time") || "");
+    const customerName = String(data.get("name") || "").trim();
+    const customerEmail = String(data.get("email") || "").trim();
+    const customerPhone = String(data.get("phone") || "").trim();
+    const notes = String(data.get("notes") || "").trim();
+
+    if (!treatmentKey || !date || !time || !customerName || !customerEmail || !customerPhone) {
+      toast.error("Please complete all required fields.");
+      return;
+    }
+
+    // Build an ISO datetime in Europe/London (form values are local wall time).
+    const slotStartAt = new Date(`${date}T${time}:00`).toISOString();
+
+    setSubmitting(true);
+    try {
+      const { data: result, error } = await supabase.functions.invoke("create-checkout", {
+        body: {
+          treatmentKey,
+          slotStartAt,
+          customerName,
+          customerEmail,
+          customerPhone,
+          notes: notes || undefined,
+          environment: getStripeEnvironment(),
+          returnUrl: `${window.location.origin}/booking-return?session_id={CHECKOUT_SESSION_ID}`,
+        },
+      });
+
+      if (error) {
+        const message = (error as { context?: { error?: string } })?.context?.error || error.message || "Could not start checkout";
+        toast.error(message);
+        return;
+      }
+      if (!result?.clientSecret) {
+        toast.error("Could not start checkout. Please try again.");
+        return;
+      }
+
+      setCheckoutSecret(result.clientSecret);
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong. Please try again or contact us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
