@@ -222,6 +222,10 @@ const Index = () => {
 
   return (
     <div className="min-h-dvh bg-cream text-ink overflow-x-hidden">
+      <PaymentTestModeBanner />
+      {checkoutSecret && (
+        <StripeCheckoutDialog clientSecret={checkoutSecret} onClose={() => setCheckoutSecret(null)} />
+      )}
       {/* =============== NAV =============== */}
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
