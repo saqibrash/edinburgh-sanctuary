@@ -151,6 +151,11 @@ const Index = () => {
   const [bookingSent, setBookingSent] = useState(false);
   const [checkoutSecret, setCheckoutSecret] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [selectedTreatment, setSelectedTreatment] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedTime, setSelectedTime] = useState("");
+  const [busySlots, setBusySlots] = useState<string[]>([]);
+  const [loadingAvailability, setLoadingAvailability] = useState(false);
   const today = useMemo(() => new Date().toISOString().split("T")[0], []);
 
   useEffect(() => {
@@ -158,6 +163,62 @@ const Index = () => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Auto-refresh availability whenever the date or treatment changes.
+  useEffect(() => {
+    if (!selectedDate) {
+      setBusySlots([]);
+      return;
+    }
+    let cancelled = false;
+    setLoadingAvailability(true);
+    setSelectedTime("");
+    supabase.functions
+      .invoke("get-availability", { body: { date: selectedDate } })
+      .then(({ data, error }) => {
+        if (cancelled) return;
+        if (error) {
+          console.error("availability error:", error);
+          setBusySlots([]);
+        } else {
+          setBusySlots(Array.isArray(data?.busy) ? data.busy : []);
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setLoadingAvailability(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedDate, selectedTreatment]);
+
+  const dateLabel = useMemo(() => {
+    if (!selectedDate) return "";
+    try {
+      return new Date(`${selectedDate}T12:00:00`).toLocaleDateString("en-GB", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+      });
+    } catch {
+      return selectedDate;
+    }
+  }, [selectedDate]);
+
+  const slotStatus = useMemo(() => {
+    const map = new Map<string, { iso: string; busy: boolean; past: boolean }>();
+    if (!selectedDate) return map;
+    const now = Date.now();
+    for (const t of timeSlots) {
+      const iso = new Date(`${selectedDate}T${t}:00`).toISOString();
+      map.set(t, {
+        iso,
+        busy: busySlots.includes(iso),
+        past: new Date(iso).getTime() < now,
+      });
+    }
+    return map;
+  }, [selectedDate, busySlots]);
 
 
   const handleBooking = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -169,21 +230,34 @@ const Index = () => {
 
     const form = e.currentTarget;
     const data = new FormData(form);
-    const treatmentKey = String(data.get("treatmentKey") || "");
-    const date = String(data.get("date") || "");
-    const time = String(data.get("time") || "");
+    const treatmentKey = selectedTreatment;
+    const date = selectedDate;
+    const time = selectedTime;
     const customerName = String(data.get("name") || "").trim();
     const customerEmail = String(data.get("email") || "").trim();
     const customerPhone = String(data.get("phone") || "").trim();
     const notes = String(data.get("notes") || "").trim();
 
-    if (!treatmentKey || !date || !time || !customerName || !customerEmail || !customerPhone) {
-      toast.error("Please complete all required fields.");
+    if (!treatmentKey) {
+      toast.error("Please choose a treatment.");
+      return;
+    }
+    if (!date || !time) {
+      toast.error("Please pick a date and time.");
+      return;
+    }
+    if (!customerName || !customerEmail || !customerPhone) {
+      toast.error("Please complete your contact details.");
       return;
     }
 
-    // Build an ISO datetime in Europe/London (form values are local wall time).
-    const slotStartAt = new Date(`${date}T${time}:00`).toISOString();
+    const slotStatusEntry = slotStatus.get(time);
+    if (!slotStatusEntry || slotStatusEntry.busy || slotStatusEntry.past) {
+      toast.error("That slot is no longer available. Please choose another time.");
+      return;
+    }
+
+    const slotStartAt = slotStatusEntry.iso;
 
     setSubmitting(true);
     try {
@@ -212,6 +286,9 @@ const Index = () => {
 
       setCheckoutSecret(result.clientSecret);
       form.reset();
+      setSelectedTreatment("");
+      setSelectedDate("");
+      setSelectedTime("");
     } catch (err) {
       console.error(err);
       toast.error("Something went wrong. Please try again or contact us directly.");
@@ -673,25 +750,92 @@ const Index = () => {
                     </div>
 
                     <Field label="Treatment" name="treatmentKey">
-                      <select id="treatmentKey" name="treatmentKey" required defaultValue="" className="field">
+                      <select
+                        id="treatmentKey"
+                        name="treatmentKey"
+                        required
+                        value={selectedTreatment}
+                        onChange={(e) => setSelectedTreatment(e.target.value)}
+                        className="field"
+                      >
                         <option value="" disabled>Select a treatment…</option>
-                        {bookingOptions.map(o => (
-                          <option key={o.key} value={o.key}>{o.label}</option>
+                        {treatments.map((t) => (
+                          <optgroup key={t.name} label={t.name}>
+                            {t.prices.map((p) => (
+                              <option key={p.key} value={p.key}>
+                                {p.duration} — {p.price}
+                              </option>
+                            ))}
+                          </optgroup>
                         ))}
                       </select>
                     </Field>
 
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <Field label="Preferred date" name="date">
-                        <input id="date" type="date" name="date" required min={today} className="field" />
-                      </Field>
-                      <Field label="Preferred time" name="time">
-                        <select id="time" name="time" required defaultValue="" className="field">
-                          <option value="" disabled>Select a time…</option>
-                          {timeSlots.map(t => <option key={t} value={t}>{t}</option>)}
-                        </select>
-                      </Field>
+                    <Field label="Preferred date" name="date">
+                      <input
+                        id="date"
+                        type="date"
+                        name="date"
+                        required
+                        min={today}
+                        value={selectedDate}
+                        onChange={(e) => setSelectedDate(e.target.value)}
+                        className="field"
+                      />
+                    </Field>
+
+                    <div>
+                      <div className="flex items-baseline justify-between mb-3">
+                        <label className="block text-xs uppercase tracking-[0.2em] text-taupe">
+                          Available times
+                        </label>
+                        {selectedDate && (
+                          <span className="text-xs text-taupe">
+                            {loadingAvailability ? "Checking availability…" : dateLabel}
+                          </span>
+                        )}
+                      </div>
+
+                      {!selectedDate ? (
+                        <p className="text-sm text-taupe/80 italic px-1">
+                          Choose a date to see available times.
+                        </p>
+                      ) : (
+                        <div className="grid grid-cols-3 sm:grid-cols-4 gap-2.5">
+                          {timeSlots.map((t) => {
+                            const status = slotStatus.get(t);
+                            const unavailable = !status || status.busy || status.past;
+                            const isSelected = selectedTime === t;
+                            return (
+                              <button
+                                type="button"
+                                key={t}
+                                disabled={unavailable || loadingAvailability}
+                                onClick={() => setSelectedTime(t)}
+                                aria-pressed={isSelected}
+                                className={[
+                                  "relative py-3 rounded-md text-sm font-medium tracking-wide transition-all border",
+                                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream",
+                                  isSelected
+                                    ? "bg-ink text-cream border-ink shadow-md scale-[1.02]"
+                                    : unavailable
+                                    ? "bg-blush/30 text-taupe/50 border-blush/40 line-through cursor-not-allowed"
+                                    : "bg-cream text-ink border-blush hover:border-gold hover:bg-gold/10",
+                                ].join(" ")}
+                              >
+                                {t}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      )}
+                      {selectedDate && !loadingAvailability && (
+                        <p className="text-[11px] text-taupe/70 mt-3">
+                          Times shown in your local timezone. Struck-through slots are already booked or in the past.
+                        </p>
+                      )}
                     </div>
+
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <Field label="Full name" name="name">
