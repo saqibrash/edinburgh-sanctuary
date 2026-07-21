@@ -286,6 +286,9 @@ const Index = () => {
 
       setCheckoutSecret(result.clientSecret);
       form.reset();
+      setSelectedTreatment("");
+      setSelectedDate("");
+      setSelectedTime("");
     } catch (err) {
       console.error(err);
       toast.error("Something went wrong. Please try again or contact us directly.");
