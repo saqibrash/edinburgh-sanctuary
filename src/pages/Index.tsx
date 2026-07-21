@@ -750,25 +750,92 @@ const Index = () => {
                     </div>
 
                     <Field label="Treatment" name="treatmentKey">
-                      <select id="treatmentKey" name="treatmentKey" required defaultValue="" className="field">
+                      <select
+                        id="treatmentKey"
+                        name="treatmentKey"
+                        required
+                        value={selectedTreatment}
+                        onChange={(e) => setSelectedTreatment(e.target.value)}
+                        className="field"
+                      >
                         <option value="" disabled>Select a treatment…</option>
-                        {bookingOptions.map(o => (
-                          <option key={o.key} value={o.key}>{o.label}</option>
+                        {treatments.map((t) => (
+                          <optgroup key={t.name} label={t.name}>
+                            {t.prices.map((p) => (
+                              <option key={p.key} value={p.key}>
+                                {p.duration} — {p.price}
+                              </option>
+                            ))}
+                          </optgroup>
                         ))}
                       </select>
                     </Field>
 
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <Field label="Preferred date" name="date">
-                        <input id="date" type="date" name="date" required min={today} className="field" />
-                      </Field>
-                      <Field label="Preferred time" name="time">
-                        <select id="time" name="time" required defaultValue="" className="field">
-                          <option value="" disabled>Select a time…</option>
-                          {timeSlots.map(t => <option key={t} value={t}>{t}</option>)}
-                        </select>
-                      </Field>
+                    <Field label="Preferred date" name="date">
+                      <input
+                        id="date"
+                        type="date"
+                        name="date"
+                        required
+                        min={today}
+                        value={selectedDate}
+                        onChange={(e) => setSelectedDate(e.target.value)}
+                        className="field"
+                      />
+                    </Field>
+
+                    <div>
+                      <div className="flex items-baseline justify-between mb-3">
+                        <label className="block text-xs uppercase tracking-[0.2em] text-taupe">
+                          Available times
+                        </label>
+                        {selectedDate && (
+                          <span className="text-xs text-taupe">
+                            {loadingAvailability ? "Checking availability…" : dateLabel}
+                          </span>
+                        )}
+                      </div>
+
+                      {!selectedDate ? (
+                        <p className="text-sm text-taupe/80 italic px-1">
+                          Choose a date to see available times.
+                        </p>
+                      ) : (
+                        <div className="grid grid-cols-3 sm:grid-cols-4 gap-2.5">
+                          {timeSlots.map((t) => {
+                            const status = slotStatus.get(t);
+                            const unavailable = !status || status.busy || status.past;
+                            const isSelected = selectedTime === t;
+                            return (
+                              <button
+                                type="button"
+                                key={t}
+                                disabled={unavailable || loadingAvailability}
+                                onClick={() => setSelectedTime(t)}
+                                aria-pressed={isSelected}
+                                className={[
+                                  "relative py-3 rounded-md text-sm font-medium tracking-wide transition-all border",
+                                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream",
+                                  isSelected
+                                    ? "bg-ink text-cream border-ink shadow-md scale-[1.02]"
+                                    : unavailable
+                                    ? "bg-blush/30 text-taupe/50 border-blush/40 line-through cursor-not-allowed"
+                                    : "bg-cream text-ink border-blush hover:border-gold hover:bg-gold/10",
+                                ].join(" ")}
+                              >
+                                {t}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      )}
+                      {selectedDate && !loadingAvailability && (
+                        <p className="text-[11px] text-taupe/70 mt-3">
+                          Times shown in your local timezone. Struck-through slots are already booked or in the past.
+                        </p>
+                      )}
                     </div>
+
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <Field label="Full name" name="name">
