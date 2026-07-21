@@ -230,21 +230,34 @@ const Index = () => {
 
     const form = e.currentTarget;
     const data = new FormData(form);
-    const treatmentKey = String(data.get("treatmentKey") || "");
-    const date = String(data.get("date") || "");
-    const time = String(data.get("time") || "");
+    const treatmentKey = selectedTreatment;
+    const date = selectedDate;
+    const time = selectedTime;
     const customerName = String(data.get("name") || "").trim();
     const customerEmail = String(data.get("email") || "").trim();
     const customerPhone = String(data.get("phone") || "").trim();
     const notes = String(data.get("notes") || "").trim();
 
-    if (!treatmentKey || !date || !time || !customerName || !customerEmail || !customerPhone) {
-      toast.error("Please complete all required fields.");
+    if (!treatmentKey) {
+      toast.error("Please choose a treatment.");
+      return;
+    }
+    if (!date || !time) {
+      toast.error("Please pick a date and time.");
+      return;
+    }
+    if (!customerName || !customerEmail || !customerPhone) {
+      toast.error("Please complete your contact details.");
       return;
     }
 
-    // Build an ISO datetime in Europe/London (form values are local wall time).
-    const slotStartAt = new Date(`${date}T${time}:00`).toISOString();
+    const slotStatusEntry = slotStatus.get(time);
+    if (!slotStatusEntry || slotStatusEntry.busy || slotStatusEntry.past) {
+      toast.error("That slot is no longer available. Please choose another time.");
+      return;
+    }
+
+    const slotStartAt = slotStatusEntry.iso;
 
     setSubmitting(true);
     try {
