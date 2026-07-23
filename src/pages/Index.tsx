@@ -43,8 +43,8 @@ const treatments = [
     prices: [
       { duration: "30 minutes", price: "£30", key: "swedish-30" },
       { duration: "45 minutes", price: "£45", key: "swedish-45" },
-      { duration: "60 minutes", price: "£60", key: "swedish-60" },
-      { duration: "75 minutes", price: "£75", key: "swedish-75" },
+      { duration: "60 minutes", price: "£55", key: "swedish-60" },
+      { duration: "75 minutes", price: "£70", key: "swedish-75" },
     ],
   },
   {
@@ -52,8 +52,8 @@ const treatments = [
     image: treatment,
     desc: "Our signature treatment, tailored entirely to your individual needs. Combining Swedish massage with deep tissue techniques, trigger point therapy, and assisted stretching, each session is designed to target areas of tension while promoting deep relaxation and restoring balance throughout the body.\n\nWhether you’re looking to relieve muscular aches, improve mobility, reduce stress, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
     prices: [
-      { duration: "30 minutes", price: "£35", key: "bespoke-30" },
-      { duration: "45 minutes", price: "£50", key: "bespoke-45" },
+      { duration: "30 minutes", price: "£40", key: "bespoke-30" },
+      { duration: "45 minutes", price: "£55", key: "bespoke-45" },
       { duration: "60 minutes", price: "£65", key: "bespoke-60" },
       { duration: "75 minutes", price: "£80", key: "bespoke-75" },
     ],
