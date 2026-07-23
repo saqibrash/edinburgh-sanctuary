@@ -74,7 +74,7 @@ Deno.serve(async (req) => {
     const slotEnd = new Date(slotStart.getTime() + treatment.durationMinutes * 60_000);
 
     // Free stale slots before checking availability.
-    await supabase.rpc("expire_stale_pending_bookings").catch(() => { /* helper exists in DB */ });
+    try { await supabase.rpc("expire_stale_pending_bookings"); } catch { /* helper exists in DB */ }
 
     // Slot-lock check — reject if a live pending/confirmed booking overlaps this start time.
     const { data: clash, error: clashErr } = await supabase
