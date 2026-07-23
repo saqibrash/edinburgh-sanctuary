@@ -370,7 +370,8 @@ const Index = () => {
                   <span className="text-rose text-sm" aria-hidden>→</span>
                 </a>
               ))}
-              <a href="#book" onClick={() => setMenuOpen(false)} className="btn-primary w-full mt-6">Book Now</a>
+              <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="btn-primary w-full mt-6">Book on Fresha</a>
+              <a href="#book" onClick={() => setMenuOpen(false)} className="btn-secondary w-full mt-3">Book on our site</a>
               <a href={PHONE_HREF} className="mt-4 text-center text-rose tracking-wide">✆ {PHONE}</a>
             </div>
           </div>
