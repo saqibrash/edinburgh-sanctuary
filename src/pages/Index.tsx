@@ -623,6 +623,15 @@ const Index = () => {
               <div className="reveal lux-image col-span-6 md:col-span-4 aspect-square">
                 <img src={room3} alt="Massage table prepared for treatment" className="w-full h-full object-cover" loading="lazy" />
               </div>
+              <div className="reveal lux-image col-span-4 md:col-span-4 aspect-square">
+                <img src="/assets/detail-candle.jpeg" alt="Candle and eucalyptus detail" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="reveal lux-image col-span-4 md:col-span-4 aspect-square">
+                <img src="/assets/detail-sconce.jpeg" alt="Warm brass wall sconce" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="reveal lux-image col-span-4 md:col-span-4 aspect-square">
+                <img src="/assets/detail-door.jpeg" alt="Entrance and framed certifications" className="w-full h-full object-cover" loading="lazy" />
+              </div>
             </div>
           </div>
         </section>
