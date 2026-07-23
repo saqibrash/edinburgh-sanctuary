@@ -862,6 +862,22 @@ const Index = () => {
                     <p className="text-xs text-taupe text-center">
                       A 50% deposit secures your slot. Payment processed securely by Stripe.
                     </p>
+                    <div className="relative flex items-center gap-3 pt-2">
+                      <span className="h-px flex-1 bg-blush" />
+                      <span className="text-[10px] tracking-[0.28em] uppercase text-taupe">or</span>
+                      <span className="h-px flex-1 bg-blush" />
+                    </div>
+                    <a
+                      href={FRESHA_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-secondary w-full !py-4 text-center block"
+                    >
+                      Book instantly on Fresha
+                    </a>
+                    <p className="text-[11px] text-taupe/80 text-center">
+                      Prefer our partner platform? Fresha lets you browse live availability and pay securely in a few taps.
+                    </p>
                   </form>
                 )}
               </div>
