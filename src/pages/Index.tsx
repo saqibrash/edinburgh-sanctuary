@@ -405,8 +405,9 @@ const Index = () => {
                   Personalised massage therapy in a calm, cosy space designed for your wellbeing.
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <a href="#treatments" className="btn-primary">Discover Treatments</a>
-                  <a href="#book" className="btn-secondary">Book a Session</a>
+                  <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">Book on Fresha</a>
+                  <a href="#book" className="btn-secondary">Book on our site</a>
+                  <a href="#treatments" className="text-[11px] tracking-[0.28em] uppercase text-rose hover:text-rose-deep transition-colors self-center">Discover Treatments →</a>
                 </div>
                 <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.24em] text-taupe">
                   <span className="inline-flex items-center gap-2"><span className="text-gold">P</span> Free Parking</span>
