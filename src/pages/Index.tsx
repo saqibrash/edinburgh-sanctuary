@@ -19,10 +19,10 @@ const PHONE = "07570 161699";
 const PHONE_HREF = "tel:+447570161699";
 const EMAIL = "therestorationroom85@gmail.com";
 const ADDRESS = "Silverknowes, EH4, Edinburgh";
+const FRESHA_URL = "https://www.fresha.com/book-now/the-restoration-room-p5d4vn56/all-offer?share=true&pId=3033869";
 const HOURS = [
-  { day: "Mon – Fri", hours: "9:00 – 20:00" },
-  { day: "Saturday", hours: "10:00 – 18:00" },
-  { day: "Sunday", hours: "By appointment" },
+  { day: "Mon – Fri", hours: "10:00 – 19:00" },
+  { day: "Sat – Sun", hours: "By appointment" },
 ];
 
 const nav = [
@@ -43,8 +43,8 @@ const treatments = [
     prices: [
       { duration: "30 minutes", price: "£30", key: "swedish-30" },
       { duration: "45 minutes", price: "£45", key: "swedish-45" },
-      { duration: "60 minutes", price: "£60", key: "swedish-60" },
-      { duration: "75 minutes", price: "£75", key: "swedish-75" },
+      { duration: "60 minutes", price: "£55", key: "swedish-60" },
+      { duration: "75 minutes", price: "£70", key: "swedish-75" },
     ],
   },
   {
@@ -52,8 +52,8 @@ const treatments = [
     image: treatment,
     desc: "Our signature treatment, tailored entirely to your individual needs. Combining Swedish massage with deep tissue techniques, trigger point therapy, and assisted stretching, each session is designed to target areas of tension while promoting deep relaxation and restoring balance throughout the body.\n\nWhether you’re looking to relieve muscular aches, improve mobility, reduce stress, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
     prices: [
-      { duration: "30 minutes", price: "£35", key: "bespoke-30" },
-      { duration: "45 minutes", price: "£50", key: "bespoke-45" },
+      { duration: "30 minutes", price: "£40", key: "bespoke-30" },
+      { duration: "45 minutes", price: "£55", key: "bespoke-45" },
       { duration: "60 minutes", price: "£65", key: "bespoke-60" },
       { duration: "75 minutes", price: "£80", key: "bespoke-75" },
     ],
@@ -343,7 +343,7 @@ const Index = () => {
             <a href={PHONE_HREF} className="text-[13px] text-taupe hover:text-rose flex items-center gap-2 transition-colors">
               <span aria-hidden>✆</span>{PHONE}
             </a>
-            <a href="#book" className="btn-primary !py-3 !px-6 !text-[11px]">Book Now</a>
+            <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary !py-3 !px-6 !text-[11px]">Book on Fresha</a>
           </div>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -370,7 +370,8 @@ const Index = () => {
                   <span className="text-rose text-sm" aria-hidden>→</span>
                 </a>
               ))}
-              <a href="#book" onClick={() => setMenuOpen(false)} className="btn-primary w-full mt-6">Book Now</a>
+              <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="btn-primary w-full mt-6">Book on Fresha</a>
+              <a href="#book" onClick={() => setMenuOpen(false)} className="btn-secondary w-full mt-3">Book on our site</a>
               <a href={PHONE_HREF} className="mt-4 text-center text-rose tracking-wide">✆ {PHONE}</a>
             </div>
           </div>
@@ -405,8 +406,9 @@ const Index = () => {
                   Personalised massage therapy in a calm, cosy space designed for your wellbeing.
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <a href="#treatments" className="btn-primary">Discover Treatments</a>
-                  <a href="#book" className="btn-secondary">Book a Session</a>
+                  <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">Book on Fresha</a>
+                  <a href="#book" className="btn-secondary">Book on our site</a>
+                  <a href="#treatments" className="text-[11px] tracking-[0.28em] uppercase text-rose hover:text-rose-deep transition-colors self-center">Discover Treatments →</a>
                 </div>
                 <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.24em] text-taupe">
                   <span className="inline-flex items-center gap-2"><span className="text-gold">P</span> Free Parking</span>
@@ -620,6 +622,15 @@ const Index = () => {
               </div>
               <div className="reveal lux-image col-span-6 md:col-span-4 aspect-square">
                 <img src={room3} alt="Massage table prepared for treatment" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="reveal lux-image col-span-4 md:col-span-4 aspect-square">
+                <img src="/assets/detail-candle.jpeg" alt="Candle and eucalyptus detail" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="reveal lux-image col-span-4 md:col-span-4 aspect-square">
+                <img src="/assets/detail-sconce.jpeg" alt="Warm brass wall sconce" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="reveal lux-image col-span-4 md:col-span-4 aspect-square">
+                <img src="/assets/detail-door.jpeg" alt="Entrance and framed certifications" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
           </div>
@@ -860,6 +871,22 @@ const Index = () => {
                     <p className="text-xs text-taupe text-center">
                       A 50% deposit secures your slot. Payment processed securely by Stripe.
                     </p>
+                    <div className="relative flex items-center gap-3 pt-2">
+                      <span className="h-px flex-1 bg-blush" />
+                      <span className="text-[10px] tracking-[0.28em] uppercase text-taupe">or</span>
+                      <span className="h-px flex-1 bg-blush" />
+                    </div>
+                    <a
+                      href={FRESHA_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-secondary w-full !py-4 text-center block"
+                    >
+                      Book instantly on Fresha
+                    </a>
+                    <p className="text-[11px] text-taupe/80 text-center">
+                      Prefer our partner platform? Fresha lets you browse live availability and pay securely in a few taps.
+                    </p>
                   </form>
                 )}
               </div>
@@ -929,7 +956,7 @@ const Index = () => {
       </footer>
 
       {/* Floating mobile CTA */}
-      <a href="#book" className="lg:hidden fixed bottom-5 right-5 z-40 btn-primary shadow-2xl">Book</a>
+      <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="lg:hidden fixed bottom-5 right-5 z-40 btn-primary shadow-2xl">Book on Fresha</a>
     </div>
   );
 };
