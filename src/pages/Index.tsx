@@ -343,7 +343,7 @@ const Index = () => {
             <a href={PHONE_HREF} className="text-[13px] text-taupe hover:text-rose flex items-center gap-2 transition-colors">
               <span aria-hidden>✆</span>{PHONE}
             </a>
-            <a href="#book" className="btn-primary !py-3 !px-6 !text-[11px]">Book Now</a>
+            <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary !py-3 !px-6 !text-[11px]">Book on Fresha</a>
           </div>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
