@@ -19,10 +19,10 @@ const PHONE = "07570 161699";
 const PHONE_HREF = "tel:+447570161699";
 const EMAIL = "therestorationroom85@gmail.com";
 const ADDRESS = "Silverknowes, EH4, Edinburgh";
+const FRESHA_URL = "https://www.fresha.com/book-now/the-restoration-room-p5d4vn56/all-offer?share=true&pId=3033869";
 const HOURS = [
-  { day: "Mon – Fri", hours: "9:00 – 20:00" },
-  { day: "Saturday", hours: "10:00 – 18:00" },
-  { day: "Sunday", hours: "By appointment" },
+  { day: "Mon – Fri", hours: "10:00 – 19:00" },
+  { day: "Sat – Sun", hours: "By appointment" },
 ];
 
 const nav = [
