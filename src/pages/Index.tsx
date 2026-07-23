@@ -931,7 +931,7 @@ const Index = () => {
       </footer>
 
       {/* Floating mobile CTA */}
-      <a href="#book" className="lg:hidden fixed bottom-5 right-5 z-40 btn-primary shadow-2xl">Book</a>
+      <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="lg:hidden fixed bottom-5 right-5 z-40 btn-primary shadow-2xl">Book on Fresha</a>
     </div>
   );
 };
