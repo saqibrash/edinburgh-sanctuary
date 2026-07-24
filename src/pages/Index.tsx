@@ -140,7 +140,8 @@ const testimonials = [
   },
 ];
 
-const timeSlots = ["09:00", "10:30", "12:00", "13:30", "15:00", "16:30", "18:00", "19:30"];
+// Time slots are derived from the selected date (see availableSlots below).
+// Weekdays use WEEKDAY_SLOTS; weekends are by appointment only.
 
 const useReveal = () => {
   useEffect(() => {
