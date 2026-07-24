@@ -22,7 +22,16 @@ const ADDRESS = "Silverknowes, EH4, Edinburgh";
 const FRESHA_URL = "https://www.fresha.com/book-now/the-restoration-room-p5d4vn56/all-offer?share=true&pId=3033869";
 const HOURS = [
   { day: "Mon – Fri", hours: "10:00 – 19:00" },
-  { day: "Sat – Sun", hours: "By appointment" },
+  { day: "Saturday", hours: "By appointment only" },
+  { day: "Sunday", hours: "By appointment only" },
+];
+const HOURS_NOTE = "Last appointment 6:30 PM";
+
+// Weekday slots (Mon–Fri). Business closes at 7:00 PM so 6:30 PM is the
+// last available start time.
+const WEEKDAY_SLOTS = [
+  "10:00", "11:00", "12:00", "13:00", "14:00",
+  "15:00", "16:00", "17:00", "18:00", "18:30",
 ];
 
 const nav = [
@@ -60,7 +69,8 @@ const treatments = [
   },
   {
     name: "Restorative Foot Ritual",
-    image: shelves,
+    image: treatment,
+    
     desc: "Soothe tired, aching feet with a deeply relaxing treatment beginning with a warm, aromatic foot soak to cleanse and soften the skin. This is followed by a therapeutic foot and lower leg massage using a blend of soothing techniques to ease tension, improve circulation, and encourage complete relaxation.\n\nPerfect as a standalone treatment or as a calming addition to your massage, leaving your feet feeling refreshed, revitalised, and wonderfully restored.",
     prices: [
       { duration: "30 minutes", price: "£25", key: "foot-30" },
@@ -130,7 +140,8 @@ const testimonials = [
   },
 ];
 
-const timeSlots = ["09:00", "10:30", "12:00", "13:30", "15:00", "16:30", "18:00", "19:30"];
+// Time slots are derived from the selected date (see availableSlots below).
+// Weekdays use WEEKDAY_SLOTS; weekends are by appointment only.
 
 const useReveal = () => {
   useEffect(() => {
@@ -205,11 +216,27 @@ const Index = () => {
     }
   }, [selectedDate]);
 
+  // Derive available slots from the selected date. Mon–Fri use the fixed
+  // WEEKDAY_SLOTS. Sat/Sun are by appointment only — no slots shown.
+  const availableSlots = useMemo(() => {
+    if (!selectedDate) return [] as string[];
+    // Interpret as a local date; getDay() returns 0=Sun..6=Sat.
+    const day = new Date(`${selectedDate}T12:00:00`).getDay();
+    if (day === 0 || day === 6) return [];
+    return WEEKDAY_SLOTS;
+  }, [selectedDate]);
+
+  const isWeekend = useMemo(() => {
+    if (!selectedDate) return false;
+    const day = new Date(`${selectedDate}T12:00:00`).getDay();
+    return day === 0 || day === 6;
+  }, [selectedDate]);
+
   const slotStatus = useMemo(() => {
     const map = new Map<string, { iso: string; busy: boolean; past: boolean }>();
     if (!selectedDate) return map;
     const now = Date.now();
-    for (const t of timeSlots) {
+    for (const t of availableSlots) {
       const iso = new Date(`${selectedDate}T${t}:00`).toISOString();
       map.set(t, {
         iso,
@@ -218,7 +245,7 @@ const Index = () => {
       });
     }
     return map;
-  }, [selectedDate, busySlots]);
+  }, [selectedDate, availableSlots, busySlots]);
 
 
   const handleBooking = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -608,29 +635,35 @@ const Index = () => {
             </div>
 
             <div className="grid grid-cols-12 gap-3 md:gap-5">
+              {/* Row 1 — hero tile + tall shelves */}
               <div className="reveal lux-image col-span-12 md:col-span-8 aspect-[16/10] md:aspect-[16/11]">
                 <img src={room1} alt="Warmly lit main treatment room" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="reveal lux-image col-span-6 md:col-span-4 aspect-square md:aspect-auto">
                 <img src={shelves} alt="Curated shelves with candles and premium oils" className="w-full h-full object-cover" loading="lazy" />
               </div>
-              <div className="reveal lux-image col-span-6 md:col-span-4 aspect-square">
-                <img src={entrance} alt="Warm entrance to The Restoration Room" className="w-full h-full object-cover" loading="lazy" />
-              </div>
+              {/* Row 2 — three room angles */}
               <div className="reveal lux-image col-span-6 md:col-span-4 aspect-square">
                 <img src={room2} alt="Candlelit massage room" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="reveal lux-image col-span-6 md:col-span-4 aspect-square">
                 <img src={room3} alt="Massage table prepared for treatment" className="w-full h-full object-cover" loading="lazy" />
               </div>
-              <div className="reveal lux-image col-span-4 md:col-span-4 aspect-square">
+              <div className="reveal lux-image col-span-12 md:col-span-4 aspect-[4/3] md:aspect-square">
+                <img src={treatment} alt="Rolled towels and pampas grass on the treatment couch" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              {/* Row 3 — entrance + three details */}
+              <div className="reveal lux-image col-span-6 md:col-span-3 aspect-square">
+                <img src={entrance} alt="Warm entrance to The Restoration Room" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="reveal lux-image col-span-6 md:col-span-3 aspect-square">
                 <img src="/assets/detail-candle.jpeg" alt="Candle and eucalyptus detail" className="w-full h-full object-cover" loading="lazy" />
               </div>
-              <div className="reveal lux-image col-span-4 md:col-span-4 aspect-square">
+              <div className="reveal lux-image col-span-6 md:col-span-3 aspect-square">
                 <img src="/assets/detail-sconce.jpeg" alt="Warm brass wall sconce" className="w-full h-full object-cover" loading="lazy" />
               </div>
-              <div className="reveal lux-image col-span-4 md:col-span-4 aspect-square">
-                <img src="/assets/detail-door.jpeg" alt="Entrance and framed certifications" className="w-full h-full object-cover" loading="lazy" />
+              <div className="reveal lux-image col-span-6 md:col-span-3 aspect-square">
+                <img src="/assets/detail-door.jpeg" alt="Entrance door and framed qualifications" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
           </div>
@@ -738,6 +771,7 @@ const Index = () => {
                       <div key={h.day} className="flex justify-between gap-6 max-w-xs"><span>{h.day}</span><span className="text-taupe">{h.hours}</span></div>
                     ))}
                   </div>
+                  <div className="text-[11px] text-gold mt-2 italic">{HOURS_NOTE}</div>
                 </div>
               </div>
             </div>
@@ -811,9 +845,17 @@ const Index = () => {
                         <p className="text-sm text-taupe/80 italic px-1">
                           Choose a date to see available times.
                         </p>
+                      ) : isWeekend ? (
+                        <div className="rounded-md border border-blush bg-blush/20 p-4 text-sm text-taupe leading-relaxed">
+                          <p className="text-ink font-medium mb-1">Saturday & Sunday — by appointment only</p>
+                          <p>
+                            Please call <a href={PHONE_HREF} className="text-rose hover:underline">{PHONE}</a> or email{" "}
+                            <a href={`mailto:${EMAIL}`} className="text-rose hover:underline break-all">{EMAIL}</a> to arrange a weekend appointment.
+                          </p>
+                        </div>
                       ) : (
                         <div className="grid grid-cols-3 sm:grid-cols-4 gap-2.5">
-                          {timeSlots.map((t) => {
+                          {availableSlots.map((t) => {
                             const status = slotStatus.get(t);
                             const unavailable = !status || status.busy || status.past;
                             const isSelected = selectedTime === t;
@@ -840,9 +882,9 @@ const Index = () => {
                           })}
                         </div>
                       )}
-                      {selectedDate && !loadingAvailability && (
+                      {selectedDate && !isWeekend && !loadingAvailability && (
                         <p className="text-[11px] text-taupe/70 mt-3">
-                          Times shown in your local timezone. Struck-through slots are already booked or in the past.
+                          Times shown in your local timezone. Last appointment 6:30 PM. Struck-through slots are already booked or in the past.
                         </p>
                       )}
                     </div>
@@ -938,6 +980,7 @@ const Index = () => {
                     <div key={h.day} className="flex justify-between gap-6"><span>{h.day}</span><span className="text-taupe">{h.hours}</span></div>
                   ))}
                 </div>
+                <div className="text-[11px] text-gold mt-2 italic">{HOURS_NOTE}</div>
               </div>
             </address>
           </div>
