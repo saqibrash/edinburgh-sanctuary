@@ -22,7 +22,16 @@ const ADDRESS = "Silverknowes, EH4, Edinburgh";
 const FRESHA_URL = "https://www.fresha.com/book-now/the-restoration-room-p5d4vn56/all-offer?share=true&pId=3033869";
 const HOURS = [
   { day: "Mon – Fri", hours: "10:00 – 19:00" },
-  { day: "Sat – Sun", hours: "By appointment" },
+  { day: "Saturday", hours: "By appointment only" },
+  { day: "Sunday", hours: "By appointment only" },
+];
+const HOURS_NOTE = "Last appointment 6:30 PM";
+
+// Weekday slots (Mon–Fri). Business closes at 7:00 PM so 6:30 PM is the
+// last available start time.
+const WEEKDAY_SLOTS = [
+  "10:00", "11:00", "12:00", "13:00", "14:00",
+  "15:00", "16:00", "17:00", "18:00", "18:30",
 ];
 
 const nav = [
