@@ -69,7 +69,8 @@ const treatments = [
   },
   {
     name: "Restorative Foot Ritual",
-    image: shelves,
+    image: treatment,
+    imageFit: "cover" as const,
     desc: "Soothe tired, aching feet with a deeply relaxing treatment beginning with a warm, aromatic foot soak to cleanse and soften the skin. This is followed by a therapeutic foot and lower leg massage using a blend of soothing techniques to ease tension, improve circulation, and encourage complete relaxation.\n\nPerfect as a standalone treatment or as a calming addition to your massage, leaving your feet feeling refreshed, revitalised, and wonderfully restored.",
     prices: [
       { duration: "30 minutes", price: "£25", key: "foot-30" },
