@@ -980,6 +980,7 @@ const Index = () => {
                     <div key={h.day} className="flex justify-between gap-6"><span>{h.day}</span><span className="text-taupe">{h.hours}</span></div>
                   ))}
                 </div>
+                <div className="text-[11px] text-gold mt-2 italic">{HOURS_NOTE}</div>
               </div>
             </address>
           </div>
