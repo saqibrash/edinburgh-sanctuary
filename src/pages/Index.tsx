@@ -838,9 +838,17 @@ const Index = () => {
                         <p className="text-sm text-taupe/80 italic px-1">
                           Choose a date to see available times.
                         </p>
+                      ) : isWeekend ? (
+                        <div className="rounded-md border border-blush bg-blush/20 p-4 text-sm text-taupe leading-relaxed">
+                          <p className="text-ink font-medium mb-1">Saturday & Sunday — by appointment only</p>
+                          <p>
+                            Please call <a href={PHONE_HREF} className="text-rose hover:underline">{PHONE}</a> or email{" "}
+                            <a href={`mailto:${EMAIL}`} className="text-rose hover:underline break-all">{EMAIL}</a> to arrange a weekend appointment.
+                          </p>
+                        </div>
                       ) : (
                         <div className="grid grid-cols-3 sm:grid-cols-4 gap-2.5">
-                          {timeSlots.map((t) => {
+                          {availableSlots.map((t) => {
                             const status = slotStatus.get(t);
                             const unavailable = !status || status.busy || status.past;
                             const isSelected = selectedTime === t;
