@@ -216,11 +216,27 @@ const Index = () => {
     }
   }, [selectedDate]);
 
+  // Derive available slots from the selected date. Mon–Fri use the fixed
+  // WEEKDAY_SLOTS. Sat/Sun are by appointment only — no slots shown.
+  const availableSlots = useMemo(() => {
+    if (!selectedDate) return [] as string[];
+    // Interpret as a local date; getDay() returns 0=Sun..6=Sat.
+    const day = new Date(`${selectedDate}T12:00:00`).getDay();
+    if (day === 0 || day === 6) return [];
+    return WEEKDAY_SLOTS;
+  }, [selectedDate]);
+
+  const isWeekend = useMemo(() => {
+    if (!selectedDate) return false;
+    const day = new Date(`${selectedDate}T12:00:00`).getDay();
+    return day === 0 || day === 6;
+  }, [selectedDate]);
+
   const slotStatus = useMemo(() => {
     const map = new Map<string, { iso: string; busy: boolean; past: boolean }>();
     if (!selectedDate) return map;
     const now = Date.now();
-    for (const t of timeSlots) {
+    for (const t of availableSlots) {
       const iso = new Date(`${selectedDate}T${t}:00`).toISOString();
       map.set(t, {
         iso,
@@ -229,7 +245,7 @@ const Index = () => {
       });
     }
     return map;
-  }, [selectedDate, busySlots]);
+  }, [selectedDate, availableSlots, busySlots]);
 
 
   const handleBooking = async (e: React.FormEvent<HTMLFormElement>) => {
