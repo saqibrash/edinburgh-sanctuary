@@ -882,9 +882,9 @@ const Index = () => {
                           })}
                         </div>
                       )}
-                      {selectedDate && !loadingAvailability && (
+                      {selectedDate && !isWeekend && !loadingAvailability && (
                         <p className="text-[11px] text-taupe/70 mt-3">
-                          Times shown in your local timezone. Struck-through slots are already booked or in the past.
+                          Times shown in your local timezone. Last appointment 6:30 PM. Struck-through slots are already booked or in the past.
                         </p>
                       )}
                     </div>
