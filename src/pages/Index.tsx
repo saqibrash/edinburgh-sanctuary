@@ -742,12 +742,6 @@ const Index = () => {
   );
 };
 
-const Field = ({ label, name, children }: { label: string; name: string; children: React.ReactNode }) => (
-  <div>
-    <label htmlFor={name} className="block text-[10px] tracking-[0.28em] uppercase text-taupe mb-1">{label}</label>
-    {children}
-  </div>
-);
 
 const ContactRow = ({ icon, label, value, href }: { icon: string; label: string; value: string; href?: string }) => (
   <div className="flex items-start gap-4">
