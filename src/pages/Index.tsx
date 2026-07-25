@@ -619,159 +619,62 @@ const Index = () => {
 
             <div className="reveal lg:col-span-7">
               <div className="bg-cream text-ink p-8 md:p-12 rounded-lg shadow-[0_30px_80px_-40px_rgba(120,80,60,0.4)] border border-blush">
-                {bookingSent ? (
-                  <div className="text-center py-16">
-                    <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-rose/15 flex items-center justify-center text-rose text-2xl">✓</div>
-                    <h3 className="font-display text-4xl text-ink mb-4">Thank you.</h3>
-                    <p className="text-taupe max-w-md mx-auto leading-relaxed">
-                      Your booking request has been received. Camilla will reply personally within 24 hours to confirm your appointment.
-                    </p>
-                    <button onClick={() => setBookingSent(false)} className="btn-secondary mt-8">Send another</button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleBooking} className="space-y-6">
-                    <div className="pb-4 mb-2 border-b border-blush">
-                      <h3 className="font-display text-3xl text-ink">Booking request</h3>
-                      <p className="text-xs text-taupe mt-1">Secure your appointment with a 50% deposit. Balance paid on the day.</p>
-                    </div>
+                <div className="pb-5 mb-6 border-b border-blush">
+                  <h3 className="font-display text-3xl md:text-4xl text-ink">Book instantly on Fresha</h3>
+                  <p className="text-sm text-taupe mt-2 leading-relaxed">
+                    View live availability, choose your treatment and time, and secure your appointment in a few taps —
+                    all through our booking partner, Fresha.
+                  </p>
+                </div>
 
-                    <Field label="Treatment" name="treatmentKey">
-                      <select
-                        id="treatmentKey"
-                        name="treatmentKey"
-                        required
-                        value={selectedTreatment}
-                        onChange={(e) => setSelectedTreatment(e.target.value)}
-                        className="field"
-                      >
-                        <option value="" disabled>Select a treatment…</option>
-                        {treatments.map((t) => (
-                          <optgroup key={t.name} label={t.name}>
-                            {t.prices.map((p) => (
-                              <option key={p.key} value={p.key}>
-                                {p.duration} — {p.price}
-                              </option>
-                            ))}
-                          </optgroup>
-                        ))}
-                      </select>
-                    </Field>
+                <ul className="space-y-3 text-sm text-ink/85 mb-8">
+                  <li className="flex items-start gap-3">
+                    <span className="mt-0.5 text-gold" aria-hidden>✓</span>
+                    <span>Real-time availability, updated instantly</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-0.5 text-gold" aria-hidden>✓</span>
+                    <span>Secure card payment to confirm your booking</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-0.5 text-gold" aria-hidden>✓</span>
+                    <span>Automatic confirmation and appointment reminders</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-0.5 text-gold" aria-hidden>✓</span>
+                    <span>Reschedule or manage your booking any time</span>
+                  </li>
+                </ul>
 
-                    <Field label="Preferred date" name="date">
-                      <input
-                        id="date"
-                        type="date"
-                        name="date"
-                        required
-                        min={today}
-                        value={selectedDate}
-                        onChange={(e) => setSelectedDate(e.target.value)}
-                        className="field"
-                      />
-                    </Field>
+                <a
+                  href={FRESHA_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary w-full !py-4 text-center block"
+                >
+                  Book on Fresha →
+                </a>
+                <p className="text-[11px] text-taupe text-center mt-3">
+                  Opens Fresha in a new tab. A 50% deposit secures your slot; balance paid on the day.
+                </p>
 
-                    <div>
-                      <div className="flex items-baseline justify-between mb-3">
-                        <label className="block text-xs uppercase tracking-[0.2em] text-taupe">
-                          Available times
-                        </label>
-                        {selectedDate && (
-                          <span className="text-xs text-taupe">
-                            {loadingAvailability ? "Checking availability…" : dateLabel}
-                          </span>
-                        )}
-                      </div>
+                <div className="relative flex items-center gap-3 mt-8 mb-6">
+                  <span className="h-px flex-1 bg-blush" />
+                  <span className="text-[10px] tracking-[0.28em] uppercase text-taupe">Prefer to speak with Camilla?</span>
+                  <span className="h-px flex-1 bg-blush" />
+                </div>
 
-                      {!selectedDate ? (
-                        <p className="text-sm text-taupe/80 italic px-1">
-                          Choose a date to see available times.
-                        </p>
-                      ) : isWeekend ? (
-                        <div className="rounded-md border border-blush bg-blush/20 p-4 text-sm text-taupe leading-relaxed">
-                          <p className="text-ink font-medium mb-1">Saturday & Sunday — by appointment only</p>
-                          <p>
-                            Please call <a href={PHONE_HREF} className="text-rose hover:underline">{PHONE}</a> or email{" "}
-                            <a href={`mailto:${EMAIL}`} className="text-rose hover:underline break-all">{EMAIL}</a> to arrange a weekend appointment.
-                          </p>
-                        </div>
-                      ) : (
-                        <div className="grid grid-cols-3 sm:grid-cols-4 gap-2.5">
-                          {availableSlots.map((t) => {
-                            const status = slotStatus.get(t);
-                            const unavailable = !status || status.busy || status.past;
-                            const isSelected = selectedTime === t;
-                            return (
-                              <button
-                                type="button"
-                                key={t}
-                                disabled={unavailable || loadingAvailability}
-                                onClick={() => setSelectedTime(t)}
-                                aria-pressed={isSelected}
-                                className={[
-                                  "relative py-3 rounded-md text-sm font-medium tracking-wide transition-all border",
-                                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream",
-                                  isSelected
-                                    ? "bg-ink text-cream border-ink shadow-md scale-[1.02]"
-                                    : unavailable
-                                    ? "bg-blush/30 text-taupe/50 border-blush/40 line-through cursor-not-allowed"
-                                    : "bg-cream text-ink border-blush hover:border-gold hover:bg-gold/10",
-                                ].join(" ")}
-                              >
-                                {t}
-                              </button>
-                            );
-                          })}
-                        </div>
-                      )}
-                      {selectedDate && !isWeekend && !loadingAvailability && (
-                        <p className="text-[11px] text-taupe/70 mt-3">
-                          Times shown in your local timezone. Last appointment 6:30 PM. Struck-through slots are already booked or in the past.
-                        </p>
-                      )}
-                    </div>
-
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <Field label="Full name" name="name">
-                        <input id="name" name="name" required maxLength={100} placeholder="Your name" className="field" />
-                      </Field>
-                      <Field label="Telephone" name="phone">
-                        <input id="phone" name="phone" type="tel" required maxLength={30} placeholder="07…" className="field" />
-                      </Field>
-                    </div>
-
-                    <Field label="Email" name="email">
-                      <input id="email" name="email" type="email" required maxLength={255} placeholder="you@email.com" className="field" />
-                    </Field>
-
-                    <Field label="Notes (optional)" name="notes">
-                      <textarea id="notes" name="notes" rows={3} maxLength={1000} placeholder="Anything Camilla should know?" className="field resize-none" />
-                    </Field>
-
-                    <button type="submit" disabled={submitting} className="btn-primary w-full !py-4 disabled:opacity-60 disabled:cursor-not-allowed">
-                      {submitting ? "Preparing checkout…" : "Continue to secure payment"}
-                    </button>
-                    <p className="text-xs text-taupe text-center">
-                      A 50% deposit secures your slot. Payment processed securely by Stripe.
-                    </p>
-                    <div className="relative flex items-center gap-3 pt-2">
-                      <span className="h-px flex-1 bg-blush" />
-                      <span className="text-[10px] tracking-[0.28em] uppercase text-taupe">or</span>
-                      <span className="h-px flex-1 bg-blush" />
-                    </div>
-                    <a
-                      href={FRESHA_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-secondary w-full !py-4 text-center block"
-                    >
-                      Book instantly on Fresha
-                    </a>
-                    <p className="text-[11px] text-taupe/80 text-center">
-                      Prefer our partner platform? Fresha lets you browse live availability and pay securely in a few taps.
-                    </p>
-                  </form>
-                )}
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <a href={PHONE_HREF} className="btn-secondary w-full !py-3.5 text-center block">
+                    Call {PHONE}
+                  </a>
+                  <a href={`mailto:${EMAIL}`} className="btn-secondary w-full !py-3.5 text-center block">
+                    Email Camilla
+                  </a>
+                </div>
+                <p className="text-[11px] text-taupe/80 text-center mt-4">
+                  Weekend appointments (Saturday & Sunday) are available on request — please call or email to arrange.
+                </p>
               </div>
             </div>
           </div>
