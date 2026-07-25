@@ -1,18 +1,19 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 import logoFull from "@/assets/brand-logo.png";
-import { supabase } from "@/integrations/supabase/client";
-import { getStripeEnvironment, paymentsConfigured } from "@/lib/stripe";
-import { StripeCheckoutDialog } from "@/components/StripeCheckoutDialog";
-import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
-import { toast } from "@/components/ui/sonner";
+
 const camilla = "/assets/camilla.jpeg";
-const room1 = "/assets/room-1.jpeg";
-const room2 = "/assets/room-2.jpeg";
-const room3 = "/assets/room-3.jpeg";
-const treatment = "/assets/treatment.jpeg";
-const shelves = "/assets/shelves.jpeg";
-const entrance = "/assets/entrance.jpeg";
+// 10 client photos (all used across treatments + gallery)
+const gRoom01 = "/assets/gallery/room-01.jpeg";
+const gRoom02 = "/assets/gallery/room-02.jpeg";
+const gRoom03 = "/assets/gallery/room-03.jpeg";
+const gShelves = "/assets/gallery/shelves-01.jpeg";
+const gWindow = "/assets/gallery/window.jpeg";
+const gTowels = "/assets/gallery/towels.jpeg";
+const gDoor = "/assets/gallery/door.jpeg";
+const gCandleEuc = "/assets/gallery/candle-eucalyptus.jpeg";
+const gSconce = "/assets/gallery/sconce.jpeg";
+const gPlantCandle = "/assets/gallery/plant-candle.jpeg";
 
 const BUSINESS = "The Restoration Room";
 const PHONE = "07570 161699";
