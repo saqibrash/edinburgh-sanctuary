@@ -48,7 +48,7 @@ const nav = [
 const treatments = [
   {
     name: "Swedish Massage",
-    image: room2,
+    image: gRoom01,
     desc: "Swedish massage is a relaxing, therapeutic treatment that uses smooth, flowing strokes, kneading, and gentle techniques to ease muscle tension, improve circulation, and promote overall wellbeing. Each massage is tailored to your individual needs, with pressure adjusted to ensure a comfortable and effective treatment.\n\nWhether you’re looking to relieve stress, reduce muscular aches, or simply take time to unwind, Swedish massage offers the perfect opportunity to relax, restore, and recharge.",
     prices: [
       { duration: "30 minutes", price: "£30", key: "swedish-30" },
@@ -59,7 +59,7 @@ const treatments = [
   },
   {
     name: "Bespoke Restorative",
-    image: treatment,
+    image: gRoom03,
     desc: "Our signature treatment, tailored entirely to your individual needs. Combining Swedish massage with deep tissue techniques, trigger point therapy, and assisted stretching, each session is designed to target areas of tension while promoting deep relaxation and restoring balance throughout the body.\n\nWhether you’re looking to relieve muscular aches, improve mobility, reduce stress, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
     prices: [
       { duration: "30 minutes", price: "£40", key: "bespoke-30" },
@@ -70,8 +70,7 @@ const treatments = [
   },
   {
     name: "Restorative Foot Ritual",
-    image: treatment,
-    
+    image: gTowels,
     desc: "Soothe tired, aching feet with a deeply relaxing treatment beginning with a warm, aromatic foot soak to cleanse and soften the skin. This is followed by a therapeutic foot and lower leg massage using a blend of soothing techniques to ease tension, improve circulation, and encourage complete relaxation.\n\nPerfect as a standalone treatment or as a calming addition to your massage, leaving your feet feeling refreshed, revitalised, and wonderfully restored.",
     prices: [
       { duration: "30 minutes", price: "£25", key: "foot-30" },
@@ -79,7 +78,7 @@ const treatments = [
   },
   {
     name: "Rebalancing Scalp Massage",
-    image: entrance,
+    image: gRoom02,
     desc: "A deeply relaxing treatment designed to ease tension, calm the mind, and promote a sense of wellbeing. Gentle massage techniques are used across the scalp, temples, neck, and upper shoulders to help relieve stress, reduce headaches caused by muscle tension, and encourage deep relaxation.\n\nPerfect as a standalone treatment or as an addition to any massage for a truly restorative experience.",
     prices: [
       { duration: "25 minutes", price: "£20", key: "scalp-25" },
