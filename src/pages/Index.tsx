@@ -626,12 +626,9 @@ const Index = () => {
           <div className="max-w-[1300px] mx-auto">
             <div className="reveal text-center max-w-2xl mx-auto mb-14 md:mb-20">
               <div className="ornament mb-5"><span className="eyebrow">Kind Words</span></div>
-              <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.1] mb-5">
-                Client Testimonials <span className="font-script text-rose">(Placeholder)</span>
+              <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.1]">
+                Client Testimonials
               </h2>
-              <p className="text-taupe text-[15px] leading-relaxed">
-                Sample testimonials for design preview. These will be replaced with real client reviews before the website goes live.
-              </p>
             </div>
 
             {/* Mobile carousel */}
@@ -691,6 +688,18 @@ const Index = () => {
                   <TestimonialCard t={t} />
                 </div>
               ))}
+            </div>
+
+            <div className="reveal mt-12 md:mt-16 text-center">
+              <a
+                href={FRESHA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-taupe hover:text-ink transition-colors border-b border-gold/40 hover:border-gold pb-1"
+              >
+                View more reviews on Fresha
+                <span aria-hidden>↗</span>
+              </a>
             </div>
           </div>
         </section>
