@@ -479,10 +479,14 @@ const Index = () => {
             <div className="reveal text-center max-w-2xl mx-auto mb-16 md:mb-20">
               <div className="ornament mb-5"><span className="eyebrow">Treatments</span></div>
               <h2 className="font-display text-4xl md:text-5xl lg:text-[54px] text-ink leading-[1.1] mb-5">
-                Tailored therapies to help you<br/>
+                Massage treatments in Silverknowes to help you<br/>
                 <span className="font-script text-rose">relax, restore</span> and feel your best.
               </h2>
+              <p className="text-taupe text-[15px] leading-relaxed">
+                Swedish massage, bespoke restorative massage and shorter rituals — all delivered from a private treatment room in Silverknowes, Edinburgh, with free parking.
+              </p>
             </div>
+
 
             <div className="grid md:grid-cols-2 gap-6 lg:gap-10">
               {treatments.map((t, i) => (
