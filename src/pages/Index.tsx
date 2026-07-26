@@ -506,7 +506,14 @@ const Index = () => {
               ))}
             </div>
 
+            <Lightbox
+              items={GALLERY}
+              index={lightbox}
+              onClose={() => setLightbox(null)}
+              onIndex={(i) => setLightbox(i)}
+            />
           </div>
+
         </section>
 
         {/* =============== TESTIMONIALS =============== */}
