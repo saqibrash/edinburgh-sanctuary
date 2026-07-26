@@ -367,7 +367,7 @@ const Index = () => {
             <div className="lg:col-span-6 flex flex-col justify-center px-6 md:px-12 lg:px-16 py-14 lg:py-28 z-10">
               <div className="fade-up max-w-xl">
                 <div className="ornament mb-6">
-                  <span className="eyebrow">Edinburgh · Est. 2008</span>
+                  <span className="eyebrow">Silverknowes, Edinburgh · Est. 2008</span>
                 </div>
                 <h1 className="font-display text-ink text-[46px] sm:text-[58px] lg:text-[76px] leading-[1.02] tracking-tight">
                   Restore.<br/>
