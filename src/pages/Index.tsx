@@ -72,7 +72,7 @@ const treatments = [
   },
   {
     name: "Bespoke Restorative",
-    image: gRoom03,
+    image: gRoom04,
     desc: "Our signature treatment, tailored entirely to your individual needs. Combining Swedish massage with deep tissue techniques, trigger point therapy, and assisted stretching, each session is designed to target areas of tension while promoting deep relaxation and restoring balance throughout the body.\n\nWhether you’re looking to relieve muscular aches, improve mobility, reduce stress, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
     prices: [
       { duration: "30 minutes", price: "£40", key: "bespoke-30" },
