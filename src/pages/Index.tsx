@@ -22,7 +22,7 @@ const gPlantCandle = "/assets/gallery/plant-candle.jpeg";
 const GALLERY: { src: string; alt: string; span: string }[] = [
   { src: gRoom01, alt: "Warmly lit massage treatment room in Silverknowes, Edinburgh", span: "col-span-12 md:col-span-8 aspect-[16/10] md:aspect-[16/11]" },
   { src: gShelves, alt: "Shelves with fresh towels, water and greenery in the Silverknowes treatment room", span: "col-span-6 md:col-span-4 aspect-square md:aspect-auto" },
-  { src: gRoom02, alt: "Candlelit massage room with round mirror at The Restoration Room, Edinburgh", span: "col-span-6 md:col-span-4 aspect-square" },
+  { src: gRoom04, alt: "Massage treatment room with soft lighting and neatly arranged towels", span: "col-span-6 md:col-span-4 aspect-square" },
   { src: gRoom03, alt: "Massage couch prepared for a Swedish massage in Silverknowes", span: "col-span-6 md:col-span-4 aspect-square" },
   { src: gBespokeRoom, alt: "Genuine treatment room with massage bed, wall sconces and round mirror in Edinburgh", span: "col-span-12 md:col-span-4 aspect-[4/3] md:aspect-square" },
   { src: gTowels, alt: "Rolled towels laid on the heated massage couch", span: "col-span-6 md:col-span-3 aspect-square" },
