@@ -250,15 +250,12 @@ const Lightbox = ({
         ›
       </button>
 
-      <figure className="max-w-[92vw] max-h-[86vh] flex flex-col items-center gap-4" onClick={(e) => e.stopPropagation()}>
+      <figure className="max-w-[92vw] max-h-[86vh] flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
         <img
           src={item.src}
           alt={item.alt}
           className="max-w-[92vw] max-h-[76vh] w-auto h-auto object-contain rounded-md shadow-2xl"
         />
-        <figcaption className="text-cream/80 text-[13px] text-center max-w-xl">
-          {item.alt} <span className="text-cream/50">({index + 1}/{items.length})</span>
-        </figcaption>
       </figure>
     </div>
   );
