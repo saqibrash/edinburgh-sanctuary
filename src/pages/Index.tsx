@@ -467,40 +467,20 @@ const Index = () => {
             </div>
 
             <div className="grid grid-cols-12 gap-3 md:gap-5">
-              {/* Row 1 — hero tile + tall shelves */}
-              <div className="reveal lux-image col-span-12 md:col-span-8 aspect-[16/10] md:aspect-[16/11]">
-                <img src={gRoom01} alt="Warmly lit main treatment room" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="reveal lux-image col-span-6 md:col-span-4 aspect-square md:aspect-auto">
-                <img src={gShelves} alt="Curated shelves with towels, water, and greenery" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              {/* Row 2 — three room angles */}
-              <div className="reveal lux-image col-span-6 md:col-span-4 aspect-square">
-                <img src={gRoom02} alt="Candlelit massage room with mirror" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="reveal lux-image col-span-6 md:col-span-4 aspect-square">
-                <img src={gRoom03} alt="Massage table prepared for treatment" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="reveal lux-image col-span-12 md:col-span-4 aspect-[4/3] md:aspect-square">
-                <img src={gTowels} alt="Rolled navy towels on the treatment couch" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              {/* Row 3 — window + three details */}
-              <div className="reveal lux-image col-span-6 md:col-span-3 aspect-square">
-                <img src={gWindow} alt="Serene window with curtains and candles" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="reveal lux-image col-span-6 md:col-span-3 aspect-square">
-                <img src={gCandleEuc} alt="Candle and eucalyptus detail on shelf" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="reveal lux-image col-span-6 md:col-span-3 aspect-square">
-                <img src={gSconce} alt="Warm brass wall sconce" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="reveal lux-image col-span-6 md:col-span-3 aspect-square">
-                <img src={gDoor} alt="Entrance door and framed qualifications" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="reveal lux-image col-span-12 md:col-span-4 aspect-[16/10] md:aspect-[4/3]">
-                <img src={gPlantCandle} alt="Plant and candle styled on shelf" className="w-full h-full object-cover" loading="lazy" />
-              </div>
+              {GALLERY.map((g, i) => (
+                <button
+                  type="button"
+                  key={g.src}
+                  onClick={() => setLightbox(i)}
+                  aria-label={`Open larger image: ${g.alt}`}
+                  className={`reveal lux-image group relative ${g.span} focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream`}
+                >
+                  <img src={g.src} alt={g.alt} className="w-full h-full object-cover" loading="lazy" />
+                  <span className="absolute inset-0 bg-ink/0 group-hover:bg-ink/15 transition-colors duration-500" aria-hidden />
+                </button>
+              ))}
             </div>
+
           </div>
         </section>
 
