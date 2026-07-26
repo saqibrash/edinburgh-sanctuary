@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import logoFull from "@/assets/brand-logo.png";
 
 const camilla = "/assets/camilla.jpeg";
-// 10 client photos (all used across treatments + gallery)
+// Client photos (all used across treatments + gallery)
 const gRoom01 = "/assets/gallery/room-01.jpeg";
 const gRoom02 = "/assets/gallery/room-02.jpeg";
 const gRoom03 = "/assets/gallery/room-03.jpeg";
+const gRoom04 = "/assets/gallery/room-04.jpeg";
 const gShelves = "/assets/gallery/shelves-01.jpeg";
 const gWindow = "/assets/gallery/window.jpeg";
 const gTowels = "/assets/gallery/towels.jpeg";
@@ -14,6 +15,24 @@ const gDoor = "/assets/gallery/door.jpeg";
 const gCandleEuc = "/assets/gallery/candle-eucalyptus.jpeg";
 const gSconce = "/assets/gallery/sconce.jpeg";
 const gPlantCandle = "/assets/gallery/plant-candle.jpeg";
+
+// Gallery tiles — thumbnails are cropped with object-cover, the lightbox
+// shows the complete uncropped image with object-contain.
+const GALLERY: { src: string; alt: string; span: string }[] = [
+  { src: gRoom01, alt: "Warmly lit massage treatment room in Silverknowes, Edinburgh", span: "col-span-12 md:col-span-8 aspect-[16/10] md:aspect-[16/11]" },
+  { src: gShelves, alt: "Shelves with fresh towels, water and greenery in the Silverknowes treatment room", span: "col-span-6 md:col-span-4 aspect-square md:aspect-auto" },
+  { src: gRoom02, alt: "Candlelit massage room with round mirror at The Restoration Room, Edinburgh", span: "col-span-6 md:col-span-4 aspect-square" },
+  { src: gRoom03, alt: "Massage couch prepared for a Swedish massage in Silverknowes", span: "col-span-6 md:col-span-4 aspect-square" },
+  { src: gRoom04, alt: "Massage bed viewed from the other side of the treatment room in Edinburgh", span: "col-span-12 md:col-span-4 aspect-[4/3] md:aspect-square" },
+  { src: gTowels, alt: "Rolled towels laid on the heated massage couch", span: "col-span-6 md:col-span-3 aspect-square" },
+  { src: gWindow, alt: "Serene window with soft curtains and candles in the massage room", span: "col-span-6 md:col-span-3 aspect-square" },
+  { src: gCandleEuc, alt: "Candle and eucalyptus detail in the Silverknowes massage studio", span: "col-span-6 md:col-span-3 aspect-square" },
+  { src: gSconce, alt: "Warm brass wall sconce lighting the treatment room", span: "col-span-6 md:col-span-3 aspect-square" },
+  { src: gDoor, alt: "Treatment room door with Camilla's framed massage therapy qualifications", span: "col-span-6 md:col-span-4 aspect-square" },
+  { src: gPlantCandle, alt: "Plant and candle styled on a shelf in the Edinburgh massage room", span: "col-span-6 md:col-span-4 aspect-square" },
+  { src: camilla, alt: "Camilla, qualified massage therapist in Silverknowes, Edinburgh", span: "col-span-12 md:col-span-4 aspect-[16/10] md:aspect-square" },
+];
+
 
 const BUSINESS = "The Restoration Room";
 const PHONE = "07570 161699";
@@ -53,7 +72,7 @@ const treatments = [
   },
   {
     name: "Bespoke Restorative",
-    image: gRoom03,
+    image: gRoom04,
     desc: "Our signature treatment, tailored entirely to your individual needs. Combining Swedish massage with deep tissue techniques, trigger point therapy, and assisted stretching, each session is designed to target areas of tension while promoting deep relaxation and restoring balance throughout the body.\n\nWhether you’re looking to relieve muscular aches, improve mobility, reduce stress, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
     prices: [
       { duration: "30 minutes", price: "£40", key: "bespoke-30" },
@@ -148,11 +167,110 @@ const useReveal = () => {
   }, []);
 };
 
+/* =============== LIGHTBOX =============== */
+const Lightbox = ({
+  items,
+  index,
+  onClose,
+  onIndex,
+}: {
+  items: { src: string; alt: string }[];
+  index: number | null;
+  onClose: () => void;
+  onIndex: (i: number) => void;
+}) => {
+  const touchX = useRef<number | null>(null);
+  const open = index !== null;
+
+  const go = useCallback(
+    (dir: number) => {
+      if (index === null) return;
+      onIndex((index + dir + items.length) % items.length);
+    },
+    [index, items.length, onIndex]
+  );
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") go(1);
+      if (e.key === "ArrowLeft") go(-1);
+    };
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [open, go, onClose]);
+
+  if (index === null) return null;
+  const item = items[index];
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={item.alt}
+      onClick={onClose}
+      onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
+      onTouchEnd={(e) => {
+        if (touchX.current === null) return;
+        const dx = e.changedTouches[0].clientX - touchX.current;
+        if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+        touchX.current = null;
+      }}
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/90 backdrop-blur-sm p-4 md:p-10 animate-in fade-in"
+    >
+      <button
+        type="button"
+        onClick={(e) => { e.stopPropagation(); onClose(); }}
+        aria-label="Close image viewer"
+        className="absolute top-4 right-4 md:top-6 md:right-6 w-12 h-12 rounded-full border border-cream/40 text-cream text-2xl leading-none flex items-center justify-center hover:bg-cream/15 transition-colors"
+      >
+        ×
+      </button>
+      <button
+        type="button"
+        onClick={(e) => { e.stopPropagation(); go(-1); }}
+        aria-label="Previous image"
+        className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-cream/40 text-cream flex items-center justify-center hover:bg-cream/15 transition-colors"
+      >
+        ‹
+      </button>
+      <button
+        type="button"
+        onClick={(e) => { e.stopPropagation(); go(1); }}
+        aria-label="Next image"
+        className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-cream/40 text-cream flex items-center justify-center hover:bg-cream/15 transition-colors"
+      >
+        ›
+      </button>
+
+      <figure className="max-w-[92vw] max-h-[86vh] flex flex-col items-center gap-4" onClick={(e) => e.stopPropagation()}>
+        <img
+          src={item.src}
+          alt={item.alt}
+          className="max-w-[92vw] max-h-[76vh] w-auto h-auto object-contain rounded-md shadow-2xl"
+        />
+        <figcaption className="text-cream/80 text-[13px] text-center max-w-xl">
+          {item.alt} <span className="text-cream/50">({index + 1}/{items.length})</span>
+        </figcaption>
+      </figure>
+    </div>
+  );
+};
+
+
 const Index = () => {
   useReveal();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeT, setActiveT] = useState(0);
+  const [lightbox, setLightbox] = useState<number | null>(null);
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -249,7 +367,7 @@ const Index = () => {
             <div className="lg:col-span-6 flex flex-col justify-center px-6 md:px-12 lg:px-16 py-14 lg:py-28 z-10">
               <div className="fade-up max-w-xl">
                 <div className="ornament mb-6">
-                  <span className="eyebrow">Edinburgh · Est. 2008</span>
+                  <span className="eyebrow">Silverknowes, Edinburgh · Est. 2008</span>
                 </div>
                 <h1 className="font-display text-ink text-[46px] sm:text-[58px] lg:text-[76px] leading-[1.02] tracking-tight">
                   Restore.<br/>
@@ -261,9 +379,14 @@ const Index = () => {
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-gold"><path d="M12 2c2 5 5 8 10 10-5 2-8 5-10 10-2-5-5-8-10-10 5-2 8-5 10-10z" fill="currentColor" opacity="0.6"/></svg>
                   <span className="h-px w-14 bg-gold" />
                 </div>
-                <p className="text-taupe text-lg lg:text-xl leading-relaxed max-w-md mb-10 font-light">
-                  Personalised massage therapy in a calm, cosy space designed for your wellbeing.
+                <p className="text-taupe text-lg lg:text-xl leading-relaxed max-w-md mb-4 font-light">
+                  Personalised massage therapy in a calm, cosy treatment room in Silverknowes, Edinburgh — Swedish and bespoke restorative massage tailored to you.
                 </p>
+                <p className="sr-only">
+                  The Restoration Room by Camilla is a massage therapist in Silverknowes, Edinburgh, offering Swedish massage, bespoke restorative massage, deep tissue and acupressure treatments for clients across Edinburgh and nearby areas including Davidsons Mains, Cramond, Blackhall and Barnton.
+                </p>
+                <div className="mb-8" aria-hidden />
+
                 <div className="flex flex-wrap gap-3">
                   <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">Book on Fresha</a>
                   <a href="#book" className="btn-secondary">Book on our site</a>
@@ -302,9 +425,10 @@ const Index = () => {
             <div className="reveal order-2 lg:order-1">
               <div className="ornament mb-6"><span className="eyebrow">Welcome</span></div>
               <h2 className="font-display text-4xl md:text-5xl lg:text-[54px] text-ink leading-[1.1] mb-8">
-                Welcome to<br/>
-                <span className="font-script text-rose">The Restoration Room.</span>
+                Your massage therapist in<br/>
+                <span className="font-script text-rose">Silverknowes, Edinburgh.</span>
               </h2>
+
               <div className="space-y-5 text-taupe text-[17px] leading-[1.8] max-w-xl">
                 <p>
                   My journey began with a passion for helping others improve their wellbeing through the power of therapeutic touch and holistic care.
@@ -355,10 +479,14 @@ const Index = () => {
             <div className="reveal text-center max-w-2xl mx-auto mb-16 md:mb-20">
               <div className="ornament mb-5"><span className="eyebrow">Treatments</span></div>
               <h2 className="font-display text-4xl md:text-5xl lg:text-[54px] text-ink leading-[1.1] mb-5">
-                Tailored therapies to help you<br/>
+                Massage treatments in Silverknowes to help you<br/>
                 <span className="font-script text-rose">relax, restore</span> and feel your best.
               </h2>
+              <p className="text-taupe text-[15px] leading-relaxed">
+                Swedish massage, bespoke restorative massage and shorter rituals — all delivered from a private treatment room in Silverknowes, Edinburgh, with free parking.
+              </p>
             </div>
+
 
             <div className="grid md:grid-cols-2 gap-6 lg:gap-10">
               {treatments.map((t, i) => (
@@ -460,48 +588,39 @@ const Index = () => {
         <section id="gallery" className="relative py-24 md:py-36 bg-nude/25">
           <div className="max-w-[1500px] mx-auto px-6 md:px-10">
             <div className="reveal max-w-2xl mb-14 md:mb-16">
-              <div className="ornament mb-5"><span className="eyebrow">The Room</span></div>
+              <div className="ornament mb-5"><span className="eyebrow">The Room · Silverknowes, Edinburgh</span></div>
               <h2 className="font-display text-4xl md:text-5xl lg:text-[54px] text-ink leading-[1.1]">
                 A space designed<br/>to <span className="font-script text-rose">slow you down.</span>
               </h2>
+              <p className="mt-5 text-taupe text-[15px] leading-relaxed">
+                Inside the private treatment room in Silverknowes, Edinburgh. Tap any photo to view it in full.
+              </p>
             </div>
 
+
             <div className="grid grid-cols-12 gap-3 md:gap-5">
-              {/* Row 1 — hero tile + tall shelves */}
-              <div className="reveal lux-image col-span-12 md:col-span-8 aspect-[16/10] md:aspect-[16/11]">
-                <img src={gRoom01} alt="Warmly lit main treatment room" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="reveal lux-image col-span-6 md:col-span-4 aspect-square md:aspect-auto">
-                <img src={gShelves} alt="Curated shelves with towels, water, and greenery" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              {/* Row 2 — three room angles */}
-              <div className="reveal lux-image col-span-6 md:col-span-4 aspect-square">
-                <img src={gRoom02} alt="Candlelit massage room with mirror" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="reveal lux-image col-span-6 md:col-span-4 aspect-square">
-                <img src={gRoom03} alt="Massage table prepared for treatment" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="reveal lux-image col-span-12 md:col-span-4 aspect-[4/3] md:aspect-square">
-                <img src={gTowels} alt="Rolled navy towels on the treatment couch" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              {/* Row 3 — window + three details */}
-              <div className="reveal lux-image col-span-6 md:col-span-3 aspect-square">
-                <img src={gWindow} alt="Serene window with curtains and candles" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="reveal lux-image col-span-6 md:col-span-3 aspect-square">
-                <img src={gCandleEuc} alt="Candle and eucalyptus detail on shelf" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="reveal lux-image col-span-6 md:col-span-3 aspect-square">
-                <img src={gSconce} alt="Warm brass wall sconce" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="reveal lux-image col-span-6 md:col-span-3 aspect-square">
-                <img src={gDoor} alt="Entrance door and framed qualifications" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="reveal lux-image col-span-12 md:col-span-4 aspect-[16/10] md:aspect-[4/3]">
-                <img src={gPlantCandle} alt="Plant and candle styled on shelf" className="w-full h-full object-cover" loading="lazy" />
-              </div>
+              {GALLERY.map((g, i) => (
+                <button
+                  type="button"
+                  key={g.src}
+                  onClick={() => setLightbox(i)}
+                  aria-label={`Open larger image: ${g.alt}`}
+                  className={`reveal lux-image group relative ${g.span} focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream`}
+                >
+                  <img src={g.src} alt={g.alt} className="w-full h-full object-cover" loading="lazy" />
+                  <span className="absolute inset-0 bg-ink/0 group-hover:bg-ink/15 transition-colors duration-500" aria-hidden />
+                </button>
+              ))}
             </div>
+
+            <Lightbox
+              items={GALLERY}
+              index={lightbox}
+              onClose={() => setLightbox(null)}
+              onIndex={(i) => setLightbox(i)}
+            />
           </div>
+
         </section>
 
         {/* =============== TESTIMONIALS =============== */}
