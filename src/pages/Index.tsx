@@ -172,6 +172,8 @@ const Index = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeT, setActiveT] = useState(0);
+  const [lightbox, setLightbox] = useState<number | null>(null);
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
