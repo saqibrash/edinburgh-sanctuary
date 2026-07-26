@@ -8,6 +8,7 @@ const gRoom01 = "/assets/gallery/room-01.jpeg";
 const gRoom02 = "/assets/gallery/room-02.jpeg";
 const gRoom03 = "/assets/gallery/room-03.jpeg";
 const gRoom04 = "/assets/gallery/room-04.jpeg";
+const gBespokeRoom = "/assets/gallery/bespoke-restorative-room.jpeg";
 const gShelves = "/assets/gallery/shelves-01.jpeg";
 const gWindow = "/assets/gallery/window.jpeg";
 const gTowels = "/assets/gallery/towels.jpeg";
