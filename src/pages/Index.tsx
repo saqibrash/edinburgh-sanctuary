@@ -481,11 +481,15 @@ const Index = () => {
         <section id="gallery" className="relative py-24 md:py-36 bg-nude/25">
           <div className="max-w-[1500px] mx-auto px-6 md:px-10">
             <div className="reveal max-w-2xl mb-14 md:mb-16">
-              <div className="ornament mb-5"><span className="eyebrow">The Room</span></div>
+              <div className="ornament mb-5"><span className="eyebrow">The Room · Silverknowes, Edinburgh</span></div>
               <h2 className="font-display text-4xl md:text-5xl lg:text-[54px] text-ink leading-[1.1]">
                 A space designed<br/>to <span className="font-script text-rose">slow you down.</span>
               </h2>
+              <p className="mt-5 text-taupe text-[15px] leading-relaxed">
+                Inside the private treatment room in Silverknowes, Edinburgh. Tap any photo to view it in full.
+              </p>
             </div>
+
 
             <div className="grid grid-cols-12 gap-3 md:gap-5">
               {GALLERY.map((g, i) => (
