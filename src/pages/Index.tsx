@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import logoFull from "@/assets/brand-logo.png";
 
 const camilla = "/assets/camilla.jpeg";
-// 10 client photos (all used across treatments + gallery)
+// Client photos (all used across treatments + gallery)
 const gRoom01 = "/assets/gallery/room-01.jpeg";
 const gRoom02 = "/assets/gallery/room-02.jpeg";
 const gRoom03 = "/assets/gallery/room-03.jpeg";
+const gRoom04 = "/assets/gallery/room-04.jpeg";
 const gShelves = "/assets/gallery/shelves-01.jpeg";
 const gWindow = "/assets/gallery/window.jpeg";
 const gTowels = "/assets/gallery/towels.jpeg";
@@ -14,6 +15,24 @@ const gDoor = "/assets/gallery/door.jpeg";
 const gCandleEuc = "/assets/gallery/candle-eucalyptus.jpeg";
 const gSconce = "/assets/gallery/sconce.jpeg";
 const gPlantCandle = "/assets/gallery/plant-candle.jpeg";
+
+// Gallery tiles — thumbnails are cropped with object-cover, the lightbox
+// shows the complete uncropped image with object-contain.
+const GALLERY: { src: string; alt: string; span: string }[] = [
+  { src: gRoom01, alt: "Warmly lit massage treatment room in Silverknowes, Edinburgh", span: "col-span-12 md:col-span-8 aspect-[16/10] md:aspect-[16/11]" },
+  { src: gShelves, alt: "Shelves with fresh towels, water and greenery in the Silverknowes treatment room", span: "col-span-6 md:col-span-4 aspect-square md:aspect-auto" },
+  { src: gRoom02, alt: "Candlelit massage room with round mirror at The Restoration Room, Edinburgh", span: "col-span-6 md:col-span-4 aspect-square" },
+  { src: gRoom03, alt: "Massage couch prepared for a Swedish massage in Silverknowes", span: "col-span-6 md:col-span-4 aspect-square" },
+  { src: gRoom04, alt: "Massage bed viewed from the other side of the treatment room in Edinburgh", span: "col-span-12 md:col-span-4 aspect-[4/3] md:aspect-square" },
+  { src: gTowels, alt: "Rolled towels laid on the heated massage couch", span: "col-span-6 md:col-span-3 aspect-square" },
+  { src: gWindow, alt: "Serene window with soft curtains and candles in the massage room", span: "col-span-6 md:col-span-3 aspect-square" },
+  { src: gCandleEuc, alt: "Candle and eucalyptus detail in the Silverknowes massage studio", span: "col-span-6 md:col-span-3 aspect-square" },
+  { src: gSconce, alt: "Warm brass wall sconce lighting the treatment room", span: "col-span-6 md:col-span-3 aspect-square" },
+  { src: gDoor, alt: "Treatment room door with Camilla's framed massage therapy qualifications", span: "col-span-6 md:col-span-4 aspect-square" },
+  { src: gPlantCandle, alt: "Plant and candle styled on a shelf in the Edinburgh massage room", span: "col-span-6 md:col-span-4 aspect-square" },
+  { src: camilla, alt: "Camilla, qualified massage therapist in Silverknowes, Edinburgh", span: "col-span-12 md:col-span-4 aspect-[16/10] md:aspect-square" },
+];
+
 
 const BUSINESS = "The Restoration Room";
 const PHONE = "07570 161699";
