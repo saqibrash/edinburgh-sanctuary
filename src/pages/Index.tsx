@@ -689,6 +689,18 @@ const Index = () => {
                 </div>
               ))}
             </div>
+
+            <div className="reveal mt-12 md:mt-16 text-center">
+              <a
+                href={FRESHA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-taupe hover:text-ink transition-colors border-b border-gold/40 hover:border-gold pb-1"
+              >
+                View more reviews on Fresha
+                <span aria-hidden>↗</span>
+              </a>
+            </div>
           </div>
         </section>
 
