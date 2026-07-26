@@ -92,7 +92,7 @@ const treatments = [
   },
   {
     name: "Rebalancing Scalp Massage",
-    image: gRoom02,
+    image: gCandleEuc,
     desc: "A deeply relaxing treatment designed to ease tension, calm the mind, and promote a sense of wellbeing. Gentle massage techniques are used across the scalp, temples, neck, and upper shoulders to help relieve stress, reduce headaches caused by muscle tension, and encourage deep relaxation.\n\nPerfect as a standalone treatment or as an addition to any massage for a truly restorative experience.",
     prices: [
       { duration: "25 minutes", price: "£20", key: "scalp-25" },
