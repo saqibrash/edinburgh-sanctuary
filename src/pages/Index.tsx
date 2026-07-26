@@ -379,9 +379,14 @@ const Index = () => {
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-gold"><path d="M12 2c2 5 5 8 10 10-5 2-8 5-10 10-2-5-5-8-10-10 5-2 8-5 10-10z" fill="currentColor" opacity="0.6"/></svg>
                   <span className="h-px w-14 bg-gold" />
                 </div>
-                <p className="text-taupe text-lg lg:text-xl leading-relaxed max-w-md mb-10 font-light">
-                  Personalised massage therapy in a calm, cosy space designed for your wellbeing.
+                <p className="text-taupe text-lg lg:text-xl leading-relaxed max-w-md mb-4 font-light">
+                  Personalised massage therapy in a calm, cosy treatment room in Silverknowes, Edinburgh — Swedish and bespoke restorative massage tailored to you.
                 </p>
+                <p className="sr-only">
+                  The Restoration Room by Camilla is a massage therapist in Silverknowes, Edinburgh, offering Swedish massage, bespoke restorative massage, deep tissue and acupressure treatments for clients across Edinburgh and nearby areas including Davidsons Mains, Cramond, Blackhall and Barnton.
+                </p>
+                <div className="mb-8" aria-hidden />
+
                 <div className="flex flex-wrap gap-3">
                   <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">Book on Fresha</a>
                   <a href="#book" className="btn-secondary">Book on our site</a>
