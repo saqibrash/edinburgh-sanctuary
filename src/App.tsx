@@ -19,8 +19,8 @@ import TermsAndConditions from "./pages/TermsAndConditions.tsx";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
+  <QueryClientProvider client={queryClient}>
+
       <TooltipProvider>
         <Toaster />
         <Sonner />
@@ -40,8 +40,8 @@ const App = () => (
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
-    </QueryClientProvider>
-  </HelmetProvider>
+  </QueryClientProvider>
+
 );
 
 export default App;
