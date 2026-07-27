@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { BookingSection, OtherTreatments, PageHero } from "@/components/sections";
-import { FRESHA_URL, SITE_URL, Treatment } from "@/data/site";
+import { FRESHA_URL, SITE_URL, Treatment, treatments } from "@/data/site";
 
 const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
   const jsonLd = {

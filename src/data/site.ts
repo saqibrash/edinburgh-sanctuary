@@ -58,6 +58,7 @@ export const nav = [
 export interface Treatment {
   slug: string;
   navLabel: string;
+  linkText: string;
   name: string;
   image: string;
   imageAlt: string;
@@ -74,6 +75,7 @@ export interface Treatment {
 export const treatments: Treatment[] = [
   {
     slug: "/swedish-massage",
+    linkText: "Swedish massage",
     navLabel: "Swedish Massage",
     name: "Swedish Massage",
     image: gRoom01,
@@ -107,6 +109,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "/bespoke-massage",
+    linkText: "bespoke restorative massage",
     navLabel: "Bespoke Massage",
     name: "Bespoke Restorative",
     image: gBespokeRoom,
@@ -140,6 +143,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "/foot-ritual",
+    linkText: "restorative foot ritual",
     navLabel: "Foot Ritual",
     name: "Restorative Foot Ritual",
     image: gTowels,
@@ -168,6 +172,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "/indian-head-massage",
+    linkText: "Indian head style scalp massage",
     navLabel: "Indian Head Massage",
     name: "Rebalancing Scalp Massage",
     image: gCandleEuc,
