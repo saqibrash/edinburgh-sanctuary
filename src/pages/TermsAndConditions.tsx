@@ -1,10 +1,17 @@
 import LegalLayout from "@/components/LegalLayout";
+import Seo from "@/components/Seo";
 
 const EMAIL = "therestorationroom85@gmail.com";
 const PHONE = "07570 161699";
 
 const TermsAndConditions = () => (
   <LegalLayout title="Terms &amp; Conditions" updated="July 2026">
+    <Seo
+      title="Terms & Conditions | The Restoration Room, Edinburgh"
+      description="Booking terms for The Restoration Room by Camilla in Silverknowes, Edinburgh — Fresha bookings, 50% deposit, 48-hour cancellation policy and health information."
+      path="/terms-and-conditions"
+    />
+
     <p>
       These terms apply to treatments booked with The Restoration Room by Camilla, Silverknowes, EH4,
       Edinburgh. Please read them before booking.
