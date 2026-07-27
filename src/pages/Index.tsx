@@ -854,9 +854,9 @@ const Index = () => {
           <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-taupe">
             <p>© {new Date().getFullYear()} {BUSINESS} by Camilla. All rights reserved.</p>
             <div className="flex items-center gap-6">
-              <a href="#" className="hover:text-rose transition-colors">Privacy Policy</a>
+              <Link to="/privacy-policy" className="hover:text-rose transition-colors">Privacy Policy</Link>
               <span className="text-gold/50">|</span>
-              <a href="#" className="hover:text-rose transition-colors">Terms & Conditions</a>
+              <Link to="/terms-and-conditions" className="hover:text-rose transition-colors">Terms &amp; Conditions</Link>
             </div>
           </div>
         </div>
