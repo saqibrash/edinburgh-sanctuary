@@ -1,10 +1,17 @@
 import LegalLayout from "@/components/LegalLayout";
+import Seo from "@/components/Seo";
 
 const EMAIL = "therestorationroom85@gmail.com";
 const PHONE = "07570 161699";
 
 const PrivacyPolicy = () => (
   <LegalLayout title="Privacy Policy" updated="July 2026">
+    <Seo
+      title="Privacy Policy | The Restoration Room, Edinburgh"
+      description="How The Restoration Room by Camilla in Silverknowes, Edinburgh handles your information, including bookings made through Fresha and basic website data."
+      path="/privacy-policy"
+    />
+
     <p>
       This privacy policy explains how The Restoration Room by Camilla handles information in
       connection with this website. We keep things simple: this site is an information and
