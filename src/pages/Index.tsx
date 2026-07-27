@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 import logoFull from "@/assets/brand-logo.png";
 
@@ -346,7 +347,7 @@ const Index = () => {
                 </a>
               ))}
               <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="btn-primary w-full mt-6">Book on Fresha</a>
-              <a href="#book" onClick={() => setMenuOpen(false)} className="btn-secondary w-full mt-3">Book on our site</a>
+              <a href="#book" onClick={() => setMenuOpen(false)} className="btn-secondary w-full mt-3">Booking Information</a>
               <a href={PHONE_HREF} className="mt-4 text-center text-rose tracking-wide">✆ {PHONE}</a>
             </div>
           </div>
@@ -387,7 +388,7 @@ const Index = () => {
 
                 <div className="flex flex-wrap gap-3">
                   <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">Book on Fresha</a>
-                  <a href="#book" className="btn-secondary">Book on our site</a>
+                  <a href="#book" className="btn-secondary">Booking Information</a>
                   <a href="#treatments" className="text-[11px] tracking-[0.28em] uppercase text-rose hover:text-rose-deep transition-colors self-center">Discover Treatments →</a>
                 </div>
                 <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.24em] text-taupe">
@@ -407,7 +408,7 @@ const Index = () => {
                     alt="The Restoration Room by Camilla — brand mark with candle, pampas grass and stacked massage stones"
                     className="block w-full h-auto object-contain"
                     loading="eager"
-                    fetchPriority="high"
+                    {...{ fetchpriority: "high" }}
                   />
                 </div>
                 {/* corner gold dot */}
@@ -854,9 +855,9 @@ const Index = () => {
           <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-taupe">
             <p>© {new Date().getFullYear()} {BUSINESS} by Camilla. All rights reserved.</p>
             <div className="flex items-center gap-6">
-              <a href="#" className="hover:text-rose transition-colors">Privacy Policy</a>
+              <Link to="/privacy-policy" className="hover:text-rose transition-colors">Privacy Policy</Link>
               <span className="text-gold/50">|</span>
-              <a href="#" className="hover:text-rose transition-colors">Terms & Conditions</a>
+              <Link to="/terms-and-conditions" className="hover:text-rose transition-colors">Terms &amp; Conditions</Link>
             </div>
           </div>
         </div>
