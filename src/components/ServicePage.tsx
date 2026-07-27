@@ -63,13 +63,21 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
             <div className="mt-10 text-taupe leading-relaxed">
               <p>
                 Not quite what you are looking for? You can also read about our{" "}
-                <Link to="/swedish-massage" className="text-rose underline underline-offset-4">Swedish massage</Link>,{" "}
-                <Link to="/bespoke-massage" className="text-rose underline underline-offset-4">bespoke restorative massage</Link>,{" "}
-                <Link to="/foot-ritual" className="text-rose underline underline-offset-4">restorative foot ritual</Link> and{" "}
-                <Link to="/indian-head-massage" className="text-rose underline underline-offset-4">Indian head style scalp massage</Link>, or{" "}
+                {treatments
+                  .filter((o) => o.slug !== t.slug)
+                  .map((o, i, arr) => (
+                    <span key={o.slug}>
+                      <Link to={o.slug} className="text-rose underline underline-offset-4">
+                        {o.linkText}
+                      </Link>
+                      {i < arr.length - 2 ? ", " : i === arr.length - 2 ? " or " : ""}
+                    </span>
+                  ))}
+                , or{" "}
                 <Link to="/contact" className="text-rose underline underline-offset-4">get in touch</Link> and Camilla will help you choose.
               </p>
             </div>
+
           </div>
 
           <aside className="reveal lg:col-span-5 lg:sticky lg:top-32 space-y-6">
