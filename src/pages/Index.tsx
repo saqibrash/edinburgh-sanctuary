@@ -408,7 +408,7 @@ const Index = () => {
                     alt="The Restoration Room by Camilla — brand mark with candle, pampas grass and stacked massage stones"
                     className="block w-full h-auto object-contain"
                     loading="eager"
-                    fetchPriority="high"
+                    {...{ fetchpriority: "high" }}
                   />
                 </div>
                 {/* corner gold dot */}
