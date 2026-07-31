@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { BookingSection, OtherTreatments, PageHero } from "@/components/sections";
-import { FRESHA_URL, SITE_URL, Treatment, treatments } from "@/data/site";
+import { SITE_URL, Treatment, treatments } from "@/data/site";
 
 const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
   const jsonLd = {
@@ -21,7 +21,6 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
       name: `${t.name} — ${p.duration}`,
       price: p.price.replace("£", ""),
       priceCurrency: "GBP",
-      url: FRESHA_URL,
     })),
   };
 
@@ -95,11 +94,8 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
                   </li>
                 ))}
               </ul>
-              <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full !py-4 text-center block mt-7">
-                Book on Fresha →
-              </a>
-              <p className="text-[11px] text-taupe text-center mt-3">
-                Opens Fresha in a new tab. A 50% deposit secures your slot; balance paid on the day.
+              <p className="mt-6 rounded-md border border-gold/40 bg-blush/30 px-4 py-3 text-[12px] leading-relaxed text-ink/80">
+                Booking is unavailable — this website is on hold by SR Innovations pending client payment.
               </p>
               <Link to="/contact" className="btn-secondary w-full !py-3.5 text-center block mt-3">Booking Information</Link>
             </div>
