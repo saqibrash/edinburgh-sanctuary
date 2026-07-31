@@ -342,13 +342,13 @@ export const BookingSection = ({ heading = "Ready to take", script = "time for y
 
           <div className="relative flex items-center gap-3 mt-8 mb-6">
             <span className="h-px flex-1 bg-blush" />
-            <span className="text-[10px] tracking-[0.28em] uppercase text-taupe">Prefer to speak with Camilla?</span>
+            <span className="text-[10px] tracking-[0.28em] uppercase text-taupe">Booking enquiries</span>
             <span className="h-px flex-1 bg-blush" />
           </div>
 
           <div className="grid sm:grid-cols-2 gap-3">
             <a href={PHONE_HREF} className="btn-secondary w-full !py-3.5 text-center block">Call {PHONE}</a>
-            <a href={`mailto:${EMAIL}`} className="btn-secondary w-full !py-3.5 text-center block">Email Camilla</a>
+            <a href={`mailto:${EMAIL}`} className="btn-secondary w-full !py-3.5 text-center block">Email us</a>
           </div>
           <p className="text-[11px] text-taupe/80 text-center mt-4">
             Weekend appointments (Saturday & Sunday) are available on request — please call or email to arrange.

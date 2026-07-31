@@ -37,7 +37,7 @@ const SiteHeader = () => {
           <div className="leading-tight">
             <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-gold">The</div>
             <div className="font-display text-[18px] sm:text-[22px] md:text-[26px] text-ink tracking-tight whitespace-nowrap">Restoration Room</div>
-            <div className="font-script text-[13px] sm:text-[14px] text-rose -mt-0.5">by Camilla</div>
+            <div className="font-script text-[13px] sm:text-[14px] text-rose -mt-0.5"></div>
           </div>
         </Link>
 

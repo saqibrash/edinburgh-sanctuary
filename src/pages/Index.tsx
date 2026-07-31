@@ -21,7 +21,7 @@ const Index = () => (
   <>
     <Seo
       title="Massage in Silverknowes, Edinburgh | The Restoration Room"
-      description="Massage therapist in Silverknowes, Edinburgh. Swedish and bespoke restorative massage with Camilla in a calm, private treatment room. Free parking. Book online."
+      description="Massage therapist in Silverknowes, Edinburgh. Swedish and bespoke restorative massage in a calm, private treatment room. Free parking. Book online."
       path="/"
       jsonLd={jsonLd}
     />
@@ -51,7 +51,7 @@ const Index = () => (
               Personalised massage therapy in a calm, cosy treatment room in Silverknowes, Edinburgh — Swedish and bespoke restorative massage tailored to you.
             </p>
             <p className="sr-only">
-              The Restoration Room by Camilla is a massage therapist in Silverknowes, Edinburgh, offering Swedish massage, bespoke restorative massage, deep tissue and acupressure treatments for clients across Edinburgh and nearby areas including Davidsons Mains, Cramond, Blackhall and Barnton.
+              The Restoration Room is a massage therapist in Silverknowes, Edinburgh, offering Swedish massage, bespoke restorative massage, deep tissue and acupressure treatments for clients across Edinburgh and nearby areas including Davidsons Mains, Cramond, Blackhall and Barnton.
             </p>
             <div className="mb-8" aria-hidden />
 
@@ -73,7 +73,7 @@ const Index = () => (
             <div className="lux-image relative rounded-lg overflow-hidden border border-blush shadow-[0_30px_80px_-40px_rgba(120,80,60,0.5)] bg-blush/20">
               <img
                 src="/assets/hero-brand.jpeg"
-                alt="The Restoration Room by Camilla — brand mark with candle, pampas grass and stacked massage stones"
+                alt="The Restoration Room — brand mark with candle, pampas grass and stacked massage stones"
                 className="block w-full h-auto object-contain"
                 loading="eager"
                 {...{ fetchpriority: "high" }}
@@ -106,7 +106,7 @@ const Index = () => (
             </p>
           </div>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Link to="/about" className="btn-primary">More about Camilla</Link>
+            <Link to="/about" className="btn-primary">More about our therapist</Link>
             <a href={PHONE_HREF} className="btn-secondary">{PHONE}</a>
           </div>
         </div>
@@ -115,10 +115,10 @@ const Index = () => (
           <div className="relative w-full max-w-[520px] mx-auto aspect-[4/5]">
             <div className="absolute inset-0 border border-gold/50 rounded-md translate-x-4 translate-y-4" aria-hidden />
             <div className="lux-image absolute inset-0">
-              <img src={camilla} alt="Camilla, therapist and founder of The Restoration Room" className="w-full h-full object-cover" loading="lazy" />
+              <img src={camilla} alt="The Restoration Room treatment room" className="w-full h-full object-cover" loading="lazy" />
             </div>
             <div className="absolute -bottom-6 -right-4 bg-cream border border-blush rounded-md p-4 shadow-lg">
-              <div className="font-script text-rose text-2xl leading-none">Camilla</div>
+              <div className="font-script text-rose text-2xl leading-none">our therapist</div>
               <div className="text-[10px] tracking-[0.32em] uppercase text-taupe mt-1">Qualified since 2008</div>
             </div>
           </div>

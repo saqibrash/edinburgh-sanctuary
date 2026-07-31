@@ -15,7 +15,7 @@ const SiteFooter = () => (
   <footer className="relative bg-cream text-ink border-t border-blush">
     <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-16 pb-10 grid gap-12 md:grid-cols-12">
       <div className="md:col-span-5">
-        <img src={logoFull} alt={`${BUSINESS} by Camilla`} className="h-32 md:h-40 w-auto mb-4 -ml-3" loading="lazy" />
+        <img src={logoFull} alt={`${BUSINESS} `} className="h-32 md:h-40 w-auto mb-4 -ml-3" loading="lazy" />
         <p className="text-sm leading-relaxed text-taupe max-w-sm">
           Personalised massage therapy in a calm, cosy space designed for your wellbeing. Based in Silverknowes, Edinburgh.
         </p>
@@ -59,7 +59,7 @@ const SiteFooter = () => (
 
     <div className="border-t border-blush">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-taupe">
-        <p>© {new Date().getFullYear()} {BUSINESS} by Camilla. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} {BUSINESS} . All rights reserved.</p>
         <div className="flex items-center gap-6">
           <Link to="/privacy-policy" className="hover:text-rose transition-colors">Privacy Policy</Link>
           <span className="text-gold/50">|</span>

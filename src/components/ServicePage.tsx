@@ -74,7 +74,7 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
                     </span>
                   ))}
                 , or{" "}
-                <Link to="/contact" className="text-rose underline underline-offset-4">get in touch</Link> and Camilla will help you choose.
+                <Link to="/contact" className="text-rose underline underline-offset-4">get in touch</Link> and we will help you choose.
               </p>
             </div>
 

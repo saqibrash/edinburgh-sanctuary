@@ -15,7 +15,7 @@ const Contact = () => (
   <>
     <Seo
       title="Contact & Booking | Massage in Silverknowes, Edinburgh"
-      description={`Contact The Restoration Room by Camilla in Silverknowes, Edinburgh. Call ${PHONE}, email ${EMAIL} or book your massage online with Fresha. Free parking.`}
+      description={`Contact The Restoration Room in Silverknowes, Edinburgh. Call ${PHONE}, email ${EMAIL} or book your massage online with Fresha. Free parking.`}
       path="/contact"
       jsonLd={jsonLd}
     />
@@ -24,7 +24,7 @@ const Contact = () => (
       eyebrow="Contact & Booking"
       title="Get in"
       script="touch."
-      intro={`Booking, questions or advice on choosing a treatment — Camilla is happy to help. The treatment room is in ${ADDRESS}, with free parking outside.`}
+      intro={`Booking, questions or advice on choosing a treatment — we are happy to help. The treatment room is in ${ADDRESS}, with free parking outside.`}
     />
 
     <BookingSection heading="Ready to take" script="time for you?" />
