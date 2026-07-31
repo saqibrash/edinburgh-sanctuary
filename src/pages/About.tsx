@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { BookingSection, GallerySection, PageHero, PillarsSection } from "@/components/sections";
-import { PHONE, PHONE_HREF, SITE_URL, camilla, gDoor } from "@/data/site";
+import { SITE_URL, camilla, gDoor } from "@/data/site";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   url: `${SITE_URL}/about`,
-  name: "About Camilla — Massage Therapist in Silverknowes, Edinburgh",
+  name: "About — Massage Therapist in Silverknowes, Edinburgh",
   about: { "@id": `${SITE_URL}/#business` },
 };
 
 const About = () => (
   <>
     <Seo
-      title="About Camilla | Massage Therapist in Silverknowes, Edinburgh"
-      description="Meet Camilla, a massage therapist qualified since 2008 working from a private treatment room in Silverknowes, Edinburgh. Holistic, personalised care and free parking."
+      title="About | Massage Therapist in Silverknowes, Edinburgh"
+      description="Meet a massage therapist qualified since 2008 working from a private treatment room in Silverknowes, Edinburgh. Holistic, personalised care and free parking."
       path="/about"
       jsonLd={jsonLd}
     />
@@ -23,7 +23,7 @@ const About = () => (
     <PageHero
       eyebrow="About · Silverknowes, Edinburgh"
       title="Meet"
-      script="Camilla."
+      script="our therapist."
       intro="A qualified massage therapist since 2008, offering holistic, personalised treatments from a calm private room in Silverknowes, EH4."
     />
 
@@ -63,16 +63,15 @@ const About = () => (
 
           <div className="mt-10 flex flex-wrap gap-3">
             <Link to="/contact" className="btn-primary">Booking Information</Link>
-            <a href={PHONE_HREF} className="btn-secondary">{PHONE}</a>
           </div>
         </div>
 
         <div className="reveal space-y-6 lg:sticky lg:top-32">
           <div className="lux-image rounded-lg overflow-hidden border border-blush">
-            <img src={camilla} alt="Camilla, qualified massage therapist in Silverknowes, Edinburgh" className="w-full h-auto object-cover" loading="lazy" />
+            <img src={camilla} alt="Treatment room in Silverknowes, Edinburgh" className="w-full h-auto object-cover" loading="lazy" />
           </div>
           <div className="lux-image rounded-lg overflow-hidden border border-blush">
-            <img src={gDoor} alt="Camilla's framed massage therapy qualifications in the treatment room" className="w-full h-auto object-cover" loading="lazy" />
+            <img src={gDoor} alt="Framed massage therapy qualifications in the treatment room" className="w-full h-auto object-cover" loading="lazy" />
           </div>
           <div className="bg-blush/30 border border-blush rounded-lg p-6">
             <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-3">Qualifications & Training</div>
@@ -88,7 +87,7 @@ const About = () => (
 
     <PillarsSection />
     <GallerySection />
-    <BookingSection heading="Come and meet" script="Camilla." />
+    <BookingSection heading="About" script="our therapist." />
   </>
 );
 
