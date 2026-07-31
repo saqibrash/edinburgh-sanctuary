@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { BookingSection, GallerySection, PageHero, PillarsSection } from "@/components/sections";
-import { PHONE, PHONE_HREF, SITE_URL, camilla, gDoor } from "@/data/site";
+import { SITE_URL, camilla, gDoor } from "@/data/site";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -63,7 +63,6 @@ const About = () => (
 
           <div className="mt-10 flex flex-wrap gap-3">
             <Link to="/contact" className="btn-primary">Booking Information</Link>
-            <a href={PHONE_HREF} className="btn-secondary">{PHONE}</a>
           </div>
         </div>
 

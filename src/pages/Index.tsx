@@ -7,7 +7,7 @@ import {
   PillarsSection,
   TestimonialsSection,
 } from "@/components/sections";
-import { FRESHA_URL, PHONE, PHONE_HREF, SITE_URL, camilla, treatments } from "@/data/site";
+import { SITE_URL, camilla, treatments } from "@/data/site";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -56,7 +56,7 @@ const Index = () => (
             <div className="mb-8" aria-hidden />
 
             <div className="flex flex-wrap gap-3">
-              <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">Book on Fresha</a>
+              <span className="btn-primary opacity-60 cursor-not-allowed">Booking Unavailable</span>
               <Link to="/contact" className="btn-secondary">Booking Information</Link>
               <a href="#treatments" className="text-[11px] tracking-[0.28em] uppercase text-rose hover:text-rose-deep transition-colors self-center">Discover Treatments →</a>
             </div>
@@ -171,9 +171,6 @@ const Index = () => (
                   <Link to={t.slug} className="inline-flex items-center gap-2 text-[11px] tracking-[0.28em] uppercase text-rose hover:text-rose-deep transition-colors">
                     Read more <span aria-hidden>→</span>
                   </Link>
-                  <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[11px] tracking-[0.28em] uppercase text-taupe hover:text-ink transition-colors">
-                    Book on Fresha ↗
-                  </a>
                 </div>
               </div>
             </div>

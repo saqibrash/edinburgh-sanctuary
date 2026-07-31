@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { BookingSection, CancellationSection, PageHero } from "@/components/sections";
-import { ADDRESS, EMAIL, PHONE, SITE_URL } from "@/data/site";
+import { SITE_URL } from "@/data/site";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -15,7 +15,7 @@ const Contact = () => (
   <>
     <Seo
       title="Contact & Booking | Massage in Silverknowes, Edinburgh"
-      description={`Contact The Restoration Room in Silverknowes, Edinburgh. Call ${PHONE}, email ${EMAIL} or book your massage online with Fresha. Free parking.`}
+      description="The Restoration Room website is currently on hold by SR Innovations pending client payment. Contact details and booking are unavailable."
       path="/contact"
       jsonLd={jsonLd}
     />
@@ -24,7 +24,7 @@ const Contact = () => (
       eyebrow="Contact & Booking"
       title="Get in"
       script="touch."
-      intro={`Booking, questions or advice on choosing a treatment — we are happy to help. The treatment room is in ${ADDRESS}, with free parking outside.`}
+      intro="Contact details and booking for this business are currently unavailable. This website has been placed on hold by SR Innovations because the client has not paid the agreed amount, and the matter is under dispute."
     />
 
     <BookingSection heading="Ready to take" script="time for you?" />
@@ -36,7 +36,7 @@ const Contact = () => (
           Massage in <span className="font-script text-rose">Silverknowes, EH4</span>
         </h2>
         <p className="text-taupe text-[17px] leading-[1.8] max-w-2xl mx-auto">
-          The Restoration Room is a private treatment room in Silverknowes, north-west Edinburgh — a short drive from Davidsons Mains, Cramond, Blackhall, Barnton, Muirhouse and the city centre. Full address details are sent with your Fresha booking confirmation.
+          The Restoration Room is a private treatment room in Silverknowes, north-west Edinburgh — a short drive from Davidsons Mains, Cramond, Blackhall, Barnton, Muirhouse and the city centre. Address and contact information have been withheld while the website is on hold.
         </p>
         <p className="text-taupe text-[17px] leading-[1.8] max-w-2xl mx-auto mt-4">
           Not sure which treatment to choose? Read more about our{" "}
