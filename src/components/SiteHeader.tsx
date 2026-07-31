@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logoFull from "@/assets/brand-logo.png";
-import { BUSINESS, FRESHA_URL, PHONE, PHONE_HREF, nav } from "@/data/site";
+import { BUSINESS, nav } from "@/data/site";
 
 const SiteHeader = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -18,7 +18,7 @@ const SiteHeader = () => {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+      className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled || menuOpen
           ? "bg-cream/95 backdrop-blur-xl border-b border-gold/25 shadow-[0_6px_30px_-16px_rgba(120,80,60,0.25)] py-2"
           : "py-3 bg-cream/70 backdrop-blur-md border-b border-transparent"
@@ -37,7 +37,6 @@ const SiteHeader = () => {
           <div className="leading-tight">
             <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-gold">The</div>
             <div className="font-display text-[18px] sm:text-[22px] md:text-[26px] text-ink tracking-tight whitespace-nowrap">Restoration Room</div>
-            <div className="font-script text-[13px] sm:text-[14px] text-rose -mt-0.5"></div>
           </div>
         </Link>
 
@@ -62,11 +61,8 @@ const SiteHeader = () => {
           ))}
         </nav>
 
-        <div className="hidden xl:flex items-center gap-4">
-          <a href={PHONE_HREF} className="text-[13px] text-taupe hover:text-rose flex items-center gap-2 transition-colors">
-            <span aria-hidden>✆</span>{PHONE}
-          </a>
-          <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary !py-3 !px-5 !text-[11px]">Book on Fresha</a>
+        <div className="hidden xl:block text-[10px] uppercase tracking-[0.24em] text-taupe">
+          Bookings unavailable
         </div>
 
         <button
@@ -95,9 +91,9 @@ const SiteHeader = () => {
                 <span className="text-rose text-sm" aria-hidden>→</span>
               </Link>
             ))}
-            <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="btn-primary w-full mt-6">Book on Fresha</a>
-            <Link to="/contact" onClick={() => setMenuOpen(false)} className="btn-secondary w-full mt-3 text-center">Booking Information</Link>
-            <a href={PHONE_HREF} className="mt-4 text-center text-rose tracking-wide">✆ {PHONE}</a>
+            <p className="mt-6 text-center text-[11px] uppercase tracking-[0.24em] text-taupe">
+              Bookings unavailable
+            </p>
           </div>
         </div>
       )}
