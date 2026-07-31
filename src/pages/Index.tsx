@@ -107,7 +107,6 @@ const Index = () => (
           </div>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link to="/about" className="btn-primary">More about our therapist</Link>
-            <a href={PHONE_HREF} className="btn-secondary">{PHONE}</a>
           </div>
         </div>
 
