@@ -1,10 +1,9 @@
 export const BUSINESS = "The Restoration Room";
-export const PHONE = "07570 161699";
-export const PHONE_HREF = "tel:+447570161699";
-export const EMAIL = "therestorationroom85@gmail.com";
-export const ADDRESS = "Silverknowes, EH4, Edinburgh";
-export const FRESHA_URL =
-  "https://www.fresha.com/book-now/the-restoration-room-p5d4vn56/all-offer?share=true&pId=3033869";
+export const PHONE = "";
+export const PHONE_HREF = "#";
+export const EMAIL = "";
+export const ADDRESS = "Edinburgh, Scotland";
+export const FRESHA_URL = "#";
 export const SITE_URL = "https://therestorationroom.co.uk";
 
 export const HOURS = [
@@ -15,7 +14,7 @@ export const HOURS = [
 export const HOURS_NOTE = "Last appointment 6:30 PM";
 
 /* ---------------- Images (approved client photos) ---------------- */
-export const camilla = "/assets/camilla.jpeg";
+export const camilla = "/assets/gallery/room-01.jpeg";
 export const gRoom01 = "/assets/gallery/room-01.jpeg";
 export const gRoom03 = "/assets/gallery/room-03.jpeg";
 export const gRoom04 = "/assets/gallery/room-04.jpeg";
@@ -40,7 +39,6 @@ export const GALLERY: { src: string; alt: string; span: string }[] = [
   { src: gSconce, alt: "Warm brass wall sconce lighting the treatment room", span: "col-span-6 md:col-span-3 aspect-square" },
   { src: gDoor, alt: "Treatment room door with Framed massage therapy qualifications", span: "col-span-6 md:col-span-4 aspect-square" },
   { src: gPlantCandle, alt: "Plant and candle styled on a shelf in the Edinburgh massage room", span: "col-span-6 md:col-span-4 aspect-square" },
-  { src: camilla, alt: "Treatment room in Silverknowes, Edinburgh", span: "col-span-12 md:col-span-4 aspect-[16/10] md:aspect-square" },
 ];
 
 /* ---------------- Navigation ---------------- */
