@@ -91,8 +91,7 @@ const Index = () => (
         <div className="reveal order-2 lg:order-1">
           <div className="ornament mb-6"><span className="eyebrow">Welcome</span></div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-[54px] text-ink leading-[1.1] mb-8">
-            Your massage therapist in<br />
-            <span className="font-script text-rose">Silverknowes, Edinburgh.</span>
+            Bespoke massage therapy in <span className="font-script text-rose">Silverknowes, Edinburgh.</span>
           </h2>
           <div className="space-y-5 text-taupe text-[17px] leading-[1.8] max-w-xl">
             <p>

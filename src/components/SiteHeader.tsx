@@ -47,7 +47,7 @@ const SiteHeader = () => {
               key={n.to}
               to={n.to}
               className={({ isActive }) =>
-                `relative text-[8.7px] uppercase tracking-[0.2em] font-bold transition-colors group py-2 ${
+                `relative text-[10px] uppercase tracking-[0.2em] font-bold transition-colors group py-2 ${
                   isActive ? "text-rose" : "text-ink/75 hover:text-rose"
                 }`
               }
