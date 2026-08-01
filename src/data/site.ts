@@ -94,8 +94,8 @@ export const treatments: Treatment[] = [
       "A classic, deeply relaxing full body massage in a private treatment room in Silverknowes, Edinburgh — with free parking right outside.",
     detail: [
       "Swedish massage is the treatment most people picture when they think of massage: long, flowing strokes, gentle kneading and rhythmic techniques that warm the muscles, release everyday tension and encourage better circulation. It is calming rather than clinical, and pressure is always adjusted to what feels right for you on the day.",
-      "Your session begins with a short chat about how you are feeling, any areas of tightness and how much pressure you enjoy. You then settle onto a heated massage couch in a candlelit room, with soft music, warm towels and carefully chosen essential oils. Nothing is rushed — the aim is for you to switch off completely.",
-      "Shorter 30 and 45 minute treatments work beautifully as a focused back, neck and shoulder massage, while 60 and 75 minute sessions allow time for a fuller body treatment. Clients travel from across Edinburgh — including Davidsons Mains, Cramond, Blackhall, Barnton and Muirhouse — because the room is easy to reach and there is always free on-street parking.",
+      "Your session begins with a short chat about how you are feeling, any areas of tightness and how much pressure you enjoy. You then settle onto a heated massage couch in a candlelit room, with soft music and a carefully chosen essential oil. Nothing is rushed, and the aim is for you to switch off completely.",
+      "Shorter 30 and 45 minute treatments work beautifully as a focused back, neck and shoulder massage, while 60 and 75 minute sessions allow time for a fuller body treatment. Conveniently located near Davidsons Mains, Cramond, Blackhall and Barnton, with free on-street parking.",
     ],
     benefits: [
       "Eases everyday muscular tension and stiffness",
