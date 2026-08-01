@@ -58,7 +58,7 @@ const About = () => (
             Where you'll <span className="font-script text-rose">find me</span>
           </h2>
           <p className="text-taupe text-[17px] leading-[1.8]">
-            The treatment room is based in Silverknowes, EH4, in the north-west of Edinburgh — an easy journey from Davidsons Mains, Cramond, Blackhall, Barnton, Muirhouse and the city centre. Free on-street parking is available right outside, so you can arrive calmly and unhurried.
+            The treatment room is based in Silverknowes, EH4, in the north-west of Edinburgh. Conveniently located near Davidsons Mains, Cramond, Blackhall and Barnton, with free on-street parking.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-3">
