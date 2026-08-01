@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
@@ -10,7 +10,7 @@ import About from "./pages/About.tsx";
 import SwedishMassage from "./pages/SwedishMassage.tsx";
 import BespokeMassage from "./pages/BespokeMassage.tsx";
 import FootRitual from "./pages/FootRitual.tsx";
-import IndianHeadMassage from "./pages/IndianHeadMassage.tsx";
+import ScalpMassage from "./pages/ScalpMassage.tsx";
 import Contact from "./pages/Contact.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
@@ -31,7 +31,8 @@ const App = () => (
             <Route path="/swedish-massage" element={<SiteLayout><SwedishMassage /></SiteLayout>} />
             <Route path="/bespoke-massage" element={<SiteLayout><BespokeMassage /></SiteLayout>} />
             <Route path="/foot-ritual" element={<SiteLayout><FootRitual /></SiteLayout>} />
-            <Route path="/indian-head-massage" element={<SiteLayout><IndianHeadMassage /></SiteLayout>} />
+            <Route path="/rebalancing-scalp-massage" element={<SiteLayout><ScalpMassage /></SiteLayout>} />
+            <Route path="/indian-head-massage" element={<Navigate to="/rebalancing-scalp-massage" replace />} />
             <Route path="/contact" element={<SiteLayout><Contact /></SiteLayout>} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />

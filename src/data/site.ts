@@ -48,9 +48,9 @@ export const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/swedish-massage", label: "Swedish Massage" },
-  { to: "/bespoke-massage", label: "Bespoke Massage" },
+  { to: "/bespoke-massage", label: "Bespoke Restorative Massage" },
   { to: "/foot-ritual", label: "Foot Ritual" },
-  { to: "/indian-head-massage", label: "Indian Head Massage" },
+  { to: "/rebalancing-scalp-massage", label: "Rebalancing Scalp Massage" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -94,8 +94,8 @@ export const treatments: Treatment[] = [
       "A classic, deeply relaxing full body massage in a private treatment room in Silverknowes, Edinburgh — with free parking right outside.",
     detail: [
       "Swedish massage is the treatment most people picture when they think of massage: long, flowing strokes, gentle kneading and rhythmic techniques that warm the muscles, release everyday tension and encourage better circulation. It is calming rather than clinical, and pressure is always adjusted to what feels right for you on the day.",
-      "Your session begins with a short chat about how you are feeling, any areas of tightness and how much pressure you enjoy. You then settle onto a heated massage couch in a candlelit room, with soft music, warm towels and carefully chosen essential oils. Nothing is rushed — the aim is for you to switch off completely.",
-      "Shorter 30 and 45 minute treatments work beautifully as a focused back, neck and shoulder massage, while 60 and 75 minute sessions allow time for a fuller body treatment. Clients travel from across Edinburgh — including Davidsons Mains, Cramond, Blackhall, Barnton and Muirhouse — because the room is easy to reach and there is always free on-street parking.",
+      "Your session begins with a short chat about how you are feeling, any areas of tightness and how much pressure you enjoy. You then settle onto a heated massage couch in a candlelit room, with soft music and a carefully chosen essential oil. Nothing is rushed, and the aim is for you to switch off completely.",
+      "Shorter 30 and 45 minute treatments work beautifully as a focused back, neck and shoulder massage, while 60 and 75 minute sessions allow time for a fuller body treatment. Conveniently located near Davidsons Mains, Cramond, Blackhall and Barnton, with free on-street parking.",
     ],
     benefits: [
       "Eases everyday muscular tension and stiffness",
@@ -110,11 +110,11 @@ export const treatments: Treatment[] = [
   {
     slug: "/bespoke-massage",
     linkText: "bespoke restorative massage",
-    navLabel: "Bespoke Massage",
-    name: "Bespoke Restorative",
+    navLabel: "Bespoke Restorative Massage",
+    name: "Bespoke Restorative Massage",
     image: gBespokeRoom,
     imageAlt: "Massage bed, wall sconces and mirror in the Edinburgh treatment room",
-    desc: "Our signature treatment, tailored entirely to your individual needs. Combining Swedish massage with deep tissue techniques, trigger point therapy, and assisted stretching, each session is designed to target areas of tension while promoting deep relaxation and restoring balance throughout the body.\n\nWhether you’re looking to relieve muscular aches, improve mobility, reduce stress, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
+    desc: "Our signature treatment, offering a truly personalised and bespoke experience tailored entirely to your individual needs. Based on traditional Swedish massage techniques, this treatment can incorporate firmer pressure and deeper muscle work where required to help relieve persistent tension, muscular aches, and areas of discomfort. Gentle assisted stretching may also be included to improve mobility and ease stiffness.\n\nWhether you’re looking to relieve muscular pain, reduce stress, improve flexibility, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
     prices: [
       { duration: "30 minutes", price: "£40", key: "bespoke-30" },
       { duration: "45 minutes", price: "£55", key: "bespoke-45" },
@@ -123,13 +123,13 @@ export const treatments: Treatment[] = [
     ],
     title: "Bespoke Restorative Massage, Silverknowes Edinburgh | Deep Tissue",
     metaDescription:
-      "Bespoke restorative massage in Silverknowes, Edinburgh from £40. Deep tissue, trigger point and assisted stretching tailored to your body. Free parking. Book online.",
+      "Bespoke Restorative Massage in Silverknowes, Edinburgh from £40. Firmer pressure, deeper muscle work and gentle assisted stretching, tailored to you. Free parking.",
     intro:
-      "The signature treatment at The Restoration Room — deep tissue, trigger point work and stretching, blended into one tailored massage in Silverknowes, Edinburgh.",
+      "The signature treatment at The Restoration Room — firmer pressure, deeper muscle work and gentle assisted stretching, tailored to your body in Silverknowes, Edinburgh.",
     detail: [
-      "No two bodies carry tension in the same way, so no two bespoke treatments are the same. This session blends the flowing comfort of Swedish massage with more targeted techniques: deep tissue work, trigger point release and assisted stretching, all combined to suit how your body feels on the day.",
-      "Camilla qualified in Swedish massage in 2008 and has since completed advanced training in deep tissue, acupressure and trigger point release. That mix means firmer, focused work on stubborn shoulders, a tight lower back or desk-bound necks can sit comfortably alongside slower, more soothing strokes — you never have to choose between effective and relaxing.",
-      "The treatment takes place in a quiet, private room within Camilla's Silverknowes home in EH4, a short drive from Cramond, Davidsons Mains, Blackhall and central Edinburgh. Free parking is available directly outside, so you can arrive unhurried.",
+      "Our signature treatment, offering a truly personalised and bespoke experience tailored entirely to your individual needs. Based on traditional Swedish massage techniques, this treatment can incorporate firmer pressure and deeper muscle work where required to help relieve persistent tension, muscular aches, and areas of discomfort. Gentle assisted stretching may also be included to improve mobility and ease stiffness.",
+      "Whether you’re looking to relieve muscular pain, reduce stress, improve flexibility, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
+      "The treatment takes place in a quiet, private room within Camilla's Silverknowes home in EH4. Conveniently located near Davidsons Mains, Cramond, Blackhall and Barnton, with free on-street parking.",
     ],
     benefits: [
       "Targeted relief for stubborn knots and chronic tension",
@@ -147,7 +147,7 @@ export const treatments: Treatment[] = [
     navLabel: "Foot Ritual",
     name: "Restorative Foot Ritual",
     image: gTowels,
-    imageAlt: "Warm rolled towels prepared for a restorative foot ritual",
+    imageAlt: "Rolled towels prepared in the Silverknowes treatment room",
     desc: "Soothe tired, aching feet with a deeply relaxing treatment beginning with a warm, aromatic foot soak to cleanse and soften the skin. This is followed by a therapeutic foot and lower leg massage using a blend of soothing techniques to ease tension, improve circulation, and encourage complete relaxation.\n\nPerfect as a standalone treatment or as a calming addition to your massage, leaving your feet feeling refreshed, revitalised, and wonderfully restored.",
     prices: [{ duration: "30 minutes", price: "£25", key: "foot-30" }],
     title: "Restorative Foot Ritual in Silverknowes, Edinburgh | £25, 30 mins",
@@ -158,7 +158,7 @@ export const treatments: Treatment[] = [
     detail: [
       "Feet carry us everywhere and are rarely given any attention. This ritual begins with a warm, aromatic foot soak that cleanses, softens and gently warms the skin, before a therapeutic massage of the feet and lower legs eases tightness and encourages circulation.",
       "Techniques are slow and soothing, working through the sole, heel, arches and calves. Many clients find the treatment as calming for the mind as it is for the feet — it is a lovely option if you are on your feet all day, walking Edinburgh's hills, or simply want a shorter treatment that still feels like a proper escape.",
-      "The foot ritual works beautifully on its own or as a calming addition to a Swedish or bespoke massage. As with every treatment, it takes place in the private Silverknowes room in EH4, with free parking outside.",
+      "The foot ritual works beautifully on its own or as a calming addition to a Swedish or Bespoke Restorative Massage. As with every treatment, it takes place in the private Silverknowes room in EH4, with free parking outside.",
     ],
     benefits: [
       "Relieves tired, aching feet and lower legs",
@@ -171,23 +171,23 @@ export const treatments: Treatment[] = [
       "Perfect if you are short on time, new to massage, or want to add something extra to your usual treatment.",
   },
   {
-    slug: "/indian-head-massage",
-    linkText: "Indian head style scalp massage",
-    navLabel: "Indian Head Massage",
+    slug: "/rebalancing-scalp-massage",
+    linkText: "rebalancing scalp massage",
+    navLabel: "Rebalancing Scalp Massage",
     name: "Rebalancing Scalp Massage",
     image: gCandleEuc,
     imageAlt: "Candle and eucalyptus detail in the Silverknowes massage studio",
-    desc: "A deeply relaxing treatment designed to ease tension, calm the mind, and promote a sense of wellbeing. Gentle massage techniques are used across the scalp, temples, neck, and upper shoulders to help relieve stress, reduce headaches caused by muscle tension, and encourage deep relaxation.\n\nPerfect as a standalone treatment or as an addition to any massage for a truly restorative experience.",
+    desc: "A calming treatment designed to help you unwind, ease mental tension, and restore a sense of balance. Gentle massage techniques are applied to the scalp, temples, neck, and upper shoulders to encourage deep relaxation, relieve built-up tension, and leave you feeling refreshed and restored.\n\nIdeal as a standalone treatment or as an addition to any massage.",
     prices: [{ duration: "25 minutes", price: "£20", key: "scalp-25" }],
-    title: "Indian Head Massage in Silverknowes, Edinburgh | Scalp Massage £20",
+    title: "Rebalancing Scalp Massage in Silverknowes, Edinburgh | £20, 25 mins",
     metaDescription:
-      "Indian head style rebalancing scalp massage in Silverknowes, Edinburgh. Scalp, temples, neck and shoulders. 25 minutes, £20. Free parking. Book online.",
+      "Rebalancing Scalp Massage in Silverknowes, Edinburgh. Scalp, temples, neck and upper shoulders to ease mental tension. 25 minutes, £20. Free parking. Book online.",
     intro:
-      "An Indian head massage style treatment — our Rebalancing Scalp Massage works across the scalp, temples, neck and shoulders in Silverknowes, Edinburgh.",
+      "A calming scalp, temple, neck and shoulder treatment to ease mental tension — 25 restorative minutes in Silverknowes, Edinburgh.",
     detail: [
-      "Known on the price list as the Rebalancing Scalp Massage, this treatment draws on the same head, neck and shoulder focus that Indian head massage is loved for. Gentle, rhythmic techniques move across the scalp, temples, neck and upper shoulders — the places where stress quietly settles.",
+      "A calming treatment designed to help you unwind, ease mental tension, and restore a sense of balance. Gentle massage techniques are applied to the scalp, temples, neck, and upper shoulders to encourage deep relaxation, relieve built-up tension, and leave you feeling refreshed and restored. Ideal as a standalone treatment or as an addition to any massage.",
       "It is particularly welcome if you spend long hours at a screen, clench your jaw, or find tension building into headaches. The pace is slow and grounding, and most clients describe leaving with a lighter head and noticeably looser shoulders.",
-      "At 25 minutes it is an easy treatment to fit into a lunch break or after work, with free parking right outside the Silverknowes treatment room in EH4 — convenient for Cramond, Barnton, Davidsons Mains and the wider Edinburgh area.",
+      "At 25 minutes it is an easy treatment to fit into a lunch break or after work. Conveniently located near Davidsons Mains, Cramond, Blackhall and Barnton, with free on-street parking.",
     ],
     benefits: [
       "Eases tension across the scalp, temples, neck and shoulders",
