@@ -18,7 +18,7 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
     ],
     offers: t.prices.map((p) => ({
       "@type": "Offer",
-      name: `${t.name} ,${p.duration}`,
+      name: `${t.name} — ${p.duration}`,
       price: p.price.replace("£",""),
       priceCurrency: "GBP",
       url: FRESHA_URL,
@@ -70,10 +70,10 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
                       <Link to={o.slug} className="text-rose underline underline-offset-4">
                         {o.linkText}
                       </Link>
-                      {i < arr.length - 2 ? "," : i === arr.length - 2 ? " or " : ""}
+                      {i < arr.length - 2 ? ", " : i === arr.length - 2 ? " or " : ""}
                     </span>
                   ))}
-                ,or{" "}
+                , or{" "}
                 <Link to="/contact" className="text-rose underline underline-offset-4">get in touch</Link> and Camilla will help you choose.
               </p>
             </div>
