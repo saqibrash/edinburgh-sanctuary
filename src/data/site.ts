@@ -166,7 +166,7 @@ export const treatments: Treatment[] = [
       "Warm aromatic soak to soften and refresh the skin",
       "Encourages circulation after long days standing or walking",
       "A shorter treatment that still feels indulgent",
-      "Pairs perfectly with a longer massage",
+      "Can be added to any treatment",
     ],
     goodFor:
       "Perfect if you are short on time,new to massage,or want to add something extra to your usual treatment.",
@@ -195,7 +195,7 @@ export const treatments: Treatment[] = [
       "Helps reduce headaches caused by muscular tightness",
       "Calms a busy mind and supports mental clarity",
       "Great for screen-related neck and shoulder strain",
-      "Can be added to any longer massage",
+      "Can be added to any treatment",
     ],
     goodFor:
       "Ideal for desk workers,anyone prone to tension headaches,or clients who prefer to stay fully clothed and relaxed.",
