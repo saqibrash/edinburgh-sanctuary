@@ -10,7 +10,7 @@ import About from "./pages/About.tsx";
 import SwedishMassage from "./pages/SwedishMassage.tsx";
 import BespokeMassage from "./pages/BespokeMassage.tsx";
 import FootRitual from "./pages/FootRitual.tsx";
-import IndianHeadMassage from "./pages/IndianHeadMassage.tsx";
+import ScalpMassage from "./pages/ScalpMassage.tsx";
 import Contact from "./pages/Contact.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
