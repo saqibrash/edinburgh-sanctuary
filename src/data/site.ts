@@ -158,7 +158,7 @@ export const treatments: Treatment[] = [
     detail: [
       "Feet carry us everywhere and are rarely given any attention. This ritual begins with a warm, aromatic foot soak that cleanses, softens and gently warms the skin, before a therapeutic massage of the feet and lower legs eases tightness and encourages circulation.",
       "Techniques are slow and soothing, working through the sole, heel, arches and calves. Many clients find the treatment as calming for the mind as it is for the feet — it is a lovely option if you are on your feet all day, walking Edinburgh's hills, or simply want a shorter treatment that still feels like a proper escape.",
-      "The foot ritual works beautifully on its own or as a calming addition to a Swedish or bespoke massage. As with every treatment, it takes place in the private Silverknowes room in EH4, with free parking outside.",
+      "The foot ritual works beautifully on its own or as a calming addition to a Swedish or Bespoke Restorative Massage. As with every treatment, it takes place in the private Silverknowes room in EH4, with free parking outside.",
     ],
     benefits: [
       "Relieves tired, aching feet and lower legs",
