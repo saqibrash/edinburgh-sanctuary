@@ -31,15 +31,16 @@ export const gPlantCandle = "/assets/gallery/plant-candle.jpeg";
 export const GALLERY: { src: string; alt: string; span: string }[] = [
   { src: gRoom01, alt: "Warmly lit massage treatment room in Silverknowes, Edinburgh", span: "col-span-12 md:col-span-8 aspect-[16/10] md:aspect-[16/11]" },
   { src: gShelves, alt: "Shelves with fresh towels, water and greenery in the Silverknowes treatment room", span: "col-span-6 md:col-span-4 aspect-square md:aspect-auto" },
-  { src: gRoom04, alt: "Massage treatment room with soft lighting and neatly arranged towels", span: "col-span-6 md:col-span-4 aspect-square" },
+  // { src: gRoom04, alt: "Massage treatment room with soft lighting and neatly arranged towels", span: "col-span-6 md:col-span-4 aspect-square" },
   { src: gRoom03, alt: "Massage couch prepared for a Swedish massage in Silverknowes", span: "col-span-6 md:col-span-4 aspect-square" },
+  { src: gPlantCandle, alt: "Plant and candle styled on a shelf in the Edinburgh massage room", span: "col-span-6 md:col-span-4 aspect-square" },
   { src: gBespokeRoom, alt: "Genuine treatment room with massage bed, wall sconces and round mirror in Edinburgh", span: "col-span-12 md:col-span-4 aspect-[4/3] md:aspect-square" },
   { src: gTowels, alt: "Rolled towels laid on the heated massage couch", span: "col-span-6 md:col-span-3 aspect-square" },
   { src: gWindow, alt: "Serene window with soft curtains and candles in the massage room", span: "col-span-6 md:col-span-3 aspect-square" },
   { src: gCandleEuc, alt: "Candle and eucalyptus detail in the Silverknowes massage studio", span: "col-span-6 md:col-span-3 aspect-square" },
   { src: gSconce, alt: "Warm brass wall sconce lighting the treatment room", span: "col-span-6 md:col-span-3 aspect-square" },
-  { src: gDoor, alt: "Treatment room door with Camilla's framed massage therapy qualifications", span: "col-span-6 md:col-span-4 aspect-square" },
-  { src: gPlantCandle, alt: "Plant and candle styled on a shelf in the Edinburgh massage room", span: "col-span-6 md:col-span-4 aspect-square" },
+  // { src: gDoor, alt: "Treatment room door with Camilla's framed massage therapy qualifications", span: "col-span-6 md:col-span-4 aspect-square" },
+  
   { src: camilla, alt: "Camilla, qualified massage therapist in Silverknowes, Edinburgh", span: "col-span-12 md:col-span-4 aspect-[16/10] md:aspect-square" },
 ];
 
@@ -91,7 +92,7 @@ export const treatments: Treatment[] = [
     metaDescription:
       "Relaxing Swedish massage in Silverknowes, Edinburgh from £30. Flowing strokes to ease tension and improve circulation, tailored to you. Free parking. Book online.",
     intro:
-      "A classic, deeply relaxing full body massage in a private treatment room in Silverknowes, Edinburgh — with free parking right outside.",
+      "A classic, deeply relaxing full body massage in a private treatment room in Silverknowes, Edinburgh.",
     detail: [
       "Swedish massage is the treatment most people picture when they think of massage: long, flowing strokes, gentle kneading and rhythmic techniques that warm the muscles, release everyday tension and encourage better circulation. It is calming rather than clinical, and pressure is always adjusted to what feels right for you on the day.",
       "Your session begins with a short chat about how you are feeling, any areas of tightness and how much pressure you enjoy. You then settle onto a heated massage couch in a candlelit room, with soft music and a carefully chosen essential oil. Nothing is rushed, and the aim is for you to switch off completely.",
@@ -125,7 +126,7 @@ export const treatments: Treatment[] = [
     metaDescription:
       "Bespoke Restorative Massage in Silverknowes, Edinburgh from £40. Firmer pressure, deeper muscle work and gentle assisted stretching, tailored to you. Free parking.",
     intro:
-      "The signature treatment at The Restoration Room — firmer pressure, deeper muscle work and gentle assisted stretching, tailored to your body in Silverknowes, Edinburgh.",
+      "The signature treatment at The Restoration Room , firmer pressure, deeper muscle work and gentle assisted stretching, tailored to your needs.",
     detail: [
       "Our signature treatment, offering a truly personalised and bespoke experience tailored entirely to your individual needs. Based on traditional Swedish massage techniques, this treatment can incorporate firmer pressure and deeper muscle work where required to help relieve persistent tension, muscular aches, and areas of discomfort. Gentle assisted stretching may also be included to improve mobility and ease stiffness.",
       "Whether you’re looking to relieve muscular pain, reduce stress, improve flexibility, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
@@ -136,7 +137,7 @@ export const treatments: Treatment[] = [
       "Improved mobility and range of movement",
       "Deep tissue and acupressure adapted to your comfort",
       "Assisted stretching to release tight muscle groups",
-      "Restorative and relaxing, not clinical",
+      "Restorative and relaxing",
     ],
     goodFor:
       "Best suited to anyone with recurring tightness, postural aches or sports-related tension. Prefer something purely relaxing? Try the Swedish Massage instead.",
@@ -152,12 +153,12 @@ export const treatments: Treatment[] = [
     prices: [{ duration: "30 minutes", price: "£25", key: "foot-30" }],
     title: "Restorative Foot Ritual in Silverknowes, Edinburgh | £25, 30 mins",
     metaDescription:
-      "Restorative foot ritual in Silverknowes, Edinburgh — warm aromatic soak plus foot and lower leg massage. 30 minutes, £25. Free parking. Book online today.",
+      "Restorative foot ritual in Silverknowes, Edinburgh , warm aromatic soak plus foot and lower leg massage. 30 minutes, £25. Free parking. Book online today.",
     intro:
-      "A warm, aromatic soak followed by a soothing foot and lower leg massage — 30 restorative minutes in Silverknowes, Edinburgh.",
+      "A warm, aromatic soak followed by a soothing foot and lower leg massage , 30 restorative minutes in Silverknowes, Edinburgh.",
     detail: [
       "Feet carry us everywhere and are rarely given any attention. This ritual begins with a warm, aromatic foot soak that cleanses, softens and gently warms the skin, before a therapeutic massage of the feet and lower legs eases tightness and encourages circulation.",
-      "Techniques are slow and soothing, working through the sole, heel, arches and calves. Many clients find the treatment as calming for the mind as it is for the feet — it is a lovely option if you are on your feet all day, walking Edinburgh's hills, or simply want a shorter treatment that still feels like a proper escape.",
+      "Techniques are slow and soothing, working through the sole, heel, arches and calves. Many clients find the treatment as calming for the mind as it is for the feet , it is a lovely option if you are on your feet all day, walking Edinburgh's hills, or simply want a shorter treatment that still feels like a proper escape.",
       "The foot ritual works beautifully on its own or as a calming addition to a Swedish or Bespoke Restorative Massage. As with every treatment, it takes place in the private Silverknowes room in EH4, with free parking outside.",
     ],
     benefits: [
@@ -183,7 +184,7 @@ export const treatments: Treatment[] = [
     metaDescription:
       "Rebalancing Scalp Massage in Silverknowes, Edinburgh. Scalp, temples, neck and upper shoulders to ease mental tension. 25 minutes, £20. Free parking. Book online.",
     intro:
-      "A calming scalp, temple, neck and shoulder treatment to ease mental tension — 25 restorative minutes in Silverknowes, Edinburgh.",
+      "A soothing scalp, temple, neck and shoulder treatment to quiet the mind, ease tension, and promote deep relaxation.",
     detail: [
       "A calming treatment designed to help you unwind, ease mental tension, and restore a sense of balance. Gentle massage techniques are applied to the scalp, temples, neck, and upper shoulders to encourage deep relaxation, relieve built-up tension, and leave you feeling refreshed and restored. Ideal as a standalone treatment or as an addition to any massage.",
       "It is particularly welcome if you spend long hours at a screen, clench your jaw, or find tension building into headaches. The pace is slow and grounding, and most clients describe leaving with a lighter head and noticeably looser shoulders.",
@@ -218,7 +219,7 @@ export const pillars = [
   { title: "Fully Insured", desc: "Fully qualified since 2008 and fully insured for your peace of mind." },
 ];
 
-// NOTE: Sample copy for design preview only — replace with genuine client reviews.
+// NOTE: Sample copy for design preview only , replace with genuine client reviews.
 export const testimonials = [
   {
     name: "Sarah M.",

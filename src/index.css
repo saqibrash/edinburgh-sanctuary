@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* The Restoration Room by Camilla — brand palette
+    /* The Restoration Room by Camilla , brand palette
        Cream    #FBF6F1 -> 30 45% 96%
        Blush    #F2DDD6 -> 15 55% 89%
        Nude     #E8C9BE -> 17 50% 83%
@@ -125,7 +125,7 @@
     content: ""; width: 32px; height: 1px; background: hsl(var(--gold) / 0.6);
   }
 
-  /* CTA buttons — blush/rose feminine */
+  /* CTA buttons , blush/rose feminine */
   .btn-primary {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
     padding: 1rem 2.25rem;

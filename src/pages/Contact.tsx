@@ -24,7 +24,7 @@ const Contact = () => (
       eyebrow="Contact & Booking"
       title="Get in"
       script="touch."
-      intro={`Booking, questions or advice on choosing a treatment — Camilla is happy to help. The treatment room is in ${ADDRESS}, with free parking outside.`}
+      intro={`Booking, questions or advice on choosing a treatment , Camilla is happy to help. The treatment room is in ${ADDRESS}, with free parking outside.`}
     />
 
     <BookingSection heading="Ready to take" script="time for you?" />

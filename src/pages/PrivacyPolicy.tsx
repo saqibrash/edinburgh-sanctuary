@@ -33,8 +33,8 @@ const PrivacyPolicy = () => (
       <h2>Bookings and payments</h2>
       <p>
         All appointments are booked through our Fresha booking page. When you click a booking button
-        on this website you are taken to an external Fresha page, and any details you enter there —
-        including your name, contact details and payment information — are collected and processed by
+        on this website you are taken to an external Fresha page, and any details you enter there ,
+        including your name, contact details and payment information , are collected and processed by
         Fresha under their own privacy policy and terms.
       </p>
       <p>

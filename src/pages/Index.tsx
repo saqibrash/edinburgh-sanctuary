@@ -48,7 +48,7 @@ const Index = () => (
               <span className="h-px w-14 bg-gold" />
             </div>
             <p className="text-taupe text-lg lg:text-xl leading-relaxed max-w-md mb-4 font-light">
-              Personalised massage therapy in a calm, cosy treatment room in Silverknowes, Edinburgh — Swedish and bespoke restorative massage tailored to you.
+              Personalised massage therapy in a calm, cosy treatment room in Silverknowes, Edinburgh , Swedish and bespoke restorative massage tailored to you.
             </p>
             <p className="sr-only">
               The Restoration Room by Camilla is a massage therapist in Silverknowes, Edinburgh, offering Swedish massage, bespoke restorative massage, deep tissue and acupressure treatments for clients across Edinburgh and nearby areas including Davidsons Mains, Cramond, Blackhall and Barnton.
@@ -73,7 +73,7 @@ const Index = () => (
             <div className="lux-image relative rounded-lg overflow-hidden border border-blush shadow-[0_30px_80px_-40px_rgba(120,80,60,0.5)] bg-blush/20">
               <img
                 src="/assets/hero-brand.jpeg"
-                alt="The Restoration Room by Camilla — brand mark with candle, pampas grass and stacked massage stones"
+                alt="The Restoration Room by Camilla , brand mark with candle, pampas grass and stacked massage stones"
                 className="block w-full h-auto object-contain"
                 loading="eager"
                 {...{ fetchpriority: "high" }}
@@ -99,7 +99,7 @@ const Index = () => (
               My journey began with a passion for helping others improve their wellbeing through the power of therapeutic touch and holistic care.
             </p>
             <p>
-              I qualified in Level 3 Swedish Massage in 2008 and have since completed advanced training in deep tissue massage, acupressure and trigger point release — allowing me to offer both deeply relaxing therapies and more targeted work for muscular tension.
+              I qualified in Level 3 Swedish Massage in 2008 and have since completed advanced training in deep tissue massage, acupressure and trigger point release , allowing me to offer both deeply relaxing therapies and more targeted work for muscular tension.
             </p>
             <p>
               I work from a peaceful, cosy treatment room within my home in Silverknowes, EH4, carefully designed to provide a calm and restorative experience, with free parking right outside.
@@ -136,7 +136,7 @@ const Index = () => (
             <span className="font-script text-rose">relax, restore</span> and feel your best.
           </h2>
           <p className="text-taupe text-[15px] leading-relaxed">
-            Swedish massage, bespoke restorative massage and shorter rituals — all delivered from a private treatment room in Silverknowes, Edinburgh, with free parking.
+            Swedish massage, bespoke restorative massage and shorter rituals , all delivered from a private treatment room in Silverknowes, Edinburgh, with free parking.
           </p>
         </div>
 

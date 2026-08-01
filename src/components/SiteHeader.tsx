@@ -25,7 +25,7 @@ const SiteHeader = () => {
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-5 md:px-10 flex items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-3 md:gap-4 group shrink-0" aria-label={`${BUSINESS} — Home`}>
+        <Link to="/" className="flex items-center gap-3 md:gap-4 group shrink-0" aria-label={`${BUSINESS} , Home`}>
           <img
             src={logoFull}
             alt=""
@@ -34,20 +34,20 @@ const SiteHeader = () => {
             height="128"
             className="w-14 h-14 md:w-20 md:h-20 object-contain transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="leading-tight">
-            <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-gold">The</div>
-            <div className="font-display text-[18px] sm:text-[22px] md:text-[26px] text-ink tracking-tight whitespace-nowrap">Restoration Room</div>
-            <div className="font-script text-[13px] sm:text-[14px] text-rose -mt-0.5">by Camilla</div>
-          </div>
+          {/* <div className="leading-tight">
+            <div className="text-[9px] sm:text-[8px] uppercase tracking-[0.4em] text-gold">The</div>
+            <div className="font-display text-[18px] sm:text-[22px] md:text-[15px] text-ink tracking-tight whitespace-nowrap">Restoration Room</div>
+            <div className="font-script text-[13px] sm:text-[10px] text-rose -mt-0.5">by Camilla</div>
+          </div> */}
         </Link>
 
-        <nav className="hidden xl:flex items-center gap-6" aria-label="Primary">
+        <nav className="hidden lg:flex items-center gap-3" aria-label="Primary">
           {nav.map((n) => (
             <NavLink
               key={n.to}
               to={n.to}
               className={({ isActive }) =>
-                `relative text-[11px] uppercase tracking-[0.2em] transition-colors group py-2 ${
+                `relative text-[8.7px] uppercase tracking-[0.2em] font-bold transition-colors group py-2 ${
                   isActive ? "text-rose" : "text-ink/75 hover:text-rose"
                 }`
               }
@@ -55,14 +55,14 @@ const SiteHeader = () => {
               {({ isActive }) => (
                 <>
                   {n.label}
-                  <span className={`absolute -bottom-0.5 left-0 h-px bg-rose transition-all duration-500 ${isActive ? "w-full" : "w-0 group-hover:w-full"}`} />
+                  <span className={`absolute -bottom-0.5 left-0 h-px bg-rose transition-all font-bold duration-500 ${isActive ? "w-full" : "w-0 group-hover:w-full"}`} />
                 </>
               )}
             </NavLink>
           ))}
         </nav>
 
-        <div className="hidden xl:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-4">
           <a href={PHONE_HREF} className="text-[13px] text-taupe hover:text-rose flex items-center gap-2 transition-colors">
             <span aria-hidden>✆</span>{PHONE}
           </a>

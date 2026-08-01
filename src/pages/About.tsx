@@ -7,7 +7,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   url: `${SITE_URL}/about`,
-  name: "About Camilla — Massage Therapist in Silverknowes, Edinburgh",
+  name: "About Camilla , Massage Therapist in Silverknowes, Edinburgh",
   about: { "@id": `${SITE_URL}/#business` },
 };
 
@@ -38,7 +38,7 @@ const About = () => (
               My journey began with a passion for helping others improve their wellbeing through the power of therapeutic touch and holistic care.
             </p>
             <p>
-              I qualified in Level 3 Swedish Massage in 2008. More recently, I completed an advanced massage course, training in techniques that enable me to incorporate deep tissue massage, acupressure, and trigger point release into my treatments. This allows me to offer both deeply relaxing therapies and more targeted work to address muscular tension, discomfort, and areas of chronic stress within the body.
+              I qualified in Level 3 Swedish Massage in 2008.More recently, I completed advanced massage training techniques that enable me to incorporate deep tissue massage, acupressure, and trigger point release into my treatments. This allows me to offer both deeply relaxing therapies and more targeted work to address muscular tension, discomfort, and areas of chronic stress within the body.
             </p>
             <p>
               My approach is holistic, recognising the connection between physical wellbeing, emotional balance, and overall health. Whether you are seeking relief from aches and pains, support with stress management, or simply time to rest and recharge, each treatment is tailored to your individual needs and goals.
@@ -77,7 +77,7 @@ const About = () => (
           <div className="bg-blush/30 border border-blush rounded-lg p-6">
             <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-3">Qualifications & Training</div>
             <ul className="space-y-2 text-sm text-taupe leading-relaxed">
-              <li>Level 3 Swedish Massage — qualified 2008</li>
+              <li>Level 3 Swedish Massage , qualified 2008</li>
               <li>Advanced massage training: deep tissue, acupressure and trigger point release</li>
               <li>Fully insured</li>
             </ul>

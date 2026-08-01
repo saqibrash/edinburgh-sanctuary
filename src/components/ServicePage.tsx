@@ -18,7 +18,7 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
     ],
     offers: t.prices.map((p) => ({
       "@type": "Offer",
-      name: `${t.name} — ${p.duration}`,
+      name: `${t.name} , ${p.duration}`,
       price: p.price.replace("£", ""),
       priceCurrency: "GBP",
       url: FRESHA_URL,

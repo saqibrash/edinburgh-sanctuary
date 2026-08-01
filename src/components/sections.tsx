@@ -314,7 +314,7 @@ export const BookingSection = ({ heading = "Ready to take", script = "time for y
           <div className="pb-5 mb-6 border-b border-blush">
             <h3 className="font-display text-3xl md:text-4xl text-ink">Book instantly on Fresha</h3>
             <p className="text-sm text-taupe mt-2 leading-relaxed">
-              View live availability, choose your treatment and time, and secure your appointment in a few taps —
+              View live availability, choose your treatment and time, and secure your appointment in a few taps ,
               all through our booking partner, Fresha.
             </p>
           </div>
@@ -351,7 +351,7 @@ export const BookingSection = ({ heading = "Ready to take", script = "time for y
             <a href={`mailto:${EMAIL}`} className="btn-secondary w-full !py-3.5 text-center block">Email Camilla</a>
           </div>
           <p className="text-[11px] text-taupe/80 text-center mt-4">
-            Weekend appointments (Saturday & Sunday) are available on request — please call or email to arrange.
+            Weekend appointments (Saturday & Sunday) are available on request , please call or email to arrange.
           </p>
         </div>
       </div>
