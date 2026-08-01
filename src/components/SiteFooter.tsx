@@ -17,7 +17,7 @@ const SiteFooter = () => (
       <div className="md:col-span-5">
         <img src={logoFull} alt={`${BUSINESS} by Camilla`} className="h-32 md:h-40 w-auto mb-4 -ml-3" loading="lazy" />
         <p className="text-sm leading-relaxed text-taupe max-w-sm">
-          Personalised massage therapy in a calm, cosy space designed for your wellbeing. Based in Silverknowes,Edinburgh.
+          Personalised massage therapy in a calm, cosy space designed for your wellbeing. Based in Silverknowes, Edinburgh.
         </p>
         <div className="flex flex-wrap items-center gap-2 mt-6 text-[10px] uppercase tracking-[0.28em] text-taupe">
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold/40 bg-cream">✓ Fully Insured</span>

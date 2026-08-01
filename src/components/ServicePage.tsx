@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { BookingSection,OtherTreatments,PageHero } from "@/components/sections";
-import { FRESHA_URL,SITE_URL,Treatment, treatments } from "@/data/site";
+import { BookingSection, OtherTreatments, PageHero } from "@/components/sections";
+import { FRESHA_URL, SITE_URL, Treatment, treatments } from "@/data/site";
 
 const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
   const jsonLd = {
@@ -13,7 +13,7 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
     url: `${SITE_URL}${t.slug}`,
     provider: { "@id": `${SITE_URL}/#business` },
     areaServed: [
-      { "@type": "Place",name: "Silverknowes,Edinburgh" },
+      { "@type": "Place",name: "Silverknowes, Edinburgh" },
       { "@type": "City",name: "Edinburgh" },
     ],
     offers: t.prices.map((p) => ({
@@ -29,7 +29,7 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
     <>
       <Seo title={t.title} description={t.metaDescription} path={t.slug} jsonLd={jsonLd} />
 
-      <PageHero eyebrow="Treatment · Silverknowes,Edinburgh" title={t.navLabel} intro={t.intro} />
+      <PageHero eyebrow="Treatment · Silverknowes, Edinburgh" title={t.navLabel} intro={t.intro} />
 
       <section className="relative py-16 md:py-24 px-6 md:px-10 bg-cream">
         <div className="max-w-[1300px] mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -105,7 +105,7 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
             </div>
 
             <div className="bg-blush/30 border border-blush rounded-lg p-6 text-sm text-taupe leading-relaxed">
-              <p><span className="text-ink">Where:</span> Private treatment room,Silverknowes,EH4,Edinburgh.</p>
+              <p><span className="text-ink">Where:</span> Private treatment room, Silverknowes, EH4, Edinburgh.</p>
               <p className="mt-2"><span className="text-ink">Parking:</span> Free on-street parking outside.</p>
               <p className="mt-2"><span className="text-ink">Trust:</span> Qualified since 2008 · Fully insured.</p>
             </div>

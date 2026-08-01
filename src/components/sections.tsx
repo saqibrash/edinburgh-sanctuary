@@ -170,12 +170,12 @@ export const GallerySection = () => {
     <section className="relative py-24 md:py-36 bg-nude/25">
       <div className="max-w-[1500px] mx-auto px-6 md:px-10">
         <div className="reveal max-w-2xl mb-14 md:mb-16">
-          <div className="ornament mb-5"><span className="eyebrow">The Room · Silverknowes,Edinburgh</span></div>
+          <div className="ornament mb-5"><span className="eyebrow">The Room · Silverknowes, Edinburgh</span></div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-[54px] text-ink leading-[1.1]">
             A space designed<br />to <span className="font-script text-rose">slow you down.</span>
           </h2>
           <p className="mt-5 text-taupe text-[15px] leading-relaxed">
-            Inside the private treatment room in Silverknowes,Edinburgh. Tap any photo to view it in full.
+            Inside the private treatment room in Silverknowes, Edinburgh. Tap any photo to view it in full.
           </p>
         </div>
 
@@ -315,7 +315,7 @@ export const BookingSection = ({ heading = "Ready to take",script = "time for yo
             <h3 className="font-display text-3xl md:text-4xl text-ink">Book instantly on Fresha</h3>
             <p className="text-sm text-taupe mt-2 leading-relaxed">
               View live availability, choose your treatment and time and secure your appointment in a few taps ,
-              all through our booking partner,Fresha.
+              all through our booking partner, Fresha.
             </p>
           </div>
 
@@ -351,7 +351,7 @@ export const BookingSection = ({ heading = "Ready to take",script = "time for yo
             <a href={`mailto:${EMAIL}`} className="btn-secondary w-full !py-3.5 text-center block">Email Camilla</a>
           </div>
           <p className="text-[11px] text-taupe/80 text-center mt-4">
-            Weekend appointments (Saturday & Sunday) are available on request ,please call or email to arrange.
+            Weekend appointments (Saturday & Sunday) are available on request — please call or email to arrange.
           </p>
         </div>
       </div>

@@ -7,12 +7,12 @@ import {
   PillarsSection,
   TestimonialsSection,
 } from "@/components/sections";
-import { FRESHA_URL,PHONE,PHONE_HREF,SITE_URL, camilla, treatments } from "@/data/site";
+import { FRESHA_URL, PHONE, PHONE_HREF, SITE_URL, camilla, treatments } from "@/data/site";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "Massage in Silverknowes,Edinburgh | The Restoration Room",
+  name: "Massage in Silverknowes, Edinburgh | The Restoration Room",
   url: `${SITE_URL}/`,
   about: { "@id": `${SITE_URL}/#business` },
 };
@@ -20,8 +20,8 @@ const jsonLd = {
 const Index = () => (
   <>
     <Seo
-      title="Massage in Silverknowes,Edinburgh | The Restoration Room"
-      description="Massage therapist in Silverknowes,Edinburgh. Swedish and bespoke restorative massage with Camilla in a calm, private treatment room. Free parking. Book online."
+      title="Massage in Silverknowes, Edinburgh | The Restoration Room"
+      description="Massage therapist in Silverknowes, Edinburgh. Swedish and bespoke restorative massage with Camilla in a calm, private treatment room. Free parking. Book online."
       path="/"
       jsonLd={jsonLd}
     />
@@ -35,7 +35,7 @@ const Index = () => (
         <div className="lg:col-span-6 flex flex-col justify-center px-6 md:px-12 lg:px-16 py-14 lg:py-28 z-10">
           <div className="fade-up max-w-xl">
             <div className="ornament mb-6">
-              <span className="eyebrow">Silverknowes,Edinburgh · Est. 2008</span>
+              <span className="eyebrow">Silverknowes, Edinburgh · Est. 2008</span>
             </div>
             <h1 className="font-display text-ink text-[46px] sm:text-[58px] lg:text-[76px] leading-[1.02] tracking-tight">
               Restore.<br />
@@ -48,10 +48,10 @@ const Index = () => (
               <span className="h-px w-14 bg-gold" />
             </div>
             <p className="text-taupe text-lg lg:text-xl leading-relaxed max-w-md mb-4 font-light">
-              Personalised massage therapy in a calm, cosy treatment room in Silverknowes,Edinburgh ,Swedish and bespoke restorative massage tailored to you.
+              Personalised massage therapy in a calm, cosy treatment room in Silverknowes, Edinburgh — Swedish and bespoke restorative massage tailored to you.
             </p>
             <p className="sr-only">
-              The Restoration Room by Camilla is a massage therapist in Silverknowes,Edinburgh, offering Swedish massage, bespoke restorative massage, deep tissue and acupressure treatments for clients across Edinburgh and nearby areas including Davidsons Mains,Cramond,Blackhall and Barnton.
+              The Restoration Room by Camilla is a massage therapist in Silverknowes, Edinburgh, offering Swedish massage, bespoke restorative massage, deep tissue and acupressure treatments for clients across Edinburgh and nearby areas including Davidsons Mains, Cramond, Blackhall and Barnton.
             </p>
             <div className="mb-8" aria-hidden />
 
@@ -73,7 +73,7 @@ const Index = () => (
             <div className="lux-image relative rounded-lg overflow-hidden border border-blush shadow-[0_30px_80px_-40px_rgba(120,80,60,0.5)] bg-blush/20">
               <img
                 src="/assets/hero-brand.jpeg"
-                alt="The Restoration Room by Camilla ,brand mark with candle, pampas grass and stacked massage stones"
+                alt="The Restoration Room by Camilla — brand mark with candle, pampas grass and stacked massage stones"
                 className="block w-full h-auto object-contain"
                 loading="eager"
                 {...{ fetchpriority: "high" }}
@@ -91,17 +91,17 @@ const Index = () => (
         <div className="reveal order-2 lg:order-1">
           <div className="ornament mb-6"><span className="eyebrow">Welcome</span></div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-[54px] text-ink leading-[1.1] mb-8">
-            Bespoke massage therapy in <span className="font-script text-rose">Silverknowes,Edinburgh.</span>
+            Bespoke massage therapy in <span className="font-script text-rose">Silverknowes, Edinburgh.</span>
           </h2>
           <div className="space-y-5 text-taupe text-[17px] leading-[1.8] max-w-xl">
             <p>
               My journey began with a passion for helping others improve their wellbeing through the power of therapeutic touch and holistic care.
             </p>
             <p>
-              I qualified in Level 3 Swedish Massage in 2008 and have since completed advanced training in deep tissue massage, acupressure and trigger point release ,allowing me to offer both deeply relaxing therapies and more targeted work for muscular tension.
+              I qualified in Level 3 Swedish Massage in 2008 and have since completed advanced training in deep tissue massage, acupressure and trigger point release — allowing me to offer both deeply relaxing therapies and more targeted work for muscular tension.
             </p>
             <p>
-              I work from a peaceful, cosy treatment room within my home in Silverknowes,EH4, carefully designed to provide a calm and restorative experience, with free parking right outside.
+              I work from a peaceful, cosy treatment room within my home in Silverknowes, EH4, carefully designed to provide a calm and restorative experience, with free parking right outside.
             </p>
           </div>
           <div className="mt-10 flex flex-wrap gap-3">
@@ -135,7 +135,7 @@ const Index = () => (
             <span className="font-script text-rose">relax, restore</span> and feel your best.
           </h2>
           <p className="text-taupe text-[15px] leading-relaxed">
-            Swedish massage, bespoke restorative massage and shorter rituals ,all delivered from a private treatment room in Silverknowes,Edinburgh, with free parking.
+            Swedish massage, bespoke restorative massage and shorter rituals — all delivered from a private treatment room in Silverknowes, Edinburgh, with free parking.
           </p>
         </div>
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link,NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logoFull from "@/assets/brand-logo.png";
-import { BUSINESS,FRESHA_URL,PHONE,PHONE_HREF, nav } from "@/data/site";
+import { BUSINESS, FRESHA_URL, PHONE, PHONE_HREF, nav } from "@/data/site";
 
 const SiteHeader = () => {
   const [scrolled, setScrolled] = useState(false);

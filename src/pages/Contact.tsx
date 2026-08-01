@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { BookingSection,CancellationSection,PageHero } from "@/components/sections";
-import { ADDRESS,EMAIL,PHONE,SITE_URL } from "@/data/site";
+import { BookingSection, CancellationSection, PageHero } from "@/components/sections";
+import { ADDRESS, EMAIL, PHONE, SITE_URL } from "@/data/site";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
   url: `${SITE_URL}/contact`,
-  name: "Contact The Restoration Room,Silverknowes,Edinburgh",
+  name: "Contact The Restoration Room, Silverknowes, Edinburgh",
   about: { "@id": `${SITE_URL}/#business` },
 };
 
 const Contact = () => (
   <>
     <Seo
-      title="Contact & Booking | Massage in Silverknowes,Edinburgh"
-      description={`Contact The Restoration Room by Camilla in Silverknowes,Edinburgh. Call ${PHONE},email ${EMAIL} or book your massage online with Fresha. Free parking.`}
+      title="Contact & Booking | Massage in Silverknowes, Edinburgh"
+      description={`Contact The Restoration Room by Camilla in Silverknowes, Edinburgh. Call ${PHONE},email ${EMAIL} or book your massage online with Fresha. Free parking.`}
       path="/contact"
       jsonLd={jsonLd}
     />
@@ -24,7 +24,7 @@ const Contact = () => (
       eyebrow="Contact & Booking"
       title="Get in"
       script="touch."
-      intro={`Booking, questions or advice on choosing a treatment ,Camilla is happy to help. The treatment room is in ${ADDRESS},with free parking outside.`}
+      intro={`Booking, questions or advice on choosing a treatment — Camilla is happy to help. The treatment room is in ${ADDRESS},with free parking outside.`}
     />
 
     <BookingSection heading="Ready to take" script="time for you?" />
@@ -33,10 +33,10 @@ const Contact = () => (
       <div className="max-w-[1000px] mx-auto text-center reveal">
         <div className="ornament mb-5"><span className="eyebrow">Finding Us</span></div>
         <h2 className="font-display text-3xl md:text-4xl text-ink leading-[1.15] mb-6">
-          Massage in <span className="font-script text-rose">Silverknowes,EH4</span>
+          Massage in <span className="font-script text-rose">Silverknowes, EH4</span>
         </h2>
         <p className="text-taupe text-[17px] leading-[1.8] max-w-2xl mx-auto">
-          The Restoration Room is a private treatment room in Silverknowes, north-west Edinburgh. Conveniently located near Davidsons Mains,Cramond,Blackhall and Barnton, with free on-street parking. Full address details are sent with your Fresha booking confirmation.
+          The Restoration Room is a private treatment room in Silverknowes, north-west Edinburgh. Conveniently located near Davidsons Mains, Cramond, Blackhall and Barnton, with free on-street parking. Full address details are sent with your Fresha booking confirmation.
         </p>
         <p className="text-taupe text-[17px] leading-[1.8] max-w-2xl mx-auto mt-4">
           Not sure which treatment to choose? Read more about our{" "}

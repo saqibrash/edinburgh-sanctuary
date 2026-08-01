@@ -7,8 +7,8 @@ const PHONE = "07570 161699";
 const PrivacyPolicy = () => (
   <LegalLayout title="Privacy Policy" updated="July 2026">
     <Seo
-      title="Privacy Policy | The Restoration Room,Edinburgh"
-      description="How The Restoration Room by Camilla in Silverknowes,Edinburgh handles your information, including bookings made through Fresha and basic website data."
+      title="Privacy Policy | The Restoration Room, Edinburgh"
+      description="How The Restoration Room by Camilla in Silverknowes, Edinburgh handles your information, including bookings made through Fresha and basic website data."
       path="/privacy-policy"
     />
 
@@ -21,7 +21,7 @@ const PrivacyPolicy = () => (
     <section>
       <h2>Who we are</h2>
       <p>
-        The Restoration Room by Camilla, a massage therapy practice based in Silverknowes,EH4,
+        The Restoration Room by Camilla, a massage therapy practice based in Silverknowes, EH4,
         Edinburgh. You can contact us on{" "}
         <a href="tel:+447570161699">{PHONE}</a> or by email at{" "}
         <a href={`mailto:${EMAIL}`}>{EMAIL}</a>. These are the business contact details displayed on
@@ -34,7 +34,7 @@ const PrivacyPolicy = () => (
       <p>
         All appointments are booked through our Fresha booking page. When you click a booking button
         on this website you are taken to an external Fresha page and any details you enter there ,
-        including your name, contact details and payment information ,are collected and processed by
+        including your name, contact details and payment information — are collected and processed by
         Fresha under their own privacy policy and terms.
       </p>
       <p>

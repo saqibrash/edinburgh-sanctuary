@@ -27,7 +27,7 @@ const NotFound = () => {
           <h1 className="mt-5 font-display text-4xl md:text-5xl text-ink">This page has drifted away</h1>
           <p className="mt-5 text-taupe leading-relaxed">
             The page you were looking for no longer exists. Explore the treatments or get in touch to book
-            your massage in Silverknowes,Edinburgh.
+            your massage in Silverknowes, Edinburgh.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-4">
             <Link to="/" className="btn-primary">Back to home</Link>
