@@ -171,23 +171,23 @@ export const treatments: Treatment[] = [
       "Perfect if you are short on time, new to massage, or want to add something extra to your usual treatment.",
   },
   {
-    slug: "/indian-head-massage",
-    linkText: "Indian head style scalp massage",
-    navLabel: "Indian Head Massage",
+    slug: "/rebalancing-scalp-massage",
+    linkText: "rebalancing scalp massage",
+    navLabel: "Rebalancing Scalp Massage",
     name: "Rebalancing Scalp Massage",
     image: gCandleEuc,
     imageAlt: "Candle and eucalyptus detail in the Silverknowes massage studio",
-    desc: "A deeply relaxing treatment designed to ease tension, calm the mind, and promote a sense of wellbeing. Gentle massage techniques are used across the scalp, temples, neck, and upper shoulders to help relieve stress, reduce headaches caused by muscle tension, and encourage deep relaxation.\n\nPerfect as a standalone treatment or as an addition to any massage for a truly restorative experience.",
+    desc: "A calming treatment designed to help you unwind, ease mental tension, and restore a sense of balance. Gentle massage techniques are applied to the scalp, temples, neck, and upper shoulders to encourage deep relaxation, relieve built-up tension, and leave you feeling refreshed and restored.\n\nIdeal as a standalone treatment or as an addition to any massage.",
     prices: [{ duration: "25 minutes", price: "£20", key: "scalp-25" }],
-    title: "Indian Head Massage in Silverknowes, Edinburgh | Scalp Massage £20",
+    title: "Rebalancing Scalp Massage in Silverknowes, Edinburgh | £20, 25 mins",
     metaDescription:
-      "Indian head style rebalancing scalp massage in Silverknowes, Edinburgh. Scalp, temples, neck and shoulders. 25 minutes, £20. Free parking. Book online.",
+      "Rebalancing Scalp Massage in Silverknowes, Edinburgh. Scalp, temples, neck and upper shoulders to ease mental tension. 25 minutes, £20. Free parking. Book online.",
     intro:
-      "An Indian head massage style treatment — our Rebalancing Scalp Massage works across the scalp, temples, neck and shoulders in Silverknowes, Edinburgh.",
+      "A calming scalp, temple, neck and shoulder treatment to ease mental tension — 25 restorative minutes in Silverknowes, Edinburgh.",
     detail: [
-      "Known on the price list as the Rebalancing Scalp Massage, this treatment draws on the same head, neck and shoulder focus that Indian head massage is loved for. Gentle, rhythmic techniques move across the scalp, temples, neck and upper shoulders — the places where stress quietly settles.",
+      "A calming treatment designed to help you unwind, ease mental tension, and restore a sense of balance. Gentle massage techniques are applied to the scalp, temples, neck, and upper shoulders to encourage deep relaxation, relieve built-up tension, and leave you feeling refreshed and restored. Ideal as a standalone treatment or as an addition to any massage.",
       "It is particularly welcome if you spend long hours at a screen, clench your jaw, or find tension building into headaches. The pace is slow and grounding, and most clients describe leaving with a lighter head and noticeably looser shoulders.",
-      "At 25 minutes it is an easy treatment to fit into a lunch break or after work, with free parking right outside the Silverknowes treatment room in EH4 — convenient for Cramond, Barnton, Davidsons Mains and the wider Edinburgh area.",
+      "At 25 minutes it is an easy treatment to fit into a lunch break or after work, with free parking right outside the Silverknowes treatment room in EH4. Conveniently located near Davidsons Mains, Cramond, Blackhall and Barnton, with free on-street parking.",
     ],
     benefits: [
       "Eases tension across the scalp, temples, neck and shoulders",
