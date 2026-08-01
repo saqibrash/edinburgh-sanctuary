@@ -110,11 +110,11 @@ export const treatments: Treatment[] = [
   {
     slug: "/bespoke-massage",
     linkText: "bespoke restorative massage",
-    navLabel: "Bespoke Massage",
-    name: "Bespoke Restorative",
+    navLabel: "Bespoke Restorative Massage",
+    name: "Bespoke Restorative Massage",
     image: gBespokeRoom,
     imageAlt: "Massage bed, wall sconces and mirror in the Edinburgh treatment room",
-    desc: "Our signature treatment, tailored entirely to your individual needs. Combining Swedish massage with deep tissue techniques, trigger point therapy, and assisted stretching, each session is designed to target areas of tension while promoting deep relaxation and restoring balance throughout the body.\n\nWhether you’re looking to relieve muscular aches, improve mobility, reduce stress, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
+    desc: "Our signature treatment, offering a truly personalised and bespoke experience tailored entirely to your individual needs. Based on traditional Swedish massage techniques, this treatment can incorporate firmer pressure and deeper muscle work where required to help relieve persistent tension, muscular aches, and areas of discomfort. Gentle assisted stretching may also be included to improve mobility and ease stiffness.\n\nWhether you’re looking to relieve muscular pain, reduce stress, improve flexibility, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
     prices: [
       { duration: "30 minutes", price: "£40", key: "bespoke-30" },
       { duration: "45 minutes", price: "£55", key: "bespoke-45" },
@@ -123,13 +123,13 @@ export const treatments: Treatment[] = [
     ],
     title: "Bespoke Restorative Massage, Silverknowes Edinburgh | Deep Tissue",
     metaDescription:
-      "Bespoke restorative massage in Silverknowes, Edinburgh from £40. Deep tissue, trigger point and assisted stretching tailored to your body. Free parking. Book online.",
+      "Bespoke Restorative Massage in Silverknowes, Edinburgh from £40. Firmer pressure, deeper muscle work and gentle assisted stretching, tailored to you. Free parking.",
     intro:
-      "The signature treatment at The Restoration Room — deep tissue, trigger point work and stretching, blended into one tailored massage in Silverknowes, Edinburgh.",
+      "The signature treatment at The Restoration Room — firmer pressure, deeper muscle work and gentle assisted stretching, tailored to your body in Silverknowes, Edinburgh.",
     detail: [
-      "No two bodies carry tension in the same way, so no two bespoke treatments are the same. This session blends the flowing comfort of Swedish massage with more targeted techniques: deep tissue work, trigger point release and assisted stretching, all combined to suit how your body feels on the day.",
-      "Camilla qualified in Swedish massage in 2008 and has since completed advanced training in deep tissue, acupressure and trigger point release. That mix means firmer, focused work on stubborn shoulders, a tight lower back or desk-bound necks can sit comfortably alongside slower, more soothing strokes — you never have to choose between effective and relaxing.",
-      "The treatment takes place in a quiet, private room within Camilla's Silverknowes home in EH4, a short drive from Cramond, Davidsons Mains, Blackhall and central Edinburgh. Free parking is available directly outside, so you can arrive unhurried.",
+      "Our signature treatment, offering a truly personalised and bespoke experience tailored entirely to your individual needs. Based on traditional Swedish massage techniques, this treatment can incorporate firmer pressure and deeper muscle work where required to help relieve persistent tension, muscular aches, and areas of discomfort. Gentle assisted stretching may also be included to improve mobility and ease stiffness.",
+      "Whether you’re looking to relieve muscular pain, reduce stress, improve flexibility, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
+      "The treatment takes place in a quiet, private room within Camilla's Silverknowes home in EH4. Conveniently located near Davidsons Mains, Cramond, Blackhall and Barnton, with free on-street parking.",
     ],
     benefits: [
       "Targeted relief for stubborn knots and chronic tension",
