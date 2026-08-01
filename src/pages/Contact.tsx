@@ -43,7 +43,7 @@ const Contact = () => (
           <Link to="/swedish-massage" className="text-rose underline underline-offset-4">Swedish massage</Link>,{" "}
           <Link to="/bespoke-massage" className="text-rose underline underline-offset-4">bespoke restorative massage</Link>,{" "}
           <Link to="/foot-ritual" className="text-rose underline underline-offset-4">restorative foot ritual</Link> or{" "}
-          <Link to="/indian-head-massage" className="text-rose underline underline-offset-4">Indian head style scalp massage</Link>.
+          <Link to="/rebalancing-scalp-massage" className="text-rose underline underline-offset-4">rebalancing scalp massage</Link>.
         </p>
       </div>
     </section>
