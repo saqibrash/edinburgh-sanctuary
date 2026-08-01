@@ -1,7 +1,7 @@
 
 -- Enum for booking status
 DO $$ BEGIN
-  CREATE TYPE public.booking_status AS ENUM ('pending', 'confirmed', 'cancelled', 'expired');
+  CREATE TYPE public.booking_status AS ENUM ('pending','confirmed','cancelled','expired');
 EXCEPTION WHEN duplicate_object THEN null; END $$;
 
 CREATE TABLE public.bookings (
@@ -30,14 +30,14 @@ CREATE TABLE public.bookings (
 -- Slot lock: only one active (pending or confirmed) booking per slot_start_at
 CREATE UNIQUE INDEX bookings_active_slot_unique
   ON public.bookings (slot_start_at)
-  WHERE status IN ('pending', 'confirmed');
+  WHERE status IN ('pending','confirmed');
 
 CREATE INDEX bookings_slot_start_idx ON public.bookings (slot_start_at);
 CREATE INDEX bookings_status_idx ON public.bookings (status);
 CREATE INDEX bookings_pending_expires_idx ON public.bookings (pending_expires_at) WHERE status = 'pending';
 
 -- Grants
-GRANT INSERT ON public.bookings TO anon, authenticated;
+GRANT INSERT ON public.bookings TO anon,authenticated;
 GRANT ALL ON public.bookings TO service_role;
 
 -- RLS
@@ -47,7 +47,7 @@ ALTER TABLE public.bookings ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Anyone can create a booking"
   ON public.bookings
   FOR INSERT
-  TO anon, authenticated
+  TO anon,authenticated
   WITH CHECK (
     status = 'pending'
     AND stripe_session_id IS NULL
@@ -85,10 +85,10 @@ SECURITY DEFINER
 SET search_path = public
 AS $$
   UPDATE public.bookings
-     SET status = 'expired', cancelled_at = now()
+     SET status = 'expired',cancelled_at = now()
    WHERE status = 'pending'
      AND pending_expires_at < now();
 $$;
 
-REVOKE ALL ON FUNCTION public.expire_stale_pending_bookings() FROM PUBLIC, anon, authenticated;
+REVOKE ALL ON FUNCTION public.expire_stale_pending_bookings() FROM PUBLIC,anon,authenticated;
 GRANT EXECUTE ON FUNCTION public.expire_stale_pending_bookings() TO service_role;

@@ -17,7 +17,7 @@ import {
 } from "@/data/site";
 
 /* ---------------- Small pieces ---------------- */
-export const ContactRow = ({ icon, label, value, href }: { icon: string; label: string; value: string; href?: string }) => (
+export const ContactRow = ({ icon,label,value,href }: { icon: string; label: string; value: string; href?: string }) => (
   <div className="flex items-start gap-4">
     <div className="w-10 h-10 shrink-0 rounded-full border border-gold/50 flex items-center justify-center text-gold">{icon}</div>
     <div>
@@ -49,7 +49,7 @@ export const PillarIcon = ({ i }: { i: number }) => {
 
 export const StarRating = ({ rating }: { rating: number }) => (
   <div className="flex items-center gap-1" aria-label={`${rating} out of 5 stars`}>
-    {Array.from({ length: 5 }).map((_, i) => (
+    {Array.from({ length: 5 }).map((_,i) => (
       <svg
         key={i}
         width="16"
@@ -118,11 +118,11 @@ export const PillarsSection = () => (
       <div className="reveal text-center max-w-2xl mx-auto mb-14">
         <div className="ornament mb-5"><span className="eyebrow">The Experience</span></div>
         <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.1]">
-          Every detail, <span className="font-script text-rose">quietly considered.</span>
+          Every detail,<span className="font-script text-rose">quietly considered.</span>
         </h2>
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        {pillars.map((p, i) => (
+        {pillars.map((p,i) => (
           <div
             key={p.title}
             className="reveal text-center bg-blush/30 border border-blush rounded-lg p-8 hover:bg-blush/50 transition-colors duration-500"
@@ -149,9 +149,9 @@ export const CancellationSection = () => (
       </h2>
       <div className="reveal grid md:grid-cols-3 gap-6 text-left">
         {[
-          { n: 1, h: "Deposit", p: cancellationPolicy.deposit },
-          { n: 2, h: "48-Hour Refund", p: cancellationPolicy.refund },
-          { n: 3, h: "Late Cancellation", p: cancellationPolicy.fee },
+          { n: 1,h: "Deposit",p: cancellationPolicy.deposit },
+          { n: 2,h: "48-Hour Refund",p: cancellationPolicy.refund },
+          { n: 3,h: "Late Cancellation",p: cancellationPolicy.fee },
         ].map((c) => (
           <div key={c.n} className="bg-blush/30 border border-blush rounded-lg p-6 md:p-8">
             <div className="w-10 h-10 rounded-full bg-cream border border-gold/50 flex items-center justify-center text-gold mb-4">{c.n}</div>
@@ -165,22 +165,22 @@ export const CancellationSection = () => (
 );
 
 export const GallerySection = () => {
-  const [lightbox, setLightbox] = useState<number | null>(null);
+  const [lightbox,setLightbox] = useState<number | null>(null);
   return (
     <section className="relative py-24 md:py-36 bg-nude/25">
       <div className="max-w-[1500px] mx-auto px-6 md:px-10">
         <div className="reveal max-w-2xl mb-14 md:mb-16">
-          <div className="ornament mb-5"><span className="eyebrow">The Room · Silverknowes, Edinburgh</span></div>
+          <div className="ornament mb-5"><span className="eyebrow">The Room · Silverknowes,Edinburgh</span></div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-[54px] text-ink leading-[1.1]">
             A space designed<br />to <span className="font-script text-rose">slow you down.</span>
           </h2>
           <p className="mt-5 text-taupe text-[15px] leading-relaxed">
-            Inside the private treatment room in Silverknowes, Edinburgh. Tap any photo to view it in full.
+            Inside the private treatment room in Silverknowes,Edinburgh. Tap any photo to view it in full.
           </p>
         </div>
 
         <div className="grid grid-cols-12 gap-3 md:gap-5">
-          {GALLERY.map((g, i) => (
+          {GALLERY.map((g,i) => (
             <button
               type="button"
               key={g.src}
@@ -201,7 +201,7 @@ export const GallerySection = () => {
 };
 
 export const TestimonialsSection = () => {
-  const [activeT, setActiveT] = useState(0);
+  const [activeT,setActiveT] = useState(0);
   return (
     <section className="relative py-24 md:py-32 px-6 md:px-10 bg-cream overflow-hidden">
       <div className="max-w-[1300px] mx-auto">
@@ -213,7 +213,7 @@ export const TestimonialsSection = () => {
         <div className="md:hidden relative">
           <div className="overflow-hidden">
             <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${activeT * 100}%)` }}>
-              {testimonials.map((t, i) => (
+              {testimonials.map((t,i) => (
                 <div key={i} className="w-full shrink-0 px-2">
                   <TestimonialCard t={t} />
                 </div>
@@ -229,7 +229,7 @@ export const TestimonialsSection = () => {
               ←
             </button>
             <div className="flex items-center gap-2" role="tablist" aria-label="Testimonials">
-              {testimonials.map((_, i) => (
+              {testimonials.map((_,i) => (
                 <button
                   key={i}
                   onClick={() => setActiveT(i)}
@@ -253,7 +253,7 @@ export const TestimonialsSection = () => {
         </div>
 
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
-          {testimonials.map((t, i) => (
+          {testimonials.map((t,i) => (
             <div key={i} className={`reveal lg:col-span-2 ${i === 3 ? "lg:col-start-2" : ""}`} style={{ transitionDelay: `${i * 80}ms` }}>
               <TestimonialCard t={t} />
             </div>
@@ -276,7 +276,7 @@ export const TestimonialsSection = () => {
   );
 };
 
-export const BookingSection = ({ heading = "Ready to take", script = "time for you?" }: { heading?: string; script?: string }) => (
+export const BookingSection = ({ heading = "Ready to take",script = "time for you?" }: { heading?: string; script?: string }) => (
   <section id="book" className="relative py-24 md:py-36 px-6 md:px-10 bg-brand-gradient overflow-hidden">
     <div className="absolute -top-16 -left-16 w-72 h-72 rounded-full bg-nude/50 blur-3xl float-slow pointer-events-none" aria-hidden />
     <div className="absolute -bottom-16 -right-16 w-80 h-80 rounded-full bg-blush/60 blur-3xl float-slow pointer-events-none" aria-hidden />
@@ -314,14 +314,14 @@ export const BookingSection = ({ heading = "Ready to take", script = "time for y
           <div className="pb-5 mb-6 border-b border-blush">
             <h3 className="font-display text-3xl md:text-4xl text-ink">Book instantly on Fresha</h3>
             <p className="text-sm text-taupe mt-2 leading-relaxed">
-              View live availability, choose your treatment and time, and secure your appointment in a few taps ,
-              all through our booking partner, Fresha.
+              View live availability,choose your treatment and time,and secure your appointment in a few taps ,
+              all through our booking partner,Fresha.
             </p>
           </div>
 
           <ul className="space-y-3 text-sm text-ink/85 mb-8">
             {[
-              "Real-time availability, updated instantly",
+              "Real-time availability,updated instantly",
               "Secure card payment to confirm your booking",
               "Automatic confirmation and appointment reminders",
               "Reschedule or manage your booking any time",
@@ -351,7 +351,7 @@ export const BookingSection = ({ heading = "Ready to take", script = "time for y
             <a href={`mailto:${EMAIL}`} className="btn-secondary w-full !py-3.5 text-center block">Email Camilla</a>
           </div>
           <p className="text-[11px] text-taupe/80 text-center mt-4">
-            Weekend appointments (Saturday & Sunday) are available on request , please call or email to arrange.
+            Weekend appointments (Saturday & Sunday) are available on request ,please call or email to arrange.
           </p>
         </div>
       </div>

@@ -7,7 +7,7 @@ interface LegalLayoutProps {
   children: ReactNode;
 }
 
-const LegalLayout = ({ title, updated, children }: LegalLayoutProps) => (
+const LegalLayout = ({ title,updated,children }: LegalLayoutProps) => (
   <div className="min-h-dvh bg-cream text-ink">
     <header className="border-b border-blush">
       <div className="max-w-[820px] mx-auto px-6 py-6 flex items-center justify-between">
