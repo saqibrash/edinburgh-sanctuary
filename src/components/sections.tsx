@@ -314,7 +314,7 @@ export const BookingSection = ({ heading = "Ready to take",script = "time for yo
           <div className="pb-5 mb-6 border-b border-blush">
             <h3 className="font-display text-3xl md:text-4xl text-ink">Book instantly on Fresha</h3>
             <p className="text-sm text-taupe mt-2 leading-relaxed">
-              View live availability, choose your treatment and time and secure your appointment in a few taps ,
+              View live availability, choose your treatment and time and secure your appointment in a few taps —
               all through our booking partner, Fresha.
             </p>
           </div>

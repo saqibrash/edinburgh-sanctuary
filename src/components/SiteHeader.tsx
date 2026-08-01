@@ -25,7 +25,7 @@ const SiteHeader = () => {
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-5 md:px-10 flex items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-3 md:gap-4 group shrink-0" aria-label={`${BUSINESS} ,Home`}>
+        <Link to="/" className="flex items-center gap-3 md:gap-4 group shrink-0" aria-label={`${BUSINESS} — Home`}>
           <img
             src={logoFull}
             alt=""
