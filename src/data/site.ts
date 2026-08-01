@@ -187,7 +187,7 @@ export const treatments: Treatment[] = [
     detail: [
       "A calming treatment designed to help you unwind, ease mental tension, and restore a sense of balance. Gentle massage techniques are applied to the scalp, temples, neck, and upper shoulders to encourage deep relaxation, relieve built-up tension, and leave you feeling refreshed and restored. Ideal as a standalone treatment or as an addition to any massage.",
       "It is particularly welcome if you spend long hours at a screen, clench your jaw, or find tension building into headaches. The pace is slow and grounding, and most clients describe leaving with a lighter head and noticeably looser shoulders.",
-      "At 25 minutes it is an easy treatment to fit into a lunch break or after work, with free parking right outside the Silverknowes treatment room in EH4. Conveniently located near Davidsons Mains, Cramond, Blackhall and Barnton, with free on-street parking.",
+      "At 25 minutes it is an easy treatment to fit into a lunch break or after work. Conveniently located near Davidsons Mains, Cramond, Blackhall and Barnton, with free on-street parking.",
     ],
     benefits: [
       "Eases tension across the scalp, temples, neck and shoulders",
