@@ -126,7 +126,7 @@ export const treatments: Treatment[] = [
     metaDescription:
       "Bespoke Restorative Massage in Silverknowes, Edinburgh from £40. Firmer pressure, deeper muscle work and gentle assisted stretching, tailored to you. Free parking.",
     intro:
-      "The signature treatment at The Restoration Room, firmer pressure, deeper muscle work and gentle assisted stretching, tailored to your needs.",
+      "The signature treatment at The Restoration Room — firmer pressure, deeper muscle work and gentle assisted stretching, tailored to your needs.",
     detail: [
       "Our signature treatment, offering a truly personalised and bespoke experience tailored entirely to your individual needs. Based on traditional Swedish massage techniques, this treatment can incorporate firmer pressure and deeper muscle work where required to help relieve persistent tension, muscular aches and areas of discomfort. Gentle assisted stretching may also be included to improve mobility and ease stiffness.",
       "Whether you’re looking to relieve muscular pain, reduce stress, improve flexibility, or simply unwind, every treatment is adapted to your body on the day, ensuring you receive the care that’s right for you.",
@@ -153,12 +153,12 @@ export const treatments: Treatment[] = [
     prices: [{ duration: "30 minutes",price: "£25",key: "foot-30" }],
     title: "Restorative Foot Ritual in Silverknowes, Edinburgh | £25 for 30 mins",
     metaDescription:
-      "Restorative foot ritual in Silverknowes, Edinburgh, warm aromatic soak plus foot and lower leg massage. 30 minutes, £25. Free parking. Book online today.",
+      "Restorative foot ritual in Silverknowes, Edinburgh: a warm aromatic soak plus foot and lower leg massage. 30 minutes, £25. Free parking. Book online today.",
     intro:
       "A warm, aromatic soak followed by a soothing foot and lower leg massage — 30 restorative minutes in Silverknowes, Edinburgh.",
     detail: [
       "Feet carry us everywhere and are rarely given any attention. This ritual begins with a warm, aromatic foot soak that cleanses, softens and gently warms the skin, before a therapeutic massage of the feet and lower legs eases tightness and encourages circulation.",
-      "Techniques are slow and soothing, working through the sole, heel, arches and calves. Many clients find the treatment as calming for the mind as it is for the feet, it is a lovely option if you are on your feet all day, walking Edinburgh's hills, or simply want a shorter treatment that still feels like a proper escape.",
+      "Techniques are slow and soothing, working through the sole, heel, arches and calves. Many clients find the treatment as calming for the mind as it is for the feet. It is a lovely option if you are on your feet all day, walking Edinburgh's hills, or simply want a shorter treatment that still feels like a proper escape.",
       "The foot ritual works beautifully on its own or as a calming addition to a Swedish or Bespoke Restorative Massage. As with every treatment, it takes place in the private Silverknowes room in EH4, with free parking outside.",
     ],
     benefits: [
@@ -219,7 +219,7 @@ export const pillars = [
   { title: "Fully Insured",desc: "Fully qualified since 2008 and fully insured for your peace of mind." },
 ];
 
-// NOTE: Sample copy for design preview only, replace with genuine client reviews.
+// NOTE: Sample copy for design preview only; replace with genuine client reviews.
 export const testimonials = [
   {
     name: "Sarah M.",
