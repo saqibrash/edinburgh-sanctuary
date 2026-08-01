@@ -31,7 +31,8 @@ const App = () => (
             <Route path="/swedish-massage" element={<SiteLayout><SwedishMassage /></SiteLayout>} />
             <Route path="/bespoke-massage" element={<SiteLayout><BespokeMassage /></SiteLayout>} />
             <Route path="/foot-ritual" element={<SiteLayout><FootRitual /></SiteLayout>} />
-            <Route path="/indian-head-massage" element={<SiteLayout><IndianHeadMassage /></SiteLayout>} />
+            <Route path="/rebalancing-scalp-massage" element={<SiteLayout><ScalpMassage /></SiteLayout>} />
+            <Route path="/indian-head-massage" element={<Navigate to="/rebalancing-scalp-massage" replace />} />
             <Route path="/contact" element={<SiteLayout><Contact /></SiteLayout>} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
