@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { BookingSection,OtherTreatments,PageHero } from "@/components/sections";
-import { FRESHA_URL,SITE_URL,Treatment,treatments } from "@/data/site";
+import { FRESHA_URL,SITE_URL,Treatment, treatments } from "@/data/site";
 
 const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
   const jsonLd = {
@@ -38,7 +38,7 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
               About this <span className="font-script text-rose">treatment</span>
             </h2>
             <div className="space-y-5 text-taupe text-[17px] leading-[1.8]">
-              {t.detail.map((p,i) => (
+              {t.detail.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
@@ -65,7 +65,7 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
                 Not quite what you are looking for? You can also read about our{" "}
                 {treatments
                   .filter((o) => o.slug !== t.slug)
-                  .map((o,i,arr) => (
+                  .map((o, i, arr) => (
                     <span key={o.slug}>
                       <Link to={o.slug} className="text-rose underline underline-offset-4">
                         {o.linkText}

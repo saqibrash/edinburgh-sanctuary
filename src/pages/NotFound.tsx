@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link,useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import SiteLayout from "@/components/SiteLayout";
 
 const NotFound = () => {
@@ -13,7 +13,7 @@ const NotFound = () => {
       robots.name = "robots";
       document.head.appendChild(robots);
     }
-    robots.content = "noindex,follow";
+    robots.content = "noindex, follow";
     return () => {
       robots?.remove();
     };
