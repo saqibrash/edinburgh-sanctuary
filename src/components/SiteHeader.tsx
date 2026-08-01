@@ -1,11 +1,11 @@
-import { useEffect,useState } from "react";
-import { Link,NavLink,useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logoFull from "@/assets/brand-logo.png";
-import { BUSINESS,FRESHA_URL,PHONE,PHONE_HREF,nav } from "@/data/site";
+import { BUSINESS, FRESHA_URL, PHONE, PHONE_HREF, nav } from "@/data/site";
 
 const SiteHeader = () => {
-  const [scrolled,setScrolled] = useState(false);
-  const [menuOpen,setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const SiteHeader = () => {
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-5 md:px-10 flex items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-3 md:gap-4 group shrink-0" aria-label={`${BUSINESS} ,Home`}>
+        <Link to="/" className="flex items-center gap-3 md:gap-4 group shrink-0" aria-label={`${BUSINESS} — Home`}>
           <img
             src={logoFull}
             alt=""
