@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { BookingSection,OtherTreatments,PageHero } from "@/components/sections";
-import { FRESHA_URL,SITE_URL,Treatment,treatments } from "@/data/site";
+import { BookingSection, OtherTreatments, PageHero } from "@/components/sections";
+import { FRESHA_URL, SITE_URL, Treatment, treatments } from "@/data/site";
 
 const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
   const jsonLd = {
@@ -13,12 +13,12 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
     url: `${SITE_URL}${t.slug}`,
     provider: { "@id": `${SITE_URL}/#business` },
     areaServed: [
-      { "@type": "Place",name: "Silverknowes,Edinburgh" },
+      { "@type": "Place",name: "Silverknowes, Edinburgh" },
       { "@type": "City",name: "Edinburgh" },
     ],
     offers: t.prices.map((p) => ({
       "@type": "Offer",
-      name: `${t.name} ,${p.duration}`,
+      name: `${t.name} — ${p.duration}`,
       price: p.price.replace("£",""),
       priceCurrency: "GBP",
       url: FRESHA_URL,
@@ -29,7 +29,7 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
     <>
       <Seo title={t.title} description={t.metaDescription} path={t.slug} jsonLd={jsonLd} />
 
-      <PageHero eyebrow="Treatment · Silverknowes,Edinburgh" title={t.navLabel} intro={t.intro} />
+      <PageHero eyebrow="Treatment · Silverknowes, Edinburgh" title={t.navLabel} intro={t.intro} />
 
       <section className="relative py-16 md:py-24 px-6 md:px-10 bg-cream">
         <div className="max-w-[1300px] mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -38,7 +38,7 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
               About this <span className="font-script text-rose">treatment</span>
             </h2>
             <div className="space-y-5 text-taupe text-[17px] leading-[1.8]">
-              {t.detail.map((p,i) => (
+              {t.detail.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
@@ -65,15 +65,15 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
                 Not quite what you are looking for? You can also read about our{" "}
                 {treatments
                   .filter((o) => o.slug !== t.slug)
-                  .map((o,i,arr) => (
+                  .map((o, i, arr) => (
                     <span key={o.slug}>
                       <Link to={o.slug} className="text-rose underline underline-offset-4">
                         {o.linkText}
                       </Link>
-                      {i < arr.length - 2 ? "," : i === arr.length - 2 ? " or " : ""}
+                      {i < arr.length - 2 ? ", " : i === arr.length - 2 ? " or " : ""}
                     </span>
                   ))}
-                ,or{" "}
+                , or{" "}
                 <Link to="/contact" className="text-rose underline underline-offset-4">get in touch</Link> and Camilla will help you choose.
               </p>
             </div>
@@ -105,7 +105,7 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
             </div>
 
             <div className="bg-blush/30 border border-blush rounded-lg p-6 text-sm text-taupe leading-relaxed">
-              <p><span className="text-ink">Where:</span> Private treatment room,Silverknowes,EH4,Edinburgh.</p>
+              <p><span className="text-ink">Where:</span> Private treatment room, Silverknowes, EH4, Edinburgh.</p>
               <p className="mt-2"><span className="text-ink">Parking:</span> Free on-street parking outside.</p>
               <p className="mt-2"><span className="text-ink">Trust:</span> Qualified since 2008 · Fully insured.</p>
             </div>

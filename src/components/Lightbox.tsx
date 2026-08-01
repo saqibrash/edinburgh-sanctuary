@@ -1,4 +1,4 @@
-import { useCallback,useEffect,useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 const Lightbox = ({
   items,
@@ -19,7 +19,7 @@ const Lightbox = ({
       if (index === null) return;
       onIndex((index + dir + items.length) % items.length);
     },
-    [index,items.length,onIndex]
+    [index, items.length, onIndex]
   );
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const Lightbox = ({
       window.removeEventListener("keydown",onKey);
       document.body.style.overflow = prev;
     };
-  },[open,go,onClose]);
+  },[open, go, onClose]);
 
   if (index === null) return null;
   const item = items[index];
