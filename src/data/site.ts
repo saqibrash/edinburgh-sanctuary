@@ -147,7 +147,7 @@ export const treatments: Treatment[] = [
     navLabel: "Foot Ritual",
     name: "Restorative Foot Ritual",
     image: gTowels,
-    imageAlt: "Warm rolled towels prepared for a restorative foot ritual",
+    imageAlt: "Rolled towels prepared in the Silverknowes treatment room",
     desc: "Soothe tired, aching feet with a deeply relaxing treatment beginning with a warm, aromatic foot soak to cleanse and soften the skin. This is followed by a therapeutic foot and lower leg massage using a blend of soothing techniques to ease tension, improve circulation, and encourage complete relaxation.\n\nPerfect as a standalone treatment or as a calming addition to your massage, leaving your feet feeling refreshed, revitalised, and wonderfully restored.",
     prices: [{ duration: "30 minutes", price: "£25", key: "foot-30" }],
     title: "Restorative Foot Ritual in Silverknowes, Edinburgh | £25, 30 mins",
