@@ -118,7 +118,7 @@ export const PillarsSection = () => (
       <div className="reveal text-center max-w-2xl mx-auto mb-14">
         <div className="ornament mb-5"><span className="eyebrow">The Experience</span></div>
         <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.1]">
-          Every detail,<span className="font-script text-rose">quietly considered.</span>
+          Every detail, <span className="font-script text-rose">quietly considered.</span>
         </h2>
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
