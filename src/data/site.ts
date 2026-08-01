@@ -48,9 +48,9 @@ export const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/swedish-massage", label: "Swedish Massage" },
-  { to: "/bespoke-massage", label: "Bespoke Massage" },
+  { to: "/bespoke-massage", label: "Bespoke Restorative Massage" },
   { to: "/foot-ritual", label: "Foot Ritual" },
-  { to: "/indian-head-massage", label: "Indian Head Massage" },
+  { to: "/rebalancing-scalp-massage", label: "Rebalancing Scalp Massage" },
   { to: "/contact", label: "Contact" },
 ];
 
