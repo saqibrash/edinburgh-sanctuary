@@ -2,7 +2,7 @@ import { ReactNode, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
-import HoldNotice from "./HoldNotice";
+import { FRESHA_URL } from "@/data/site";
 
 const SiteLayout = ({ children }: { children: ReactNode }) => {
   const { pathname } = useLocation();
@@ -22,13 +22,17 @@ const SiteLayout = ({ children }: { children: ReactNode }) => {
 
   return (
     <div className="min-h-dvh bg-cream text-ink overflow-x-hidden">
-      <div className="bg-ink text-cream text-center text-[11px] md:text-xs tracking-[0.18em] uppercase px-4 py-2.5">
-        Website on hold by SR Innovations — under dispute, client payment outstanding
-      </div>
       <SiteHeader />
       <main id="top">{children}</main>
       <SiteFooter />
-      <HoldNotice />
+      <a
+        href={FRESHA_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="xl:hidden fixed bottom-5 right-5 z-40 btn-primary shadow-2xl"
+      >
+        Book on Fresha
+      </a>
     </div>
   );
 };

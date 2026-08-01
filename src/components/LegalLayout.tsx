@@ -33,7 +33,7 @@ const LegalLayout = ({ title, updated, children }: LegalLayoutProps) => (
 
     <footer className="border-t border-blush">
       <div className="max-w-[820px] mx-auto px-6 py-8 text-xs text-taupe flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
-        <p>© {new Date().getFullYear()} The Restoration Room.</p>
+        <p>© {new Date().getFullYear()} The Restoration Room by Camilla.</p>
         <div className="flex gap-6">
           <Link to="/privacy-policy" className="hover:text-rose transition-colors">Privacy Policy</Link>
           <Link to="/terms-and-conditions" className="hover:text-rose transition-colors">Terms &amp; Conditions</Link>

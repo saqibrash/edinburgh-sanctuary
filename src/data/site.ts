@@ -1,9 +1,10 @@
 export const BUSINESS = "The Restoration Room";
-export const PHONE = "";
-export const PHONE_HREF = "#";
-export const EMAIL = "";
-export const ADDRESS = "Edinburgh, Scotland";
-export const FRESHA_URL = "#";
+export const PHONE = "07570 161699";
+export const PHONE_HREF = "tel:+447570161699";
+export const EMAIL = "therestorationroom85@gmail.com";
+export const ADDRESS = "Silverknowes, EH4, Edinburgh";
+export const FRESHA_URL =
+  "https://www.fresha.com/book-now/the-restoration-room-p5d4vn56/all-offer?share=true&pId=3033869";
 export const SITE_URL = "https://therestorationroom.co.uk";
 
 export const HOURS = [
@@ -14,7 +15,7 @@ export const HOURS = [
 export const HOURS_NOTE = "Last appointment 6:30 PM";
 
 /* ---------------- Images (approved client photos) ---------------- */
-export const camilla = "/assets/gallery/room-01.jpeg";
+export const camilla = "/assets/camilla.jpeg";
 export const gRoom01 = "/assets/gallery/room-01.jpeg";
 export const gRoom03 = "/assets/gallery/room-03.jpeg";
 export const gRoom04 = "/assets/gallery/room-04.jpeg";
@@ -37,8 +38,9 @@ export const GALLERY: { src: string; alt: string; span: string }[] = [
   { src: gWindow, alt: "Serene window with soft curtains and candles in the massage room", span: "col-span-6 md:col-span-3 aspect-square" },
   { src: gCandleEuc, alt: "Candle and eucalyptus detail in the Silverknowes massage studio", span: "col-span-6 md:col-span-3 aspect-square" },
   { src: gSconce, alt: "Warm brass wall sconce lighting the treatment room", span: "col-span-6 md:col-span-3 aspect-square" },
-  { src: gDoor, alt: "Treatment room door with Framed massage therapy qualifications", span: "col-span-6 md:col-span-4 aspect-square" },
+  { src: gDoor, alt: "Treatment room door with Camilla's framed massage therapy qualifications", span: "col-span-6 md:col-span-4 aspect-square" },
   { src: gPlantCandle, alt: "Plant and candle styled on a shelf in the Edinburgh massage room", span: "col-span-6 md:col-span-4 aspect-square" },
+  { src: camilla, alt: "Camilla, qualified massage therapist in Silverknowes, Edinburgh", span: "col-span-12 md:col-span-4 aspect-[16/10] md:aspect-square" },
 ];
 
 /* ---------------- Navigation ---------------- */
@@ -126,8 +128,8 @@ export const treatments: Treatment[] = [
       "The signature treatment at The Restoration Room — deep tissue, trigger point work and stretching, blended into one tailored massage in Silverknowes, Edinburgh.",
     detail: [
       "No two bodies carry tension in the same way, so no two bespoke treatments are the same. This session blends the flowing comfort of Swedish massage with more targeted techniques: deep tissue work, trigger point release and assisted stretching, all combined to suit how your body feels on the day.",
-      "Our therapist qualified in Swedish massage in 2008 and has since completed advanced training in deep tissue, acupressure and trigger point release. That mix means firmer, focused work on stubborn shoulders, a tight lower back or desk-bound necks can sit comfortably alongside slower, more soothing strokes — you never have to choose between effective and relaxing.",
-      "The treatment takes place in a quiet, private room within a private home in Silverknowes in EH4, a short drive from Cramond, Davidsons Mains, Blackhall and central Edinburgh. Free parking is available directly outside, so you can arrive unhurried.",
+      "Camilla qualified in Swedish massage in 2008 and has since completed advanced training in deep tissue, acupressure and trigger point release. That mix means firmer, focused work on stubborn shoulders, a tight lower back or desk-bound necks can sit comfortably alongside slower, more soothing strokes — you never have to choose between effective and relaxing.",
+      "The treatment takes place in a quiet, private room within Camilla's Silverknowes home in EH4, a short drive from Cramond, Davidsons Mains, Blackhall and central Edinburgh. Free parking is available directly outside, so you can arrive unhurried.",
     ],
     benefits: [
       "Targeted relief for stubborn knots and chronic tension",
@@ -222,30 +224,30 @@ export const testimonials = [
     name: "Sarah M.",
     rating: 5,
     quote:
-      "From the moment I arrived, I felt completely at ease. our therapist took the time to understand exactly what I needed and tailored the treatment perfectly. The room is beautiful, peaceful and so welcoming. I left feeling lighter, calmer and completely restored.",
+      "From the moment I arrived, I felt completely at ease. Camilla took the time to understand exactly what I needed and tailored the treatment perfectly. The room is beautiful, peaceful and so welcoming. I left feeling lighter, calmer and completely restored.",
   },
   {
     name: "Emma L.",
     rating: 5,
     quote:
-      "I’ve had many massages over the years, but this was something special. The attention to detail, the calming atmosphere and our therapist’s intuitive touch made it a truly personalised experience. I can’t wait to return.",
+      "I’ve had many massages over the years, but this was something special. The attention to detail, the calming atmosphere and Camilla’s intuitive touch made it a truly personalised experience. I can’t wait to return.",
   },
   {
     name: "Rachel T.",
     rating: 5,
     quote:
-      "A wonderfully relaxing treatment in the most tranquil setting. our therapist is professional, warm and incredibly skilled. I came in with tension in my shoulders and left feeling completely different. Highly recommended.",
+      "A wonderfully relaxing treatment in the most tranquil setting. Camilla is professional, warm and incredibly skilled. I came in with tension in my shoulders and left feeling completely different. Highly recommended.",
   },
   {
     name: "Kate H.",
     rating: 5,
     quote:
-      "The whole experience felt luxurious yet personal. Soft music, candlelight and the most comfortable heated massage couch. our therapist has a gift for making you feel cared for from start to finish.",
+      "The whole experience felt luxurious yet personal. Soft music, candlelight and the most comfortable heated massage couch. Camilla has a gift for making you feel cared for from start to finish.",
   },
   {
     name: "Lucy B.",
     rating: 5,
     quote:
-      "I booked a bespoke restorative treatment and it was exactly what my body needed. our therapist worked on areas of tightness with just the right pressure while keeping the session deeply relaxing. Free parking was a lovely bonus too.",
+      "I booked a bespoke restorative treatment and it was exactly what my body needed. Camilla worked on areas of tightness with just the right pressure while keeping the session deeply relaxing. Free parking was a lovely bonus too.",
   },
 ];

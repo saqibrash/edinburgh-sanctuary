@@ -1,34 +1,36 @@
 import LegalLayout from "@/components/LegalLayout";
 import Seo from "@/components/Seo";
 
+const EMAIL = "therestorationroom85@gmail.com";
+const PHONE = "07570 161699";
 
 const TermsAndConditions = () => (
   <LegalLayout title="Terms &amp; Conditions" updated="July 2026">
     <Seo
       title="Terms & Conditions | The Restoration Room, Edinburgh"
-      description="Booking terms for The Restoration Room in Silverknowes, Edinburgh — our booking provider bookings, 50% deposit, 48-hour cancellation policy and health information."
+      description="Booking terms for The Restoration Room by Camilla in Silverknowes, Edinburgh — Fresha bookings, 50% deposit, 48-hour cancellation policy and health information."
       path="/terms-and-conditions"
     />
 
     <p>
-      These terms apply to treatments booked with The Restoration Room, Silverknowes, EH4,
+      These terms apply to treatments booked with The Restoration Room by Camilla, Silverknowes, EH4,
       Edinburgh. Please read them before booking.
     </p>
 
     <section>
       <h2>Booking your treatment</h2>
       <p>
-        All treatments are booked through our our booking provider booking page. Bookings are confirmed once you
-        receive confirmation from our booking provider. If you would prefer to arrange an appointment directly,
-        please call our business contact details (currently withheld) or email{" "}
-        our business email address (currently withheld).
+        All treatments are booked through our Fresha booking page. Bookings are confirmed once you
+        receive confirmation from Fresha. If you would prefer to arrange an appointment directly,
+        please call <a href="tel:+447570161699">{PHONE}</a> or email{" "}
+        <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
       </p>
     </section>
 
     <section>
       <h2>Deposits</h2>
       <p>
-        A 50% deposit may be required to secure your appointment. Any deposit is taken through our booking provider
+        A 50% deposit may be required to secure your appointment. Any deposit is taken through Fresha
         and is deducted from the balance due on the day of your treatment.
       </p>
     </section>
@@ -64,7 +66,7 @@ const TermsAndConditions = () => (
       <h2>Prices and treatments</h2>
       <p>
         Prices and treatment times shown on this website are correct at the time of publication and
-        may change. The prices shown on our our booking provider booking page at the time of booking apply.
+        may change. The prices shown on our Fresha booking page at the time of booking apply.
       </p>
     </section>
 
@@ -72,8 +74,8 @@ const TermsAndConditions = () => (
       <h2>Questions</h2>
       <p>
         If anything here is unclear, please get in touch on{" "}
-        our business contact details (currently withheld) or{" "}
-        our business email address (currently withheld) before booking.
+        <a href="tel:+447570161699">{PHONE}</a> or{" "}
+        <a href={`mailto:${EMAIL}`}>{EMAIL}</a> before booking.
       </p>
     </section>
   </LegalLayout>

@@ -2,9 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Lightbox from "./Lightbox";
 import {
+  ADDRESS,
+  EMAIL,
+  FRESHA_URL,
   GALLERY,
   HOURS,
   HOURS_NOTE,
+  PHONE,
+  PHONE_HREF,
   cancellationPolicy,
   pillars,
   testimonials,
@@ -255,6 +260,17 @@ export const TestimonialsSection = () => {
           ))}
         </div>
 
+        <div className="reveal mt-12 md:mt-16 text-center">
+          <a
+            href={FRESHA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-taupe hover:text-ink transition-colors border-b border-gold/40 hover:border-gold pb-1"
+          >
+            View more reviews on Fresha
+            <span aria-hidden>↗</span>
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -276,7 +292,9 @@ export const BookingSection = ({ heading = "Ready to take", script = "time for y
           Book your appointment today and start your journey towards relaxation and wellbeing.
         </p>
         <div className="space-y-5 border-t border-ink/10 pt-8 text-sm">
-          <ContactRow icon="!" label="Status" value="Website on hold — contact details withheld" />
+          <ContactRow icon="✆" label="Telephone" value={PHONE} href={PHONE_HREF} />
+          <ContactRow icon="✉" label="Email" value={EMAIL} href={`mailto:${EMAIL}`} />
+          <ContactRow icon="◉" label="Location" value={ADDRESS} />
           <ContactRow icon="P" label="Parking" value="Free parking available" />
           <ContactRow icon="✓" label="Trust" value="Qualified since 2008 · Fully insured" />
           <div>
@@ -294,19 +312,47 @@ export const BookingSection = ({ heading = "Ready to take", script = "time for y
       <div className="reveal lg:col-span-7">
         <div className="bg-cream text-ink p-8 md:p-12 rounded-lg shadow-[0_30px_80px_-40px_rgba(120,80,60,0.4)] border border-blush">
           <div className="pb-5 mb-6 border-b border-blush">
-            <h3 className="font-display text-3xl md:text-4xl text-ink">Booking unavailable</h3>
+            <h3 className="font-display text-3xl md:text-4xl text-ink">Book instantly on Fresha</h3>
             <p className="text-sm text-taupe mt-2 leading-relaxed">
-              Online booking, telephone, email and address details have been removed from this website.
+              View live availability, choose your treatment and time, and secure your appointment in a few taps —
+              all through our booking partner, Fresha.
             </p>
           </div>
-          <p className="text-sm text-ink/85 leading-relaxed">
-            This website is on hold by SR Innovations because the client has not paid the agreed
-            amount for the work completed. The site is under dispute and no enquiries can be made
-            through it until the outstanding balance is settled.
+
+          <ul className="space-y-3 text-sm text-ink/85 mb-8">
+            {[
+              "Real-time availability, updated instantly",
+              "Secure card payment to confirm your booking",
+              "Automatic confirmation and appointment reminders",
+              "Reschedule or manage your booking any time",
+            ].map((li) => (
+              <li key={li} className="flex items-start gap-3">
+                <span className="mt-0.5 text-gold" aria-hidden>✓</span>
+                <span>{li}</span>
+              </li>
+            ))}
+          </ul>
+
+          <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full !py-4 text-center block">
+            Book on Fresha →
+          </a>
+          <p className="text-[11px] text-taupe text-center mt-3">
+            Opens Fresha in a new tab. A 50% deposit secures your slot; balance paid on the day.
           </p>
-          <div className="mt-7 rounded-md border border-gold/40 bg-blush/30 px-5 py-4 text-[13px] text-ink/80 leading-relaxed">
-            Website design, development and content remain the property of SR Innovations until payment is received in full.
+
+          <div className="relative flex items-center gap-3 mt-8 mb-6">
+            <span className="h-px flex-1 bg-blush" />
+            <span className="text-[10px] tracking-[0.28em] uppercase text-taupe">Prefer to speak with Camilla?</span>
+            <span className="h-px flex-1 bg-blush" />
           </div>
+
+          <div className="grid sm:grid-cols-2 gap-3">
+            <a href={PHONE_HREF} className="btn-secondary w-full !py-3.5 text-center block">Call {PHONE}</a>
+            <a href={`mailto:${EMAIL}`} className="btn-secondary w-full !py-3.5 text-center block">Email Camilla</a>
+          </div>
+          <p className="text-[11px] text-taupe/80 text-center mt-4">
+            Weekend appointments (Saturday & Sunday) are available on request — please call or email to arrange.
+          </p>
         </div>
       </div>
     </div>
