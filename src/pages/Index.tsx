@@ -8,7 +8,7 @@ import {
   TestimonialsSection,
 } from "@/components/sections";
 import TreatwellBookButton from "@/components/TreatwellBookButton";
-import { FRESHA_URL, PHONE, PHONE_HREF, SITE_URL, camilla, treatments } from "@/data/site";
+import { FRESHA_URL, PHONE, PHONE_HREF, SITE_URL, gCamillaRoom, treatments } from "@/data/site";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -116,7 +116,7 @@ const Index = () => (
           <div className="relative w-full max-w-[520px] mx-auto aspect-[4/5]">
             <div className="absolute inset-0 border border-gold/50 rounded-md translate-x-4 translate-y-4" aria-hidden />
             <div className="lux-image absolute inset-0">
-              <img src={camilla} alt="Camilla, therapist and founder of The Restoration Room" className="w-full h-full object-cover" loading="lazy" />
+              <img src={gCamillaRoom} alt="Camilla, therapist and founder of The Restoration Room" className="w-full h-full object-cover" loading="lazy" />
             </div>
             <div className="absolute -bottom-6 -right-4 bg-cream border border-blush rounded-md p-4 shadow-lg">
               <div className="font-script text-rose text-2xl leading-none">Camilla</div>

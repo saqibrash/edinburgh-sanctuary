@@ -44,7 +44,7 @@ export const GALLERY: { src: string; alt: string; span: string }[] = [
   { src: gSconce, alt: "Warm brass wall sconce lighting the treatment room",span: "col-span-6 md:col-span-3 aspect-square" },
   { src: gDoor, alt: "Treatment room door with Camilla's framed massage therapy qualifications",span: "col-span-6 md:col-span-4 aspect-square" },
   { src: gCamillaRoom, alt: "Camilla in the Silverknowes treatment room beside the massage couch and qualifications",span: "col-span-6 md:col-span-4 aspect-square" },
-  { src: camilla, alt: "Camilla, qualified massage therapist in Silverknowes, Edinburgh",span: "col-span-12 md:col-span-4 aspect-[16/10] md:aspect-square" },
+  // { src: camilla, alt: "Camilla, qualified massage therapist in Silverknowes, Edinburgh",span: "col-span-12 md:col-span-4 aspect-[16/10] md:aspect-square" },
 ];
 
 /* ---------------- Navigation ---------------- */
