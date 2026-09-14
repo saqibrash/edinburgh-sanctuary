@@ -8,7 +8,7 @@ const PrivacyPolicy = () => (
   <LegalLayout title="Privacy Policy" updated="July 2026">
     <Seo
       title="Privacy Policy | The Restoration Room, Edinburgh"
-      description="How The Restoration Room by Camilla in Silverknowes, Edinburgh handles your information, including bookings made through Fresha and basic website data."
+      description="How The Restoration Room by Camilla in Silverknowes, Edinburgh handles your information, including bookings made through Fresha or Treatwell and basic website data."
       path="/privacy-policy"
     />
 
@@ -32,14 +32,14 @@ const PrivacyPolicy = () => (
     <section>
       <h2>Bookings and payments</h2>
       <p>
-        All appointments are booked through our Fresha booking page. When you click a booking button
-        on this website you are taken to an external Fresha page and any details you enter there —
+        All appointments are booked through our Fresha or Treatwell booking pages. When you click a booking button
+        on this website you are taken to an external Fresha or Treatwell page and any details you enter there —
         including your name, contact details and payment information — are collected and processed by
-        Fresha under their own privacy policy and terms.
+        Fresha or Treatwell under their own privacy policy and terms.
       </p>
       <p>
         This website does not collect or store any card or payment details. Deposits and payments are
-        handled entirely by Fresha and their payment providers.
+        handled entirely by Fresha or Treatwell and their payment providers.
       </p>
     </section>
 
@@ -65,7 +65,7 @@ const PrivacyPolicy = () => (
     <section>
       <h2>External links</h2>
       <p>
-        This website links to Fresha and may link to other external sites. We are not responsible for
+        This website links to Fresha and Treatwell and may link to other external sites. We are not responsible for
         the content or privacy practices of those websites, so please read their own policies.
       </p>
     </section>
@@ -76,8 +76,8 @@ const PrivacyPolicy = () => (
         Under UK data protection law you can ask us what information we hold about you, ask us to
         correct it, or ask us to delete it. To make a request, or if you have any question about your
         data, please email <a href={`mailto:${EMAIL}`}>{EMAIL}</a> or call{" "}
-        <a href="tel:+447570161699">{PHONE}</a>. For information held by Fresha, please contact
-        Fresha directly.
+        <a href="tel:+447570161699">{PHONE}</a>. For information held by Fresha or Treatwell, please contact
+        them directly.
       </p>
     </section>
   </LegalLayout>

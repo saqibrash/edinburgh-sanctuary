@@ -15,7 +15,7 @@ const Contact = () => (
   <>
     <Seo
       title="Contact & Booking | Massage in Silverknowes, Edinburgh"
-      description={`Contact The Restoration Room by Camilla in Silverknowes, Edinburgh. Call ${PHONE},email ${EMAIL} or book your massage online with Fresha. Free parking.`}
+      description={`Contact The Restoration Room by Camilla in Silverknowes, Edinburgh. Call ${PHONE},email ${EMAIL} or book your massage online with Fresha or Treatwell. Free parking.`}
       path="/contact"
       jsonLd={jsonLd}
     />
@@ -36,7 +36,7 @@ const Contact = () => (
           Massage in <span className="font-script text-rose">Silverknowes, EH4</span>
         </h2>
         <p className="text-taupe text-[17px] leading-[1.8] max-w-2xl mx-auto">
-          The Restoration Room is a private treatment room in Silverknowes, north-west Edinburgh. Conveniently located near Davidsons Mains, Cramond, Blackhall and Barnton, with free on-street parking. Full address details are sent with your Fresha booking confirmation.
+          The Restoration Room is a private treatment room in Silverknowes, north-west Edinburgh. Conveniently located near Davidsons Mains, Cramond, Blackhall and Barnton, with free on-street parking. Full address details are sent with your Fresha or Treatwell booking confirmation.
         </p>
         <p className="text-taupe text-[17px] leading-[1.8] max-w-2xl mx-auto mt-4">
           Not sure which treatment to choose? Read more about our{" "}

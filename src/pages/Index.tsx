@@ -7,6 +7,7 @@ import {
   PillarsSection,
   TestimonialsSection,
 } from "@/components/sections";
+import TreatwellBookButton from "@/components/TreatwellBookButton";
 import { FRESHA_URL, PHONE, PHONE_HREF, SITE_URL, camilla, treatments } from "@/data/site";
 
 const jsonLd = {
@@ -57,6 +58,7 @@ const Index = () => (
 
             <div className="flex flex-wrap gap-3">
               <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">Book on Fresha</a>
+              <TreatwellBookButton className="btn-secondary">Book on Treatwell</TreatwellBookButton>
               <Link to="/contact" className="btn-secondary">Booking Information</Link>
               <a href="#treatments" className="text-[11px] tracking-[0.28em] uppercase text-rose hover:text-rose-deep transition-colors self-center">Discover Treatments →</a>
             </div>
@@ -159,9 +161,12 @@ const Index = () => (
                   <div className="text-[10px] tracking-[0.28em] uppercase text-gold mb-3">Pricing</div>
                   <ul className="space-y-2 text-sm text-ink">
                     {t.prices.map((p) => (
-                      <li key={p.duration} className="flex items-center justify-between gap-8">
-                        <span className="text-taupe">{p.duration}</span>
-                        <span className="font-display text-rose">{p.price}</span>
+                      <li key={p.key} className="flex items-start justify-between gap-8">
+                        <span className="text-taupe text-left">
+                          {p.duration}
+                          {p.note ? <span className="block text-[12px] text-taupe/80 mt-0.5">{p.note}</span> : null}
+                        </span>
+                        <span className="font-display text-rose shrink-0">{p.price}</span>
                       </li>
                     ))}
                   </ul>
@@ -173,6 +178,9 @@ const Index = () => (
                   <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[11px] tracking-[0.28em] uppercase text-taupe hover:text-ink transition-colors">
                     Book on Fresha ↗
                   </a>
+                  <TreatwellBookButton className="inline-flex items-center gap-2 text-[11px] tracking-[0.28em] uppercase text-taupe hover:text-ink transition-colors">
+                    Book on Treatwell ↗
+                  </TreatwellBookButton>
                 </div>
               </div>
             </div>

@@ -8,7 +8,7 @@ const TermsAndConditions = () => (
   <LegalLayout title="Terms &amp; Conditions" updated="July 2026">
     <Seo
       title="Terms & Conditions | The Restoration Room, Edinburgh"
-      description="Booking terms for The Restoration Room by Camilla in Silverknowes, Edinburgh — Fresha bookings, 50% deposit, 48-hour cancellation policy and health information."
+      description="Booking terms for The Restoration Room by Camilla in Silverknowes, Edinburgh — Fresha and Treatwell bookings, 50% deposit, 48-hour cancellation policy and health information."
       path="/terms-and-conditions"
     />
 
@@ -20,8 +20,8 @@ const TermsAndConditions = () => (
     <section>
       <h2>Booking your treatment</h2>
       <p>
-        All treatments are booked through our Fresha booking page. Bookings are confirmed once you
-        receive confirmation from Fresha. If you would prefer to arrange an appointment directly,
+        All treatments are booked through our Fresha or Treatwell booking pages. Bookings are confirmed once you
+        receive confirmation from Fresha or Treatwell. If you would prefer to arrange an appointment directly,
         please call <a href="tel:+447570161699">{PHONE}</a> or email{" "}
         <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
       </p>
@@ -30,7 +30,7 @@ const TermsAndConditions = () => (
     <section>
       <h2>Deposits</h2>
       <p>
-        A 50% deposit may be required to secure your appointment. Any deposit is taken through Fresha
+        A 50% deposit may be required to secure your appointment. Any deposit is taken through Fresha or Treatwell
         and is deducted from the balance due on the day of your treatment.
       </p>
     </section>
@@ -66,7 +66,7 @@ const TermsAndConditions = () => (
       <h2>Prices and treatments</h2>
       <p>
         Prices and treatment times shown on this website are correct at the time of publication and
-        may change. The prices shown on our Fresha booking page at the time of booking apply.
+        may change. The prices shown on our Fresha or Treatwell booking page at the time of booking apply.
       </p>
     </section>
 

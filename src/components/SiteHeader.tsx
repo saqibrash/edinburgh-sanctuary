@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logoFull from "@/assets/brand-logo.png";
+import TreatwellBookButton from "@/components/TreatwellBookButton";
 import { BUSINESS, FRESHA_URL, PHONE, PHONE_HREF, nav } from "@/data/site";
 
 const SiteHeader = () => {
@@ -41,7 +42,7 @@ const SiteHeader = () => {
           </div> */}
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-3" aria-label="Primary">
+        <nav className="hidden xl:flex items-center gap-3" aria-label="Primary">
           {nav.map((n) => (
             <NavLink
               key={n.to}
@@ -62,11 +63,12 @@ const SiteHeader = () => {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden xl:flex items-center gap-3">
           <a href={PHONE_HREF} className="text-[13px] text-taupe hover:text-rose flex items-center gap-2 transition-colors">
             <span aria-hidden>✆</span>{PHONE}
           </a>
-          <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary !py-3 !px-5 !text-[11px]">Book on Fresha</a>
+          <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary !py-3 !px-4 !text-[11px]">Book on Fresha</a>
+          <TreatwellBookButton className="btn-secondary !py-3 !px-4 !text-[11px]">Book on Treatwell</TreatwellBookButton>
         </div>
 
         <button
@@ -96,6 +98,7 @@ const SiteHeader = () => {
               </Link>
             ))}
             <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)} className="btn-primary w-full mt-6">Book on Fresha</a>
+            <TreatwellBookButton onClick={() => setMenuOpen(false)} className="btn-secondary w-full mt-3 text-center">Book on Treatwell</TreatwellBookButton>
             <Link to="/contact" onClick={() => setMenuOpen(false)} className="btn-secondary w-full mt-3 text-center">Booking Information</Link>
             <a href={PHONE_HREF} className="mt-4 text-center text-rose tracking-wide">✆ {PHONE}</a>
           </div>

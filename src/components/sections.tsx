@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Lightbox from "./Lightbox";
+import TreatwellBookButton from "./TreatwellBookButton";
 import {
   ADDRESS,
   EMAIL,
@@ -312,10 +313,10 @@ export const BookingSection = ({ heading = "Ready to take",script = "time for yo
       <div className="reveal lg:col-span-7">
         <div className="bg-cream text-ink p-8 md:p-12 rounded-lg shadow-[0_30px_80px_-40px_rgba(120,80,60,0.4)] border border-blush">
           <div className="pb-5 mb-6 border-b border-blush">
-            <h3 className="font-display text-3xl md:text-4xl text-ink">Book instantly on Fresha</h3>
+            <h3 className="font-display text-3xl md:text-4xl text-ink">Book online</h3>
             <p className="text-sm text-taupe mt-2 leading-relaxed">
               View live availability, choose your treatment and time and secure your appointment in a few taps —
-              all through our booking partner, Fresha.
+              through our booking partners, Fresha or Treatwell.
             </p>
           </div>
 
@@ -336,8 +337,11 @@ export const BookingSection = ({ heading = "Ready to take",script = "time for yo
           <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full !py-4 text-center block">
             Book on Fresha →
           </a>
+          <TreatwellBookButton className="btn-secondary w-full !py-3.5 text-center block mt-3">
+            Book on Treatwell
+          </TreatwellBookButton>
           <p className="text-[11px] text-taupe text-center mt-3">
-            Opens Fresha in a new tab. A 50% deposit secures your slot; balance paid on the day.
+            Opens Fresha or Treatwell in a new tab. A 50% deposit secures your slot; balance paid on the day.
           </p>
 
           <div className="relative flex items-center gap-3 mt-8 mb-6">

@@ -5,12 +5,14 @@ export const EMAIL = "therestorationroom85@gmail.com";
 export const ADDRESS = "Silverknowes, EH4, Edinburgh";
 export const FRESHA_URL =
   "https://www.fresha.com/book-now/the-restoration-room-p5d4vn56/all-offer?share=true&pId=3033869";
+export const TREATWELL_WIDGET_URL = "https://widget.treatwell.co.uk/place/539049/menu/";
 export const SITE_URL = "https://therestorationroom.co.uk";
 
 export const HOURS = [
-  { day: "Mon – Fri",hours: "10:00 – 19:00" },
-  { day: "Saturday",hours: "By appointment only" },
-  { day: "Sunday",hours: "By appointment only" },
+  { day: "Mon – Thu",hours: "10:00 - 17:30" },
+  { day: "Friday",hours: "10:00 - 16:00" },
+  { day: "Saturday",hours: "12:00 - 16:00 " },
+  { day: "Sunday",hours: "By direct appointment only" },
 ];
 export const HOURS_NOTE = "Last appointment 6:30 PM";
 
@@ -27,6 +29,7 @@ export const gDoor = "/assets/gallery/door.jpeg";
 export const gCandleEuc = "/assets/gallery/candle-eucalyptus.jpeg";
 export const gSconce = "/assets/gallery/sconce.jpeg";
 export const gPlantCandle = "/assets/gallery/plant-candle.jpeg";
+export const gCamillaRoom = "/assets/gallery/camilla-treatment-room.jpeg";
 
 export const GALLERY: { src: string; alt: string; span: string }[] = [
   { src: gRoom01, alt: "Warmly lit massage treatment room in Silverknowes, Edinburgh",span: "col-span-12 md:col-span-8 aspect-[16/10] md:aspect-[16/11]" },
@@ -40,7 +43,7 @@ export const GALLERY: { src: string; alt: string; span: string }[] = [
   { src: gCandleEuc, alt: "Candle and eucalyptus detail in the Silverknowes massage studio",span: "col-span-6 md:col-span-3 aspect-square" },
   { src: gSconce, alt: "Warm brass wall sconce lighting the treatment room",span: "col-span-6 md:col-span-3 aspect-square" },
   { src: gDoor, alt: "Treatment room door with Camilla's framed massage therapy qualifications",span: "col-span-6 md:col-span-4 aspect-square" },
-  
+  { src: gCamillaRoom, alt: "Camilla in the Silverknowes treatment room beside the massage couch and qualifications",span: "col-span-6 md:col-span-4 aspect-square" },
   { src: camilla, alt: "Camilla, qualified massage therapist in Silverknowes, Edinburgh",span: "col-span-12 md:col-span-4 aspect-[16/10] md:aspect-square" },
 ];
 
@@ -64,7 +67,7 @@ export interface Treatment {
   image: string;
   imageAlt: string;
   desc: string;
-  prices: { duration: string; price: string; key: string }[];
+  prices: { duration: string; price: string; key: string; note?: string }[];
   title: string;
   metaDescription: string;
   intro: string;
@@ -149,17 +152,20 @@ export const treatments: Treatment[] = [
     name: "Restorative Foot Ritual",
     image: gTowels,
     imageAlt: "Rolled towels prepared in the Silverknowes treatment room",
-    desc: "Soothe tired, aching feet with a deeply relaxing treatment beginning with a warm, aromatic foot soak to cleanse and soften the skin. This is followed by a therapeutic foot and lower leg massage using a blend of soothing techniques to ease tension, improve circulation and encourage complete relaxation.\n\nPerfect as a standalone treatment or as a calming addition to your massage, leaving your feet feeling refreshed, revitalised and wonderfully restored.",
-    prices: [{ duration: "30 minutes",price: "£25",key: "foot-30" }],
-    title: "Restorative Foot Ritual in Silverknowes, Edinburgh | £25 for 30 mins",
+    desc: "Soothe tired, aching feet with a deeply relaxing treatment beginning with a warm, aromatic foot soak to cleanse and soften the skin. This is followed by a therapeutic foot and lower leg massage using a blend of soothing techniques to ease tension, improve circulation and encourage complete relaxation.\n\nPerfect as a standalone treatment (£30) or as a calming addition to any other service (£25), leaving your feet feeling refreshed, revitalised and wonderfully restored.",
+    prices: [
+      { duration: "30 minutes",price: "£25",key: "foot-addon",note: "when booked with any other service" },
+      { duration: "30 minutes",price: "£30",key: "foot-standalone",note: "standalone appointment" },
+    ],
+    title: "Restorative Foot Ritual in Silverknowes, Edinburgh | 30 mins",
     metaDescription:
-      "Restorative foot ritual in Silverknowes, Edinburgh: a warm aromatic soak plus foot and lower leg massage. 30 minutes, £25. Free parking. Book online today.",
+      "Restorative foot ritual in Silverknowes, Edinburgh: a warm aromatic soak plus foot and lower leg massage. 30 minutes, £25 with any other service or £30 standalone. Free parking. Book online today.",
     intro:
       "A warm, aromatic soak followed by a soothing foot and lower leg massage — 30 restorative minutes in Silverknowes, Edinburgh.",
     detail: [
       "Feet carry us everywhere and are rarely given any attention. This ritual begins with a warm, aromatic foot soak that cleanses, softens and gently warms the skin, before a therapeutic massage of the feet and lower legs eases tightness and encourages circulation.",
       "Techniques are slow and soothing, working through the sole, heel, arches and calves. Many clients find the treatment as calming for the mind as it is for the feet. It is a lovely option if you are on your feet all day, walking Edinburgh's hills, or simply want a shorter treatment that still feels like a proper escape.",
-      "The foot ritual works beautifully on its own or as a calming addition to a Swedish or Bespoke Restorative Massage. As with every treatment, it takes place in the private Silverknowes room in EH4, with free parking outside.",
+      "The foot ritual works beautifully on its own or as a calming addition to a Swedish or Bespoke Restorative Massage — £25 when booked with any other service, or £30 as a standalone appointment. As with every treatment, it takes place in the private Silverknowes room in EH4, with free parking outside.",
     ],
     benefits: [
       "Relieves tired, aching feet and lower legs",
@@ -178,20 +184,23 @@ export const treatments: Treatment[] = [
     name: "Rebalancing Scalp Massage",
     image: gCandleEuc,
     imageAlt: "Candle and eucalyptus detail in the Silverknowes massage studio",
-    desc: "A calming treatment designed to help you unwind, ease mental tension and restore a sense of balance. Gentle massage techniques are applied to the scalp, temples, neck and upper shoulders to encourage deep relaxation, relieve built-up tension and leave you feeling refreshed and restored.\n\nIdeal as a standalone treatment or as an addition to any massage.",
-    prices: [{ duration: "25 minutes",price: "£20",key: "scalp-25" }],
-    title: "Rebalancing Scalp Massage in Silverknowes, Edinburgh | £20 for 25 mins",
+    desc: "A calming treatment designed to help you unwind, ease mental tension and restore a sense of balance. Gentle massage techniques are applied to the scalp, temples, neck, chest and upper shoulders to encourage deep relaxation, relieve built-up tension and leave you feeling refreshed and restored.\n\nIdeal as a standalone treatment (£30) or as an addition to any other service (£20).",
+    prices: [
+      { duration: "30 minutes",price: "£20",key: "scalp-addon",note: "when booked with any other service" },
+      { duration: "30 minutes",price: "£30",key: "scalp-standalone",note: "standalone appointment" },
+    ],
+    title: "Rebalancing Scalp Massage in Silverknowes, Edinburgh | 30 mins",
     metaDescription:
-      "Rebalancing Scalp Massage in Silverknowes, Edinburgh. Scalp, temples, neck and upper shoulders to ease mental tension. 25 minutes, £20. Free parking. Book online.",
+      "Rebalancing Scalp Massage in Silverknowes, Edinburgh. Scalp, temples, neck, chest and upper shoulders to ease mental tension. 30 minutes, £20 with any other service or £30 standalone. Free parking. Book online.",
     intro:
-      "A soothing scalp, temple, neck and shoulder treatment to quiet the mind, ease tension and promote deep relaxation.",
+      "A soothing scalp, temple, neck, chest and shoulder treatment to quiet the mind, ease tension and promote deep relaxation.",
     detail: [
-      "A calming treatment designed to help you unwind, ease mental tension and restore a sense of balance. Gentle massage techniques are applied to the scalp, temples, neck and upper shoulders to encourage deep relaxation, relieve built-up tension and leave you feeling refreshed and restored. Ideal as a standalone treatment or as an addition to any massage.",
+      "A calming treatment designed to help you unwind, ease mental tension and restore a sense of balance. Gentle massage techniques are applied to the scalp, temples, neck, chest and upper shoulders to encourage deep relaxation, relieve built-up tension and leave you feeling refreshed and restored. Ideal as a standalone treatment or as an addition to any massage.",
       "It is particularly welcome if you spend long hours at a screen, clench your jaw, or find tension building into headaches. The pace is slow and grounding and most clients describe leaving with a lighter head and noticeably looser shoulders.",
-      "At 25 minutes it is an easy treatment to fit into a lunch break or after work. Conveniently located near Davidsons Mains, Cramond, Blackhall and Barnton, with free on-street parking.",
+      "At 30 minutes it is an easy treatment to fit into a lunch break or after work — £20 when booked with any other service, or £30 as a standalone appointment. Conveniently located near Davidsons Mains, Cramond, Blackhall and Barnton, with free on-street parking.",
     ],
     benefits: [
-      "Eases tension across the scalp, temples, neck and shoulders",
+      "Eases tension across the scalp, temples, neck, chest and shoulders",
       "Helps reduce headaches caused by muscular tightness",
       "Calms a busy mind and supports mental clarity",
       "Great for screen-related neck and shoulder strain",

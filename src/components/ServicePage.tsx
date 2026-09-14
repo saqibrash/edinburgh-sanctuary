@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { BookingSection, OtherTreatments, PageHero } from "@/components/sections";
+import TreatwellBookButton from "@/components/TreatwellBookButton";
 import { FRESHA_URL, SITE_URL, Treatment, treatments } from "@/data/site";
 
 const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
@@ -89,17 +90,23 @@ const ServicePage = ({ treatment: t }: { treatment: Treatment }) => {
               <div className="text-[10px] tracking-[0.3em] uppercase text-gold mb-4">Pricing</div>
               <ul className="space-y-3 text-sm">
                 {t.prices.map((p) => (
-                  <li key={p.key} className="flex items-center justify-between gap-8 pb-2 border-b border-blush last:border-0">
-                    <span className="text-taupe">{p.duration}</span>
-                    <span className="font-display text-rose text-lg">{p.price}</span>
+                  <li key={p.key} className="flex items-start justify-between gap-8 pb-2 border-b border-blush last:border-0">
+                    <span className="text-taupe">
+                      {p.duration}
+                      {p.note ? <span className="block text-[12px] text-taupe/80 mt-0.5">{p.note}</span> : null}
+                    </span>
+                    <span className="font-display text-rose text-lg shrink-0">{p.price}</span>
                   </li>
                 ))}
               </ul>
               <a href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full !py-4 text-center block mt-7">
                 Book on Fresha →
               </a>
+              <TreatwellBookButton className="btn-secondary w-full !py-3.5 text-center block mt-3">
+                Book on Treatwell
+              </TreatwellBookButton>
               <p className="text-[11px] text-taupe text-center mt-3">
-                Opens Fresha in a new tab. A 50% deposit secures your slot; balance paid on the day.
+                Opens Fresha or Treatwell in a new tab. A 50% deposit secures your slot; balance paid on the day.
               </p>
               <Link to="/contact" className="btn-secondary w-full !py-3.5 text-center block mt-3">Booking Information</Link>
             </div>
