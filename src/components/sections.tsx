@@ -8,7 +8,6 @@ import {
   FRESHA_URL,
   GALLERY,
   HOURS,
-  HOURS_NOTE,
   PHONE,
   PHONE_HREF,
   cancellationPolicy,
@@ -305,7 +304,7 @@ export const BookingSection = ({ heading = "Ready to take",script = "time for yo
                 <div key={h.day} className="flex justify-between gap-6 max-w-xs"><span>{h.day}</span><span className="text-taupe">{h.hours}</span></div>
               ))}
             </div>
-            <div className="text-[11px] text-gold mt-2 italic">{HOURS_NOTE}</div>
+            
           </div>
         </div>
       </div>
@@ -354,9 +353,7 @@ export const BookingSection = ({ heading = "Ready to take",script = "time for yo
             <a href={PHONE_HREF} className="btn-secondary w-full !py-3.5 text-center block">Call {PHONE}</a>
             <a href={`mailto:${EMAIL}`} className="btn-secondary w-full !py-3.5 text-center block">Email Camilla</a>
           </div>
-          <p className="text-[11px] text-taupe/80 text-center mt-4">
-            Weekend appointments (Saturday & Sunday) are available on request — please call or email to arrange.
-          </p>
+          
         </div>
       </div>
     </div>

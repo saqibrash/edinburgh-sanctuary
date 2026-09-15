@@ -14,7 +14,7 @@ export const HOURS = [
   { day: "Saturday",hours: "12:00 - 16:00 " },
   { day: "Sunday",hours: "By direct appointment only" },
 ];
-export const HOURS_NOTE = "Last appointment 6:30 PM";
+
 
 /* ---------------- Images (approved client photos) ---------------- */
 export const camilla = "/assets/camilla.jpeg";
